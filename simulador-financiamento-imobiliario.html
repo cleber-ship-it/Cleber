@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador SAC — Imóvel usado (RS)</title>
+<style>
+  :root {
+    --bg: #F4F7F5;
+    --surface: #FFFFFF;
+    --surface-2: #EBF1EE;
+    --ink: #1B2B27;
+    --ink-2: #5A6B65;
+    --line: #D8E2DD;
+    --accent: #0F6B5C;
+    --accent-ink: #FFFFFF;
+    --good: #1F7A46;
+    --warn: #A8731E;
+    --bad: #B04A38;
+    --chip: #E2ECE8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101715; --surface: #18211E; --surface-2: #1F2B27;
+      --ink: #E6ECE9; --ink-2: #93A39D; --line: #2A3833;
+      --accent: #4CBFA4; --accent-ink: #0E1513;
+      --good: #5BC98A; --warn: #D9A54A; --bad: #E0796A; --chip: #24332E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101715; --surface: #18211E; --surface-2: #1F2B27;
+    --ink: #E6ECE9; --ink-2: #93A39D; --line: #2A3833;
+    --accent: #4CBFA4; --accent-ink: #0E1513;
+    --good: #5BC98A; --warn: #D9A54A; --bad: #E0796A; --chip: #24332E;
+  }
+  :root[data-theme="light"] {
+    --bg: #F4F7F5; --surface: #FFFFFF; --surface-2: #EBF1EE;
+    --ink: #1B2B27; --ink-2: #5A6B65; --line: #D8E2DD;
+    --accent: #0F6B5C; --accent-ink: #FFFFFF;
+    --good: #1F7A46; --warn: #A8731E; --bad: #B04A38; --chip: #E2ECE8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    margin: 0; padding: 24px 16px 48px; line-height: 1.45;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header h1 { font-size: 1.45rem; font-weight: 650; margin: 0 0 4px; text-wrap: balance; }
+  header p.sub { color: var(--ink-2); margin: 0 0 20px; font-size: .92rem; }
+  .panel {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px; margin-bottom: 16px;
+  }
+  .controls { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: flex-end; }
+  .ctrl label.lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 6px; font-weight: 600; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button {
+    border: 0; background: transparent; color: var(--ink); padding: 8px 14px;
+    font: inherit; font-size: .9rem; cursor: pointer; border-right: 1px solid var(--line);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button.on { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  .seg button:focus-visible, input:focus-visible, .chk:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .inline { display: flex; align-items: center; gap: 8px; font-size: .9rem; }
+  input[type="number"] {
+    font: inherit; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 8px; width: 110px; font-variant-numeric: tabular-nums;
+  }
+  .summary { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+  .stat { flex: 1 1 200px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .stat .k { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+  .stat .v { font-size: 1.25rem; font-weight: 650; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .stat .d { font-size: .8rem; color: var(--ink-2); margin-top: 2px; }
+  .tblwrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 900px; font-size: .9rem; }
+  th, td { padding: 10px 12px; text-align: right; border-top: 1px solid var(--line); white-space: nowrap; }
+  th { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); border-top: 0; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  td.num { font-variant-numeric: tabular-nums; }
+  td .banknm { font-weight: 650; }
+  td .chip { display: inline-block; background: var(--chip); color: var(--ink-2); border-radius: 20px; padding: 1px 8px; font-size: .72rem; margin-left: 6px; }
+  td .obs { font-size: .72rem; color: var(--ink-2); white-space: normal; max-width: 250px; line-height: 1.3; margin-top: 2px; }
+  tr.best td { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+  tr.best td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  tr.na td { color: var(--ink-2); }
+  td input.taxa { width: 78px; text-align: right; padding: 4px 6px; }
+  .p1 { font-weight: 650; }
+  .renda-ok { color: var(--good); }
+  .foot { color: var(--ink-2); font-size: .82rem; margin-top: 18px; }
+  .foot h2 { font-size: .95rem; color: var(--ink); margin: 18px 0 6px; }
+  .foot ul { margin: 6px 0; padding-left: 18px; }
+  .foot a { color: var(--accent); }
+  @media (prefers-reduced-motion: no-preference) {
+    .stat .v { transition: opacity .15s ease; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Financiamento de imóvel usado — SAC, bancos que operam no RS</h1>
+    <p class="sub">Taxas pesquisadas e verificadas em 28/07/2026 · linha SBPE/carteira hipotecária · pessoa física · parcelas sem TR futura</p>
+  </header>
+
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl">
+        <label class="lbl">Valor financiado</label>
+        <div class="seg" id="segValor"></div>
+      </div>
+      <div class="ctrl">
+        <label class="lbl">Prazo (meses)</label>
+        <div class="seg" id="segPrazo"></div>
+      </div>
+      <div class="ctrl">
+        <label class="lbl">Taxa usada</label>
+        <div class="seg" id="segTaxa">
+          <button data-t="min" class="on">Mínima (relacionamento)</button>
+          <button data-t="max">Balcão</button>
+        </div>
+      </div>
+      <div class="ctrl">
+        <label class="lbl">Valor do imóvel (p/ LTV e seguro DFI)</label>
+        <input type="number" id="valorImovel" value="840000" step="10000" min="100000">
+      </div>
+      <div class="ctrl">
+        <label class="lbl">Encargos</label>
+        <label class="inline"><input type="checkbox" id="chkSeg" class="chk"> incluir estimativa de seguros + tarifa
+          · idade <input type="number" id="idade" value="40" min="18" max="70" step="1" style="width:64px"></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="tblwrap">
+    <table id="tbl">
+      <thead>
+        <tr>
+          <th>Banco</th><th>Taxa efetiva a.a.</th><th>1ª parcela</th><th>Última</th>
+          <th>Parcela média</th><th>Total de juros</th><th>Total pago</th><th>Renda mín. (30%)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="foot" id="foot"></div>
+</div>
+<script>
+/* Dados pesquisados em 28/07/2026 (9 agentes) e verificados adversarialmente contra o ranking
+   do Banco Central (competência jun/2026), agregadores e páginas oficiais dos bancos. */
+const BANCOS = [
+  { nome: 'Banrisul', indexador: 'TR', taxaMin: 9.78, taxaMax: 9.94, prazoMax: 420, ltv: 80,
+    obs: '⚠️ CONTRATAÇÃO SUSPENSA (simulador oficial fora do ar em 28/07/2026, "suspensa temporariamente") — taxas = média BCB jun/2026, mantidas só como referência p/ quando reabrir' },
+  { nome: 'Caixa', indexador: 'TR', taxaMin: 10.26, taxaMax: 11.19, prazoMax: 420, ltv: 80,
+    obs: 'mínima exige relacionamento completo (conta + salário + débito + produto)' },
+  { nome: 'Sicredi', indexador: 'TR', taxaMin: 10.37, taxaMax: 11.13, prazoMax: 420, ltv: 90,
+    obs: 'média BCB jun/2026; taxa por cooperativa — exige associação' },
+  { nome: 'Sicoob', indexador: 'TR', taxaMin: 10.81, taxaMax: 11.51, prazoMax: 420, ltv: 80,
+    obs: 'média BCB jun/2026; taxa definida por cooperativa singular' },
+  { nome: 'Banco do Brasil', indexador: 'TR', taxaMin: 11.60, taxaMax: 12.00, prazoMax: 420, ltv: 80 },
+  { nome: 'Santander', indexador: 'TR', taxaMin: 11.69, taxaMax: 12.67, prazoMax: 420, ltv: 80,
+    obs: 'balcão = média BCB jun/2026 (contratos fecham de ~9,5% a ~16% conforme perfil)' },
+  { nome: 'Itaú', indexador: 'TR', taxaMin: 11.70, taxaMax: 13.45, prazoMax: 420, ltv: 80,
+    obs: 'cota 80% p/ Uniclass/Personnalité; 60% no varejo agências (não afeta LTV ~56–60%)' },
+  { nome: 'Bradesco', indexador: 'TR', taxaMin: 11.70, taxaMax: 11.70, prazoMax: 420, ltv: 80,
+    obs: 'única taxa divulgada; com Open Finance há registro de ~11,40% (média BCB jun/2026: 10,82%)' },
+  { nome: 'Inter', indexador: 'TR', taxaMin: 12.93, taxaMax: 13.76, prazoMax: 420, ltv: 75,
+    obs: 'média BCB jun/2026 — não divulga vitrine; o mais caro entre os 9' },
+];
+const FONTES = [
+  { url: 'https://www.bcb.gov.br/estatisticas/txjuros', titulo: 'Banco Central — ranking de taxas por instituição (financiamento imobiliário, pós-fixado TR)', data: 'competência jun/2026' },
+  { url: 'https://myside.com.br/guia-imoveis/taxa-juros-financiamento-imobiliario', titulo: 'MySide — radar de taxas do financiamento imobiliário', data: '16/07/2026' },
+  { url: 'https://larya.com.br/blog/qual-banco-tem-a-menor-taxa-para-financiamento-imobiliario-em-2026/', titulo: 'Larya — ranking de taxas de balcão julho/2026', data: '22/07/2026' },
+  { url: 'https://www.bb.com.br/site/pra-voce/financiamentos/financiamento-imobiliario/', titulo: 'Banco do Brasil — página oficial (a partir de 11,60% a.a.)', data: '28/07/2026' },
+  { url: 'https://www.banrisul.com.br/bob/site/link/aquisicao-sfh.html', titulo: 'Banrisul — Aquisição Residencial SFH (80%, 420 meses, SAC, TR, novo/usado)', data: '28/07/2026' },
+  { url: 'https://www.sicredi.com.br/site/credito/para-voce/credito-imobiliario/', titulo: 'Sicredi — crédito imobiliário (90%, 35 anos, SAC, FGTS)', data: '28/07/2026' },
+  { url: 'https://www.sicoob.com.br/web/creditoimobiliario/perguntas-frequentes', titulo: 'Sicoob — FAQ crédito imobiliário (80% novo/usado, idade+prazo ≤ 80 anos)', data: '28/07/2026' },
+  { url: 'https://www.itau.com.br/emprestimos-financiamentos/credito-imobiliario', titulo: 'Itaú — crédito imobiliário (a partir de 11,70% a.a. + TR)', data: '28/07/2026' },
+  { url: 'https://banco.bradesco/html/classic/produtos-servicos/emprestimo-e-financiamento/imoveis/credito-imobiliario-aquisicao-de-imoveis.shtm', titulo: 'Bradesco — aquisição de imóveis (até 35 anos, 80% da avaliação)', data: '28/07/2026' },
+  { url: 'https://inter.co/pra-voce/financiamento-imobiliario/residencial/', titulo: 'Inter — financiamento residencial (75% LTV, 35 anos, novo ou usado)', data: '28/07/2026' },
+];
+const NOTAS = [
+  'Pesquisa de 28/07/2026 com verificação cruzada (11 agentes). Selic em 14,25% a.a. (Copom de 17/06/2026), em ciclo de queda — tendência de taxas menores nos próximos meses; próxima reunião 05/08/2026.',
+  'Banrisul, Sicredi, Sicoob e Inter não divulgam taxa de vitrine: os valores usados são médias das operações efetivamente contratadas (BCB). A taxa do seu perfil só sai na simulação do banco/cooperativa.',
+  'Todos os 9 bancos financiam imóvel residencial usado em SAC até 420 meses, com FGTS nas regras do SFH (teto de avaliação R$ 2,25 mi — imóvel de R$ 840 mil enquadra).',
+  'ATUALIZAÇÃO 28/07/2026: o Banrisul está com novas contratações suspensas (simulador oficial exibe "simulação suspensa temporariamente", sem prazo de retorno). Os mais baratos disponíveis passam a ser Caixa, Sicredi e Sicoob.',
+];
+
+const VALORES = [500000, 490000, 480000, 470000, 460000, 450000];
+const PRAZOS = [420, 360, 300, 250];
+const fmt = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const fmt2 = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+const state = { valor: 500000, prazo: 420, taxa: 'min', seguros: false, idade: 40, imovel: 840000, custom: {} };
+
+/* MIP estimado (% a.m. sobre saldo devedor) por idade — média de mercado, varia por banco/seguradora */
+function mipPct(idade) {
+  const t = [[25,.00012],[30,.00015],[35,.00020],[40,.00029],[45,.00044],[50,.00068],[55,.00105],[60,.00160],[70,.00290]];
+  for (let k = t.length - 1; k >= 0; k--) if (idade >= t[k][0]) return t[k][1];
+  return t[0][1];
+}
+function sac(P, n, taxaAA) {
+  const i = Math.pow(1 + taxaAA / 100, 1 / 12) - 1;
+  const A = P / n;
+  return { i, A, p1: A + P * i, pn: A * (1 + i), juros: i * P * (n + 1) / 2 };
+}
+function encargos(saldo) {
+  if (!state.seguros) return 0;
+  return saldo * mipPct(state.idade) + state.imovel * 0.000066 + 25;
+}
+function seg(el, values, key, fmtFn) {
+  el.innerHTML = '';
+  values.forEach(v => {
+    const b = document.createElement('button');
+    b.textContent = fmtFn ? fmtFn(v) : v;
+    if (state[key] === v) b.classList.add('on');
+    b.onclick = () => { state[key] = v; render(); };
+    el.appendChild(b);
+  });
+}
+function render() {
+  seg(document.getElementById('segValor'), VALORES, 'valor', v => 'R$ ' + (v / 1000) + ' mil');
+  seg(document.getElementById('segPrazo'), PRAZOS, 'prazo');
+  document.querySelectorAll('#segTaxa button').forEach(b => {
+    b.classList.toggle('on', b.dataset.t === state.taxa);
+    b.onclick = () => { state.taxa = b.dataset.t; state.custom = {}; render(); };
+  });
+
+  const rows = BANCOS.map(bk => {
+    const na = bk.prazoMax && state.prazo > bk.prazoMax;
+    const taxaBase = state.taxa === 'min' ? bk.taxaMin : bk.taxaMax;
+    const taxa = state.custom[bk.nome] != null ? state.custom[bk.nome] : taxaBase;
+    if (na || taxa == null) return { bk, na: true };
+    const s = sac(state.valor, state.prazo, taxa);
+    const e1 = encargos(state.valor), en = encargos(s.A);
+    return { bk, taxa, p1: s.p1 + e1, pn: s.pn + en, juros: s.juros,
+             media: (state.valor + s.juros) / state.prazo + (e1 + en) / 2,
+             total: state.valor + s.juros + (state.seguros ? (e1 + en) / 2 * state.prazo : 0) };
+  }).sort((a, b) => (a.na ? 1 : 0) - (b.na ? 1 : 0) || (a.p1 || 0) - (b.p1 || 0));
+
+  const tb = document.querySelector('#tbl tbody');
+  tb.innerHTML = '';
+  rows.forEach((r, ix) => {
+    const tr = document.createElement('tr');
+    if (r.na) {
+      tr.className = 'na';
+      tr.innerHTML = '<td><span class="banknm">' + r.bk.nome + '</span><span class="chip">' + r.bk.indexador + '</span></td>' +
+        '<td colspan="7">não opera nesse prazo (máx. ' + (r.bk.prazoMax || '—') + ' meses)' + (r.bk.obs ? ' · ' + r.bk.obs : '') + '</td>';
+      tb.appendChild(tr); return;
+    }
+    if (ix === 0) tr.className = 'best';
+    const renda = r.p1 / 0.30;
+    tr.innerHTML =
+      '<td><span class="banknm">' + r.bk.nome + '</span><span class="chip">+ ' + r.bk.indexador + '</span>' +
+      (r.bk.obs ? '<div class="obs">' + r.bk.obs + '</div>' : '') + '</td>' +
+      '<td class="num"><input class="taxa" type="number" step="0.01" value="' + r.taxa.toFixed(2) + '" data-b="' + r.bk.nome + '">%</td>' +
+      '<td class="num p1">' + fmt2.format(r.p1) + '</td>' +
+      '<td class="num">' + fmt2.format(r.pn) + '</td>' +
+      '<td class="num">' + fmt2.format(r.media) + '</td>' +
+      '<td class="num">' + fmt.format(r.juros) + '</td>' +
+      '<td class="num">' + fmt.format(r.total) + '</td>' +
+      '<td class="num">' + fmt.format(renda) + '</td>';
+    tb.appendChild(tr);
+  });
+  tb.querySelectorAll('input.taxa').forEach(inp => {
+    inp.onchange = () => { state.custom[inp.dataset.b] = parseFloat(inp.value) || 0; render(); };
+  });
+
+  const ok = rows.filter(r => !r.na);
+  const sm = document.getElementById('summary');
+  if (ok.length) {
+    const best = ok[0], worst = ok[ok.length - 1];
+    const ltv = state.valor / state.imovel * 100;
+    sm.innerHTML =
+      '<div class="stat"><div class="k">Menor 1ª parcela</div><div class="v">' + fmt2.format(best.p1) + '</div><div class="d">' + best.bk.nome + ' · ' + best.taxa.toFixed(2) + '% a.a.</div></div>' +
+      '<div class="stat"><div class="k">Economia vs. mais caro</div><div class="v">' + fmt.format(worst.juros - best.juros) + '</div><div class="d">em juros totais no prazo (' + worst.bk.nome + ')</div></div>' +
+      '<div class="stat"><div class="k">LTV</div><div class="v">' + ltv.toFixed(0) + '%</div><div class="d">' + fmt.format(state.valor) + ' sobre imóvel de ' + fmt.format(state.imovel) + '</div></div>' +
+      '<div class="stat"><div class="k">Renda familiar mín.</div><div class="v">' + fmt.format(best.p1 / 0.30) + '</div><div class="d">parcela limitada a 30% da renda</div></div>';
+  } else sm.innerHTML = '';
+
+  const foot = document.getElementById('foot');
+  foot.innerHTML =
+    '<h2>Premissas</h2><ul>' +
+    '<li>SAC: amortização constante = valor ÷ prazo; juros do mês sobre o saldo devedor; parcelas decrescentes.</li>' +
+    '<li>Taxa efetiva a.a. convertida a mês por equivalência composta; <b>TR futura não projetada</b> (TR &gt; 0 eleva parcelas ao longo do tempo).</li>' +
+    '<li>Encargos (opcional): MIP estimado por idade sobre o saldo + DFI de 0,0066% do valor do imóvel + tarifa de R$ 25/mês — valores reais variam por banco/seguradora e idade dos proponentes.</li>' +
+    '<li>“Mínima” = taxa com relacionamento (conta/salário/débito); “balcão” = sem relacionamento. A taxa final sai da análise de crédito — edite a coluna de taxa para simular a proposta real.</li>' +
+    (NOTAS.length ? NOTAS.map(n => '<li>' + n + '</li>').join('') : '') +
+    '</ul>' +
+    (FONTES.length ? '<h2>Fontes (consulta 28/07/2026)</h2><ul>' + FONTES.map(f => '<li><a href="' + f.url + '" target="_blank" rel="noopener">' + (f.titulo || f.url) + '</a>' + (f.data ? ' · ' + f.data : '') + '</li>').join('') + '</ul>' : '');
+}
+document.getElementById('chkSeg').onchange = e => { state.seguros = e.target.checked; render(); };
+document.getElementById('idade').onchange = e => { state.idade = parseInt(e.target.value) || 40; render(); };
+document.getElementById('valorImovel').onchange = e => { state.imovel = parseFloat(e.target.value) || 840000; render(); };
+render();
+</script>
+</body>
+</html>

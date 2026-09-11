@@ -1412,6 +1412,1756 @@
  },
  {
   "tipo_registro": "norma",
+  "id": "DEC-BA-14024-2012",
+  "tipo_normativo": "Decreto",
+  "numero": "14.024",
+  "ano": 2012,
+  "data": "2012-06-06",
+  "ente": "ESTADUAL",
+  "uf": "BA",
+  "municipio": null,
+  "orgao_emissor": "Governo da BA",
+  "ementa": "Aprova o Regulamento da Lei 10.431/2006 e da Lei 11.612/2009 — licenciamento, infrações, recursos hídricos, recuperação de áreas degradadas.",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "recursos_hidricos",
+   "reparacao"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Dec. 15.682/2014",
+   "decretos posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=242454",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (LegisWeb; INEMA). Regula obrigação de recuperar áreas degradadas (solo, vegetação, águas)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ba/DEC-BA-14024-2012.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-BA-10431-2006",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "10.431",
+  "ano": 2006,
+  "data": "2006-12-20",
+  "ente": "ESTADUAL",
+  "uf": "BA",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa da BA",
+  "ementa": "Institui a Política de Meio Ambiente e de Proteção à Biodiversidade do Estado da Bahia.",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "infracoes",
+   "flora",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Lei 12.377/2011 (verificar)",
+   "outras"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legislabahia.ba.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (INEMA; LegisWeb via Dec. 14.024)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ba/LEI-BA-10431-2006.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-BA-11612-2009",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.612",
+  "ano": 2009,
+  "data": "2009-10-08",
+  "ente": "ESTADUAL",
+  "uf": "BA",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa da BA",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos e o Sistema Estadual de Gerenciamento de Recursos Hídricos da Bahia.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legislabahia.ba.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ba/LEI-BA-11612-2009.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-BA",
+  "uf": "BA",
+  "nome": "Bahia",
+  "orgao_licenciador": "INEMA — Instituto do Meio Ambiente e Recursos Hídricos (SEMA-BA)",
+  "conselho_estadual": "CEPRAM/BA; CONERH",
+  "orgao_recursos_hidricos": "INEMA (outorga)",
+  "portal_legislacao": "https://www.legislabahia.ba.gov.br/",
+  "bioma_predominante": "Mata Atlântica / Caatinga / Cerrado",
+  "prioridade": "ALTA",
+  "municipios_prioritarios": [
+   "Salvador",
+   "Simões Filho",
+   "Candeias"
+  ],
+  "normas_centrais": [
+   "LEI-BA-10431-2006",
+   "LEI-BA-11612-2009",
+   "DEC-BA-14024-2012",
+   "RES-CEPRAM-BA-4579-2018"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 10.431/2006 (Política de Meio Ambiente e Proteção à Biodiversidade), Lei 11.612/2009 (recursos hídricos), Dec. 14.024/2012 (regulamento de ambas; alterado pelo Dec. 15.682/2014) confirmados; CEPRAM 4.636/2018 localizada (assunto a confirmar); CEPRAM 4.579/2018 (impacto local) NÃO confirmada."
+  },
+  "_arquivo": "estadual/ba/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CEPRAM-BA-4579-2018",
+  "tipo_normativo": "Resolução",
+  "numero": "4.579",
+  "ano": 2018,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "BA",
+  "municipio": null,
+  "orgao_emissor": "CEPRAM/BA",
+  "ementa": "Dispõe sobre as atividades de impacto local de competência dos municípios e critérios para habilitação (LC 140/2011) — número A CONFIRMAR.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.ba.gov.br/meioambiente/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed de memória; não confirmada — CEPRAM 4.636/2018 localizada com assunto não identificado. PRIORIDADE de verificação para Salvador/Simões Filho/Candeias."
+  },
+  "confianca_registro": "BAIXA",
+  "_arquivo": "estadual/ba/RES-CEPRAM-BA-4579-2018.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-CE-11411-1987",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.411",
+  "ano": 1987,
+  "data": "1987-12-28",
+  "ente": "ESTADUAL",
+  "uf": "CE",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do CE",
+  "ementa": "Dispõe sobre a Política Estadual do Meio Ambiente e cria a SEMACE e o COEMA.",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "organizacao_sisnama"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "leis posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://belt.al.ce.gov.br/index.php/legislacao-do-ceara/organizacao-tematica/meio-ambiente-e-desenvolvimento-do-semiarido/item/815-lei-n-11-411-de-28-12-87-d-o-de-04-01-88",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (AL-CE; LegisWeb)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ce/LEI-CE-11411-1987.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-CE-12488-1995",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.488",
+  "ano": 1995,
+  "data": "1995-09-13",
+  "ente": "ESTADUAL",
+  "uf": "CE",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do CE",
+  "ementa": "Dispõe sobre a Política Florestal do Ceará (regulamentada pelo Dec. 24.221/1996).",
+  "assuntos": [
+   "flora"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://belt.al.ce.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (fontes secundárias)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/ce/LEI-CE-12488-1995.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-CE-14844-2010",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "14.844",
+  "ano": 2010,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "CE",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do CE",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos e o Sistema Integrado de Gestão de Recursos Hídricos do Ceará.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://belt.al.ce.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed de memória; não confirmada nesta rodada."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/ce/LEI-CE-14844-2010.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-CE",
+  "uf": "CE",
+  "nome": "Ceará",
+  "orgao_licenciador": "SEMACE — Superintendência Estadual do Meio Ambiente (Lei 11.411/1987)",
+  "conselho_estadual": "COEMA/CE; CONERH",
+  "orgao_recursos_hidricos": "SRH/COGERH (outorga)",
+  "portal_legislacao": "https://belt.al.ce.gov.br/",
+  "bioma_predominante": "Caatinga / Mata Atlântica (litoral) / Cerrado",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-CE-11411-1987",
+   "RES-COEMA-CE-02-2019",
+   "LEI-CE-12488-1995",
+   "LEI-CE-14844-2010"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 11.411/1987 (PEMA/SEMACE), Res. COEMA 02/2019 (procedimentos, critérios e custos de licenciamento), Lei 12.488/1995 (política florestal; Dec. 24.221/1996) confirmadas. Lei 14.844/2010 (recursos hídricos) não confirmada nesta rodada."
+  },
+  "_arquivo": "estadual/ce/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-COEMA-CE-02-2019",
+  "tipo_normativo": "Resolução",
+  "numero": "02",
+  "ano": 2019,
+  "data": "2019-04-11",
+  "ente": "ESTADUAL",
+  "uf": "CE",
+  "municipio": null,
+  "orgao_emissor": "COEMA/CE",
+  "ementa": "Dispõe sobre os procedimentos, critérios, parâmetros e custos aplicados aos processos de licenciamento e autorização ambiental no âmbito da SEMACE.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=377738",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (LegisWeb; SEMACE)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ce/RES-COEMA-CE-02-2019.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-ES-4039R-2016",
+  "tipo_normativo": "Decreto",
+  "numero": "4.039-R",
+  "ano": 2016,
+  "data": "2016-12-07",
+  "ente": "ESTADUAL",
+  "uf": "ES",
+  "municipio": null,
+  "orgao_emissor": "Governo do ES",
+  "ementa": "Dispõe sobre o Sistema de Licenciamento e Controle das Atividades Poluidoras ou Degradadoras do Meio Ambiente (SILCAP).",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "atualizações posteriores; LC 1.073/2023"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://iema.es.gov.br/licenciamentoambiental",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (PNLA/MMA; IEMA)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/es/DEC-ES-4039R-2016.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LC-ES-1073-2023",
+  "tipo_normativo": "Lei Complementar",
+  "numero": "1.073",
+  "ano": 2023,
+  "data": "2023-12-22",
+  "ente": "ESTADUAL",
+  "uf": "ES",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do ES",
+  "ementa": "Estabelece normas gerais para o licenciamento ambiental no Estado do Espírito Santo e diretrizes para o respectivo procedimento.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar regulamento"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=453726",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (LegisWeb; CMA Advogados)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/es/LC-ES-1073-2023.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-ES",
+  "uf": "ES",
+  "nome": "Espírito Santo",
+  "orgao_licenciador": "IEMA — Instituto Estadual de Meio Ambiente e Recursos Hídricos",
+  "conselho_estadual": "CONSEMA/ES; CERH/ES",
+  "orgao_recursos_hidricos": "AGERH — Agência Estadual de Recursos Hídricos (2013)",
+  "portal_legislacao": "https://www.al.es.gov.br/",
+  "bioma_predominante": "Mata Atlântica",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LC-ES-1073-2023",
+   "DEC-ES-4039R-2016",
+   "RES-CONSEMA-ES-002-2016"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: LC 1.073/2023 (normas gerais de licenciamento no ES), Dec. 4.039-R/2016 (SILCAP), Res. CONSEMA 002/2016 (impacto local), IN IEMA 17-N/2016, AGERH confirmadas. Lei estadual de recursos hídricos (número lembrado 9.866/2012) NÃO confirmada."
+  },
+  "_arquivo": "estadual/es/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-ES-002-2016",
+  "tipo_normativo": "Resolução",
+  "numero": "002",
+  "ano": 2016,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "ES",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/ES",
+  "ementa": "Estabelece a listagem de atividades ou empreendimentos considerados de impacto ambiental local no ES (LC 140/2011).",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://iema.es.gov.br/licenciamentoambiental",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (IN IEMA 17-N/2016 a referencia)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/es/RES-CONSEMA-ES-002-2016.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-GO-13123-1997",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "13.123",
+  "ano": 1997,
+  "data": "1997-07-16",
+  "ente": "ESTADUAL",
+  "uf": "GO",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de GO",
+  "ementa": "Estabelece normas de orientação à Política Estadual de Recursos Hídricos de Goiás (Fundo Estadual — arts. 38-42).",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legisla.casacivil.go.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (SEMAD)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/go/LEI-GO-13123-1997.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-GO-18102-2013",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "18.102",
+  "ano": 2013,
+  "data": "2013-07-18",
+  "ente": "ESTADUAL",
+  "uf": "GO",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de GO",
+  "ementa": "Dispõe sobre a proteção da vegetação nativa e institui a nova Política Florestal do Estado de Goiás.",
+  "assuntos": [
+   "flora",
+   "app",
+   "reserva_legal"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legisla.casacivil.go.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Número/data conforme lista SEMAD (18.102, 18/07/2013); um snippet cita 18.104 — CONFERIR."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/go/LEI-GO-18102-2013.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-GO-20694-2019",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "20.694",
+  "ano": 2019,
+  "data": "2019-12-26",
+  "ente": "ESTADUAL",
+  "uf": "GO",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de GO",
+  "ementa": "Dispõe sobre as normas gerais para o licenciamento ambiental no Estado de Goiás (revoga a Lei 8.544/1978).",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Dec. 9.710/2020 (regulamento)",
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legisla.casacivil.go.gov.br/api/v2/pesquisa/legislacoes/100893/pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (Legisla Goiás; LegisWeb)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/go/LEI-GO-20694-2019.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-GO-8544-1978",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "8.544",
+  "ano": 1978,
+  "data": "1978-10-10",
+  "ente": "ESTADUAL",
+  "uf": "GO",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de GO",
+  "ementa": "Dispunha sobre o controle da poluição do meio ambiente em Goiás (REVOGADA pela Lei 20.694/2019).",
+  "assuntos": [
+   "licenciamento",
+   "infracoes"
+  ],
+  "atividades": [],
+  "status_vigencia": "REVOGADA",
+  "alterada_por": [],
+  "revogada_por": "LEI-GO-20694-2019",
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legisla.casacivil.go.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Revogação confirmada (fontes secundárias)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/go/LEI-GO-8544-1978.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-GO",
+  "uf": "GO",
+  "nome": "Goiás",
+  "orgao_licenciador": "SEMAD-GO — Secretaria de Estado de Meio Ambiente e Desenvolvimento Sustentável",
+  "conselho_estadual": "CEMAm/GO; CERHi",
+  "orgao_recursos_hidricos": "SEMAD-GO (outorga)",
+  "portal_legislacao": "https://legisla.casacivil.go.gov.br/",
+  "bioma_predominante": "Cerrado",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-GO-20694-2019",
+   "LEI-GO-8544-1978",
+   "LEI-GO-18102-2013",
+   "LEI-GO-13123-1997"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 20.694/2019 (normas gerais de licenciamento; Dec. 9.710/2020) confirmada e REVOGOU a Lei 8.544/1978; Lei 18.102/2013 (vegetação nativa — um snippet cita 18.104; conferir), Lei 13.123/1997 (recursos hídricos) confirmadas; Lei 20.758/2020 citada (assunto a confirmar)."
+  },
+  "_arquivo": "estadual/go/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-MG-47383-2018",
+  "tipo_normativo": "Decreto",
+  "numero": "47.383",
+  "ano": 2018,
+  "data": "2018-03-02",
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "Governo de MG",
+  "ementa": "Estabelece normas para licenciamento ambiental, tipifica e classifica infrações às normas de proteção ao meio ambiente e aos recursos hídricos e estabelece procedimentos administrativos de fiscalização e aplicação das penalidades.",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "processo_administrativo"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "decretos posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.siam.mg.gov.br/sla/download.pdf?idNorma=45918",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (SIAM). Texto não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/mg/DEC-MG-47383-2018.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DN-COPAM-MG-213-2017",
+  "tipo_normativo": "Resolução",
+  "numero": "DN 213",
+  "ano": 2017,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "COPAM/MG",
+  "ementa": "Regulamenta a LC 140/2011 em MG: tipologias de empreendimentos e atividades cujo licenciamento é atribuição dos municípios.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://semad.mg.gov.br/banco-de-legisla%C3%A7%C3%A3o-ambiental",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (fontes secundárias)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/mg/DN-COPAM-MG-213-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DN-COPAM-MG-217-2017",
+  "tipo_normativo": "Resolução",
+  "numero": "DN 217",
+  "ano": 2017,
+  "data": "2017-12-06",
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "COPAM/MG",
+  "ementa": "Estabelece critérios para classificação, segundo o porte e potencial poluidor, bem como os critérios locacionais a serem utilizados para definição das modalidades de licenciamento ambiental de empreendimentos e atividades no Estado.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "DNs COPAM posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://semad.mg.gov.br/banco-de-legisla%C3%A7%C3%A3o-ambiental",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (SEMAD/FEAM)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mg/DN-COPAM-MG-217-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MG-13199-1999",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "13.199",
+  "ano": 1999,
+  "data": "1999-01-29",
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MG",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos de Minas Gerais.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.almg.gov.br/legislacao-mineira/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (CBH-Doce; fontes secundárias)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mg/LEI-MG-13199-1999.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MG-20922-2013",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "20.922",
+  "ano": 2013,
+  "data": "2013-10-16",
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MG",
+  "ementa": "Dispõe sobre as políticas florestal e de proteção à biodiversidade no Estado de Minas Gerais (Lei Florestal Mineira) — APP, RL, intervenção, reposição.",
+  "assuntos": [
+   "flora",
+   "app",
+   "reserva_legal",
+   "supressao_vegetal"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.almg.gov.br/legislacao-mineira/texto/LEI/20922/2013/?cons=1",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (ALMG — texto atualizado disponível)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mg/LEI-MG-20922-2013.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MG-21972-2016",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "21.972",
+  "ano": 2016,
+  "data": "2016-01-21",
+  "ente": "ESTADUAL",
+  "uf": "MG",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MG",
+  "ementa": "Dispõe sobre o Sistema Estadual de Meio Ambiente e Recursos Hídricos (SISEMA) — estrutura, licenciamento (modalidades LAT, LAC, LAS), competências.",
+  "assuntos": [
+   "organizacao_sisnama",
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.almg.gov.br/legislacao-mineira/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (FEAM/SEMAD)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mg/LEI-MG-21972-2016.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-MG",
+  "uf": "MG",
+  "nome": "Minas Gerais",
+  "orgao_licenciador": "SEMAD (SISEMA: FEAM — controle/licenciamento industrial; IEF — florestas/fauna; IGAM — águas); SUPRAMs regionais",
+  "conselho_estadual": "COPAM/MG; CERH-MG",
+  "orgao_recursos_hidricos": "IGAM (outorga)",
+  "portal_legislacao": "https://www.almg.gov.br/legislacao-mineira/",
+  "bioma_predominante": "Mata Atlântica / Cerrado / Caatinga",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-MG-21972-2016",
+   "DEC-MG-47383-2018",
+   "DN-COPAM-MG-217-2017",
+   "DN-COPAM-MG-213-2017",
+   "LEI-MG-20922-2013",
+   "LEI-MG-13199-1999"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: DN COPAM 217/2017 (classificação porte/potencial), DN COPAM 213/2017 (impacto local), Lei 21.972/2016 (SISEMA), Lei 20.922/2013 (florestal/APP), Lei 13.199/1999 (recursos hídricos), Dec. 47.383/2018 (licenciamento) confirmados."
+  },
+  "_arquivo": "estadual/mg/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-MS-10600-2001",
+  "tipo_normativo": "Decreto",
+  "numero": "10.600",
+  "ano": 2001,
+  "data": "2001-12-19",
+  "ente": "ESTADUAL",
+  "uf": "MS",
+  "municipio": null,
+  "orgao_emissor": "Governo de MS",
+  "ementa": "Dispõe sobre a cooperação técnica e administrativa entre os órgãos ambientais estadual e municipais para licenciamento e fiscalização de atividades de impacto ambiental local.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.imasul.ms.gov.br/legislacao-ambiental/decretos/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (PNLA/MMA)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/ms/DEC-MS-10600-2001.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MS-2257-2001",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "2.257",
+  "ano": 2001,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "MS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MS",
+  "ementa": "Dispõe sobre as diretrizes do licenciamento ambiental estadual, estabelece prazos para emissão de licenças e autorizações ambientais em MS.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.imasul.ms.gov.br/legislacao-ambiental/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (PNLA/MMA; Cartas de Serviços MS)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ms/LEI-MS-2257-2001.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MS-2406-2002",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "2.406",
+  "ano": 2002,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "MS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MS",
+  "ementa": "Institui a Política Estadual dos Recursos Hídricos e cria o Sistema Estadual de Gerenciamento dos Recursos Hídricos de MS.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.imasul.ms.gov.br/legislacao-ambiental/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed de memória; não confirmada nesta rodada."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/ms/LEI-MS-2406-2002.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-MS",
+  "uf": "MS",
+  "nome": "Mato Grosso do Sul",
+  "orgao_licenciador": "IMASUL — Instituto de Meio Ambiente de MS (SEMADESC)",
+  "conselho_estadual": "CECA/MS (Conselho Estadual de Controle Ambiental); CERH/MS",
+  "orgao_recursos_hidricos": "IMASUL (outorga)",
+  "portal_legislacao": "https://www.imasul.ms.gov.br/legislacao-ambiental/",
+  "bioma_predominante": "Cerrado / Pantanal / Mata Atlântica",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-MS-2257-2001",
+   "DEC-MS-10600-2001",
+   "RES-SEMADE-MS-09-2015",
+   "LEI-MS-2406-2002"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 2.257/2001 (licenciamento), Dec. 10.600/2001 (cooperação com municípios/impacto local), Res. SEMADE 09/2015 consolidada (procedimentos e atividades licenciáveis), Res. CECA 02/2012 e 08/2011 confirmadas. Lei 2.406/2002 (recursos hídricos) não confirmada."
+  },
+  "_arquivo": "estadual/ms/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-SEMADE-MS-09-2015",
+  "tipo_normativo": "Resolução",
+  "numero": "09",
+  "ano": 2015,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "MS",
+  "municipio": null,
+  "orgao_emissor": "SEMADE/SEMAGRO/SEMADESC (MS)",
+  "ementa": "Estabelece normas e procedimentos para o licenciamento ambiental estadual (Lei 2.257/2001), documentação por fase e tabela de atividades licenciáveis — consolidada com a Res. SEMAGRO 642.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Res. SEMAGRO 642 (consolidação)",
+   "alterações 2020 (IMASUL)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.imasul.ms.gov.br/wp-content/uploads/2019/10/RESOLU%C3%87%C3%83O-SEMADE-N.-09-2015-CONSOLIDADA.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (IMASUL PDFs)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/ms/RES-SEMADE-MS-09-2015.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LC-MT-38-1995",
+  "tipo_normativo": "Lei Complementar",
+  "numero": "38",
+  "ano": 1995,
+  "data": "1995-11-21",
+  "ente": "ESTADUAL",
+  "uf": "MT",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MT",
+  "ementa": "Dispõe sobre o Código Estadual do Meio Ambiente de Mato Grosso.",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "infracoes",
+   "competencia",
+   "flora"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "dezenas de LCs — consolidada até LC 830/2025 (AL-MT)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.mt.gov.br/norma-juridica/urn:lex:br;mato.grosso:estadual:lei.complementar:1995-11-21;38/ficha-tecnica?exibirAnotacao=1",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (AL-MT ficha técnica; SEMA-MT)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mt/LC-MT-38-1995.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-MT-11088-2020",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.088",
+  "ano": 2020,
+  "data": "2020-03-09",
+  "ente": "ESTADUAL",
+  "uf": "MT",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de MT",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos e institui o Sistema Estadual de Recursos Hídricos de MT.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Dec. 715/2020 (FEHIDRO)",
+   "Dec. 796/2021 (CEHIDRO)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.mt.gov.br/norma-juridica/urn:lex:br;mato.grosso:estadual:lei.ordinaria:2020-03-09;11088/ficha-tecnica",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (AL-MT; ANA/Progestão). Substituiu a política anterior (lei de 1997 — número não confirmado)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/mt/LEI-MT-11088-2020.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-MT",
+  "uf": "MT",
+  "nome": "Mato Grosso",
+  "orgao_licenciador": "SEMA-MT — Secretaria de Estado de Meio Ambiente",
+  "conselho_estadual": "CONSEMA/MT; CEHIDRO",
+  "orgao_recursos_hidricos": "SEMA-MT (outorga)",
+  "portal_legislacao": "https://www.al.mt.gov.br/norma-juridica/",
+  "bioma_predominante": "Amazônia / Cerrado / Pantanal",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LC-MT-38-1995",
+   "LEI-MT-11088-2020"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: LC 38/1995 (Código Estadual, consolidada até LC 830/2025) e Lei 11.088/2020 (recursos hídricos; CEHIDRO; Dec. 796/2021; Dec. 715/2020) confirmadas."
+  },
+  "_arquivo": "estadual/mt/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PB-4033-1978",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "4.033",
+  "ano": 1978,
+  "data": "1978-12-20",
+  "ente": "ESTADUAL",
+  "uf": "PB",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa da PB",
+  "ementa": "Cria a Superintendência de Administração do Meio Ambiente e dos Recursos Hídricos (SUDEMA).",
+  "assuntos": [
+   "organizacao_sisnama",
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://sudema.pb.gov.br/institucional/copam-1/legislacao-pertinente",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (SUDEMA)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/pb/LEI-PB-4033-1978.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PB-6308-1996",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "6.308",
+  "ano": 1996,
+  "data": "1996-07-02",
+  "ente": "ESTADUAL",
+  "uf": "PB",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa da PB",
+  "ementa": "Institui a Política Estadual de Recursos Hídricos da Paraíba, suas diretrizes e dá outras providências (CERH-PB — art. 7º; Fundo — art. 22).",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "http://www.aesa.pb.gov.br/biblioteca/legislacao/leis/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (AESA; Governo PB)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pb/LEI-PB-6308-1996.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-PB",
+  "uf": "PB",
+  "nome": "Paraíba",
+  "orgao_licenciador": "SUDEMA — Superintendência de Administração do Meio Ambiente (Lei 4.033/1978)",
+  "conselho_estadual": "COPAM/PB; CERH-PB",
+  "orgao_recursos_hidricos": "AESA — Agência Executiva de Gestão das Águas (Lei 7.779/2005)",
+  "portal_legislacao": "https://www.al.pb.leg.br/",
+  "bioma_predominante": "Mata Atlântica / Caatinga",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-PB-6308-1996",
+   "LEI-PB-4033-1978"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 6.308/1996 (recursos hídricos; CERH-PB; Dec. 19.260/1997 outorga), Lei 4.033/1978 (SUDEMA), Lei 7.779/2005 (AESA) confirmadas. Norma de impacto local/municipalização PB não localizada."
+  },
+  "_arquivo": "estadual/pb/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PE-12984-2005",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.984",
+  "ano": 2005,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "PE",
+  "municipio": null,
+  "orgao_emissor": "ALEPE",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos e o Sistema Integrado de Gerenciamento de Recursos Hídricos de Pernambuco.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legis.alepe.pe.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed de memória; não confirmada nesta rodada."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/pe/LEI-PE-12984-2005.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PE-14249-2010",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "14.249",
+  "ano": 2010,
+  "data": "2010-12-17",
+  "ente": "ESTADUAL",
+  "uf": "PE",
+  "municipio": null,
+  "orgao_emissor": "ALEPE",
+  "ementa": "Dispõe sobre licenciamento ambiental, infrações e sanções administrativas ao meio ambiente em Pernambuco.",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://legis.alepe.pe.gov.br/texto.aspx?id=5682&tipo=TEXTOATUALIZADO",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (ALEPE texto atualizado; CPRH)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pe/LEI-PE-14249-2010.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-PE",
+  "uf": "PE",
+  "nome": "Pernambuco",
+  "orgao_licenciador": "CPRH — Agência Estadual de Meio Ambiente",
+  "conselho_estadual": "CONSEMA/PE; CRH/PE",
+  "orgao_recursos_hidricos": "APAC — Agência Pernambucana de Águas e Clima (outorga)",
+  "portal_legislacao": "https://legis.alepe.pe.gov.br/",
+  "bioma_predominante": "Mata Atlântica / Caatinga",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-PE-14249-2010",
+   "LEI-PE-12984-2005"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 14.249/2010 (licenciamento, infrações; prazo 90 dias/12 meses; atuação descentralizada dos municípios) confirmada. Lei 12.984/2005 e 11.206/1995 não confirmadas. INs CPRH recentes (10/2024; 02/2026) localizadas."
+  },
+  "_arquivo": "estadual/pe/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PI-4854-1996",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "4.854",
+  "ano": 1996,
+  "data": "1996-07-10",
+  "ente": "ESTADUAL",
+  "uf": "PI",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do PI",
+  "ementa": "Dispõe sobre a Política Estadual de Meio Ambiente do Piauí (infrações e penalidades aplicadas pela SEMAR/SEMARH).",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "infracoes"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.semarh.pi.gov.br/legislacao",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (MPPI compilação; PNLA/MMA)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pi/LEI-PI-4854-1996.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PI-5165-2000",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "5.165",
+  "ano": 2000,
+  "data": "2000-08-17",
+  "ente": "ESTADUAL",
+  "uf": "PI",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do PI",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos e institui o Sistema Estadual de Gerenciamento de Recursos Hídricos do Piauí.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.semarh.pi.gov.br/legislacao",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pi/LEI-PI-5165-2000.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-PI",
+  "uf": "PI",
+  "nome": "Piauí",
+  "orgao_licenciador": "SEMARH — Secretaria de Estado do Meio Ambiente e Recursos Hídricos (antiga SEMAR)",
+  "conselho_estadual": "CONSEMA/PI; CERH-PI",
+  "orgao_recursos_hidricos": "SEMARH (outorga)",
+  "portal_legislacao": "https://www.semarh.pi.gov.br/legislacao ; https://www.al.pi.leg.br/",
+  "bioma_predominante": "Cerrado / Caatinga (transição)",
+  "prioridade": "ALTA",
+  "municipios_prioritarios": [
+   "Teresina"
+  ],
+  "normas_centrais": [
+   "LEI-PI-4854-1996",
+   "LEI-PI-5165-2000",
+   "RES-CONSEMA-PI-10-2009"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 4.854/1996 (política ambiental; SEMAR aplica penalidades), Lei 5.165/2000 (recursos hídricos), Res. CONSEMA 09/2008 e 10/2009 (licenciamento; enquadramento de atividades) confirmadas (PNLA/MMA; MPPI; SEMARH)."
+  },
+  "_arquivo": "estadual/pi/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-PI-10-2009",
+  "tipo_normativo": "Resolução",
+  "numero": "10",
+  "ano": 2009,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "PI",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/PI",
+  "ementa": "Enquadramento/classificação das atividades sujeitas ao licenciamento ambiental no Piauí (com a Res. CONSEMA 09/2008 — procedimentos).",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.semarh.pi.gov.br/legislacao",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (PNLA/MMA). Texto não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/pi/RES-CONSEMA-PI-10-2009.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PR-11054-1995",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.054",
+  "ano": 1995,
+  "data": "1995-01-11",
+  "ente": "ESTADUAL",
+  "uf": "PR",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do PR",
+  "ementa": "Dispõe sobre a Lei Florestal do Estado do Paraná.",
+  "assuntos": [
+   "flora",
+   "supressao_vegetal",
+   "app"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações e compatibilidade com a Lei 12.651/2012"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=358788",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (LegisWeb; leisestaduais). Texto não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/pr/LEI-PR-11054-1995.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-PR-12726-1999",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.726",
+  "ano": 1999,
+  "data": "1999-11-26",
+  "ente": "ESTADUAL",
+  "uf": "PR",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do PR",
+  "ementa": "Institui a Política Estadual de Recursos Hídricos e cria o Sistema Estadual de Gerenciamento de Recursos Hídricos do Paraná.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://progestao.ana.gov.br/panorama-dos-estados/pr/lei-12-726-99_pr.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (IAT; ANA/Progestão)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pr/LEI-PR-12726-1999.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-PR",
+  "uf": "PR",
+  "nome": "Paraná",
+  "orgao_licenciador": "IAT — Instituto Água e Terra (ex-IAP, incorporou ITCG e Águas Paraná em 2020)",
+  "conselho_estadual": "CEMA/PR",
+  "orgao_recursos_hidricos": "IAT (outorga)",
+  "portal_legislacao": "https://www.legislacao.pr.gov.br/",
+  "bioma_predominante": "Mata Atlântica",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "RES-CEMA-PR-107-2020",
+   "LEI-PR-12726-1999",
+   "LEI-PR-11054-1995"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: CEMA 107/2020 (licenciamento), Lei 12.726/1999 (recursos hídricos), Lei 11.054/1995 (Lei Florestal) e IAT confirmados."
+  },
+  "_arquivo": "estadual/pr/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CEMA-PR-107-2020",
+  "tipo_normativo": "Resolução",
+  "numero": "107",
+  "ano": 2020,
+  "data": "2020-09-09",
+  "ente": "ESTADUAL",
+  "uf": "PR",
+  "municipio": null,
+  "orgao_emissor": "CEMA/PR",
+  "ementa": "Dispõe sobre o licenciamento ambiental, estabelece critérios e procedimentos para atividades poluidoras, degradadoras e/ou modificadoras do meio ambiente no Paraná.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=401593",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (LegisWeb; MPPR). Texto não lido."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/pr/RES-CEMA-PR-107-2020.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-RJ-44820-2014",
+  "tipo_normativo": "Decreto",
+  "numero": "44.820",
+  "ano": 2014,
+  "data": "2014-06-02",
+  "ente": "ESTADUAL",
+  "uf": "RJ",
+  "municipio": null,
+  "orgao_emissor": "Governo do RJ",
+  "ementa": "Dispunha sobre o Sistema de Licenciamento Ambiental (SLAM) — REVOGADO pelo Dec. 46.890/2019.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "REVOGADA",
+  "alterada_por": [],
+  "revogada_por": "DEC-RJ-46890-2019",
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=270983",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Revogação confirmada."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rj/DEC-RJ-44820-2014.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-RJ-46890-2019",
+  "tipo_normativo": "Decreto",
+  "numero": "46.890",
+  "ano": 2019,
+  "data": "2019-12-23",
+  "ente": "ESTADUAL",
+  "uf": "RJ",
+  "municipio": null,
+  "orgao_emissor": "Governo do RJ",
+  "ementa": "Dispõe sobre o Sistema Estadual de Licenciamento e demais Procedimentos de Controle Ambiental (SELCA); revoga o Dec. 44.820/2014 (SLAM).",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Dec. 47.867/2021 (prorrogações/alterações)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=388039",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (LegisWeb; escritórios)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rj/DEC-RJ-46890-2019.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RJ-3239-1999",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "3.239",
+  "ano": 1999,
+  "data": "1999-08-02",
+  "ente": "ESTADUAL",
+  "uf": "RJ",
+  "municipio": null,
+  "orgao_emissor": "ALERJ",
+  "ementa": "Institui a Política Estadual de Recursos Hídricos e cria o Sistema Estadual de Gerenciamento de Recursos Hídricos do RJ.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 4.247/2003 (cobrança)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://progestao.ana.gov.br/panorama-dos-estados/rj/lei-no-3239-99_rj.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (ALERJ; ANA)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rj/LEI-RJ-3239-1999.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RJ-3467-2000",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "3.467",
+  "ano": 2000,
+  "data": "2000-09-14",
+  "ente": "ESTADUAL",
+  "uf": "RJ",
+  "municipio": null,
+  "orgao_emissor": "ALERJ",
+  "ementa": "Dispõe sobre as sanções administrativas derivadas de condutas lesivas ao meio ambiente no Estado do RJ.",
+  "assuntos": [
+   "infracoes",
+   "processo_administrativo"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=156869",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (INEA; LegisWeb)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rj/LEI-RJ-3467-2000.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-RJ",
+  "uf": "RJ",
+  "nome": "Rio de Janeiro",
+  "orgao_licenciador": "INEA — Instituto Estadual do Ambiente (SEAS)",
+  "conselho_estadual": "CONEMA/RJ; CERHI-RJ",
+  "orgao_recursos_hidricos": "INEA (outorga)",
+  "portal_legislacao": "https://www.alerj.rj.gov.br/ (CONTLEI)",
+  "bioma_predominante": "Mata Atlântica",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-RJ-3467-2000",
+   "LEI-RJ-3239-1999",
+   "DEC-RJ-46890-2019",
+   "DEC-RJ-44820-2014",
+   "RES-CONEMA-RJ-92-2021"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 3.467/2000 (infrações), Lei 3.239/1999 (recursos hídricos) confirmadas; Dec. 44.820/2014 (SLAM) REVOGADO pelo Dec. 46.890/2019 (SELCA; alterado pelo Dec. 47.867/2021); CONEMA 42/2012 REVOGADA pela CONEMA 92/2021 (impacto local); CONEMA 95/2022 também trata de impacto local (relação a verificar)."
+  },
+  "_arquivo": "estadual/rj/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONEMA-RJ-92-2021",
+  "tipo_normativo": "Resolução",
+  "numero": "92",
+  "ano": 2021,
+  "data": "2021-06-24",
+  "ente": "ESTADUAL",
+  "uf": "RJ",
+  "municipio": null,
+  "orgao_emissor": "CONEMA/RJ",
+  "ementa": "Dispõe sobre as atividades que causam ou possam causar impacto ambiental local (LC 140/2011) e sobre a competência supletiva do controle ambiental; revoga a CONEMA 42/2012.",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "CONEMA 95/2022 (verificar relação)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.legisweb.com.br/legislacao/?id=484790",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (LegisWeb; escritórios)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rj/RES-CONEMA-RJ-92-2021.md"
+ },
+ {
+  "tipo_registro": "norma",
   "id": "CE-RS-1989",
   "tipo_normativo": "Constituição",
   "numero": "CE/RS",
@@ -1811,6 +3561,493 @@
   "_arquivo": "estadual/rs/RES-CONSEMA-RS-544-2026.md"
  },
  {
+  "tipo_registro": "norma",
+  "id": "LEI-SC-14675-2009",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "14.675",
+  "ano": 2009,
+  "data": "2009-04-13",
+  "ente": "ESTADUAL",
+  "uf": "SC",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SC",
+  "ementa": "Institui o Código Estadual do Meio Ambiente de Santa Catarina.",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "app",
+   "flora",
+   "infracoes",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "leis estaduais posteriores (verificar no portal ALESC)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://leis.alesc.sc.gov.br/ato-normativo/16618",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Existência e ementa confirmadas (ALESC/IMA). Texto não lido. Atenção histórica: dispositivos sobre APP em conflito com o Código Florestal geraram controvérsia — verificar ADI/decisões."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/sc/LEI-SC-14675-2009.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-SC-9748-1994",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.748",
+  "ano": 1994,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "SC",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SC",
+  "ementa": "Dispõe sobre a Política Estadual de Recursos Hídricos de Santa Catarina.",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar alterações"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://leis.alesc.sc.gov.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Existência confirmada por fontes secundárias; texto não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/sc/LEI-SC-9748-1994.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-SC",
+  "uf": "SC",
+  "nome": "Santa Catarina",
+  "orgao_licenciador": "IMA — Instituto do Meio Ambiente de Santa Catarina (ex-FATMA)",
+  "conselho_estadual": "CONSEMA/SC",
+  "orgao_recursos_hidricos": "Secretaria de Estado / IMA (outorga) — confirmar órgão gestor atual",
+  "portal_legislacao": "https://leis.alesc.sc.gov.br/",
+  "bioma_predominante": "Mata Atlântica",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-SC-14675-2009",
+   "RES-CONSEMA-SC-98-2017",
+   "RES-CONSEMA-SC-99-2017",
+   "LEI-SC-9748-1994"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 14.675/2009 (Código Estadual), CONSEMA 98/2017 (listagem licenciáveis; LAP/LAI/LAO, AuA, LAC), CONSEMA 99/2017 (impacto local), Lei 9.748/1994 (recursos hídricos) confirmadas por fontes oficiais/secundárias."
+  },
+  "_arquivo": "estadual/sc/PERFIL.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-SC-98-2017",
+  "tipo_normativo": "Resolução",
+  "numero": "98",
+  "ano": 2017,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "SC",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/SC",
+  "ementa": "Aprova a listagem das atividades sujeitas ao licenciamento ambiental, define os estudos ambientais necessários e dá outras providências.",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "resoluções CONSEMA/SC posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://consultas.ima.sc.gov.br/assets/historicolic/arquivos/Resolu%C3%A7%C3%A3o%20CONSEMA%2098-2017.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "PDF oficial localizado (IMA); conteúdo não lido."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/sc/RES-CONSEMA-SC-98-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-SC-99-2017",
+  "tipo_normativo": "Resolução",
+  "numero": "99",
+  "ano": 2017,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "SC",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/SC",
+  "ementa": "Aprova a listagem de atividades ou empreendimentos de impacto ambiental local sujeitos ao licenciamento municipal (LC 140/2011).",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "resoluções posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.ima.sc.gov.br/index.php/licenciamento/licenciamento-municipal/informacoes",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Existência confirmada (IMA — licenciamento municipal). Lista não lida."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/sc/RES-CONSEMA-SC-99-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-SP-8468-1976",
+  "tipo_normativo": "Decreto",
+  "numero": "8.468",
+  "ano": 1976,
+  "data": "1976-09-08",
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "Governo do Estado de SP",
+  "ementa": "Aprova o Regulamento da Lei 997/1976 (controle da poluição) — 172 artigos e anexos; competências da CETESB; padrões.",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "efluentes",
+   "emissoes"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Dec. 62.973/2017",
+   "diversos decretos (verificar compilação CETESB)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://cetesb.sp.gov.br/wp-content/uploads/sites/33/2018/01/Regulamento-da-Lei-997-aprovado-Decreto-8468-alterado-pelo-Decreto-Estadual-62973-2017.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmado (CETESB, compilação com Dec. 62.973/2017)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/sp/DEC-SP-8468-1976.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DN-CONSEMA-SP-01-2018",
+  "tipo_normativo": "Resolução",
+  "numero": "DN 01",
+  "ano": 2018,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/SP",
+  "ementa": "Deliberação Normativa: tipologia dos empreendimentos e atividades de potencial impacto local cujo licenciamento compete aos municípios (LC 140/2011).",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "DN CONSEMA 01/2024 (verificar alcance — pode ter alterado/substituído)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://cetesb.sp.gov.br/licenciamentoambiental/wp-content/uploads/sites/32/2019/05/Delibera%C3%A7%C3%A3o-Consema-n%C2%BA-01-2018.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (CETESB PDF). Localizada DN 01/2024 (SEMIL) — relação não verificada."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/sp/DN-CONSEMA-SP-01-2018.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-SP-13577-2009",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "13.577",
+  "ano": 2009,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SP",
+  "ementa": "Dispõe sobre diretrizes e procedimentos para a proteção da qualidade do solo e gerenciamento de áreas contaminadas.",
+  "assuntos": [
+   "areas_contaminadas"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Dec. 59.263/2013 (regulamento — verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.sp.gov.br/legislacao/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed de memória; não confirmada nesta rodada."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/sp/LEI-SP-13577-2009.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-SP-7663-1991",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "7.663",
+  "ano": 1991,
+  "data": "1991-12-30",
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SP",
+  "ementa": "Estabelece normas de orientação à Política Estadual de Recursos Hídricos e ao Sistema Integrado de Gerenciamento de Recursos Hídricos (SIGRH).",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.sp.gov.br/norma/18836",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Existência confirmada (ALESP). ATENÇÃO: um snippet atribuiu a esta lei ementa de proteção de mananciais (que corresponde à Lei 9.866/1997/SP) — conferir ementa no texto oficial."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/sp/LEI-SP-7663-1991.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-SP-9509-1997",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.509",
+  "ano": 1997,
+  "data": "1997-03-20",
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SP",
+  "ementa": "Dispõe sobre a Política Estadual do Meio Ambiente, seus fins e mecanismos de formulação e aplicação (SEAQUA).",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "organizacao_sisnama"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.sp.gov.br/norma/9375",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (ALESP)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/sp/LEI-SP-9509-1997.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-SP-997-1976",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "997",
+  "ano": 1976,
+  "data": "1976-05-31",
+  "ente": "ESTADUAL",
+  "uf": "SP",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa de SP",
+  "ementa": "Dispõe sobre o controle da poluição do meio ambiente no Estado de São Paulo.",
+  "assuntos": [
+   "licenciamento",
+   "infracoes",
+   "efluentes",
+   "emissoes"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 13.542/2009 (verificar)",
+   "outras — verificar"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.sp.gov.br/legislacao/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Confirmada (CETESB). Texto não lido."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/sp/LEI-SP-997-1976.md"
+ },
+ {
+  "tipo_registro": "perfil_uf",
+  "id": "UF-SP",
+  "uf": "SP",
+  "nome": "São Paulo",
+  "orgao_licenciador": "CETESB — Companhia Ambiental do Estado de São Paulo (licenciamento e fiscalização); SEMIL (Secretaria de Meio Ambiente, Infraestrutura e Logística)",
+  "conselho_estadual": "CONSEMA/SP",
+  "orgao_recursos_hidricos": "DAEE (outorga); CRH/SP",
+  "portal_legislacao": "https://www.al.sp.gov.br/legislacao/",
+  "bioma_predominante": "Mata Atlântica / Cerrado",
+  "prioridade": "MEDIA",
+  "municipios_prioritarios": [],
+  "normas_centrais": [
+   "LEI-SP-997-1976",
+   "DEC-SP-8468-1976",
+   "LEI-SP-9509-1997",
+   "LEI-SP-7663-1991",
+   "DN-CONSEMA-SP-01-2018",
+   "LEI-SP-13577-2009"
+  ],
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 997/1976 + Dec. 8.468/1976 (controle da poluição; CETESB), Lei 9.509/1997 (PEMA), Lei 7.663/1991 (recursos hídricos — snippet com ementa divergente; conferir), DN CONSEMA 01/2018 (impacto local; há DN 01/2024 — verificar se alterou/substituiu). Lei 13.577/2009 não confirmada nesta rodada."
+  },
+  "_arquivo": "estadual/sp/PERFIL.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-BA-CANDEIAS",
+  "municipio": "Candeias",
+  "uf": "BA",
+  "ibge": null,
+  "orgao_ambiental": "Secretaria de Sustentabilidade e Resiliência (página) / Secretaria de Meio Ambiente e Agricultura (URL) — denominação a confirmar",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Região Metropolitana de Salvador — polo petroquímico/refino (Mataripe)",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Baía de Todos os Santos; rios locais (confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: site da Prefeitura mostra Secretaria de Sustentabilidade e Resiliência responsável pela política de meio ambiente (URL antiga: meio-ambiente-e-agricultura). Nenhuma norma municipal localizada."
+  },
+  "_arquivo": "municipal/ba/candeias.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-BA-SALVADOR",
+  "municipio": "Salvador",
+  "uf": "BA",
+  "ibge": null,
+  "orgao_ambiental": "SECIS — Secretaria Municipal de Sustentabilidade, Resiliência, Bem-estar e Proteção Animal (política municipal de meio ambiente; licenciamento) — sigla confirmada, nome completo a conferir",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Região Metropolitana de Salvador — eixo principal BA",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Baía de Todos os Santos / bacias urbanas (Camarajipe, Jaguaribe, Pituaçu, Ipitanga — confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei 8.915/2015 (Política Municipal de Meio Ambiente; CMAPD; TCFA municipal), Lei 9.069/2016 (PDDU), Lei 9.148/2016 (LOUOS), Lei 9.281/2017 (obras e serviços — Código de Obras) confirmadas; Decs. 39.485/2024 e 40.908/2025 criaram GT de revisão do PDDU/LOUOS/Código de Obras (revisão em curso — atenção)."
+  },
+  "_arquivo": "municipal/ba/salvador.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-BA-SIMOES-FILHO",
+  "municipio": "Simões Filho",
+  "uf": "BA",
+  "ibge": null,
+  "orgao_ambiental": "Secretaria Municipal de Meio Ambiente (nome exato a confirmar) — SISMUMA instituído pela Lei 940/2014",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Região Metropolitana de Salvador — Centro Industrial de Aratu (CIA)",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio Joanes / Ipitanga; Baía de Aratu (confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: Lei Municipal 940/2014 institui o Código Municipal de Meio Ambiente e o SISMUMA (leismunicipais — fonte secundária); Câmara e Prefeitura referem Secretaria de Meio Ambiente. Demais itens não levantados."
+  },
+  "_arquivo": "municipal/ba/simoes_filho.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-PI-TERESINA",
+  "municipio": "Teresina",
+  "uf": "PI",
+  "ibge": null,
+  "orgao_ambiental": "SEMAM — Secretaria Municipal de Meio Ambiente e Recursos Hídricos (a confirmar)",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Capital — eixo principal PI",
+  "bioma": "Cerrado/Caatinga (transição) — fora do bioma Mata Atlântica",
+  "bacia_hidrografica": "Rios Parnaíba e Poti (confluência) — bacia do Parnaíba",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; órgão (SEMAM) e Plano Diretor (lembrado como LC 5.481/2019 — PDOT) NÃO confirmados. Ver PENDENTES."
+  },
+  "_arquivo": "municipal/pi/teresina.md"
+ },
+ {
   "tipo_registro": "municipio",
   "id": "MUN-RS-BENTO-GONCALVES",
   "municipio": "Bento Gonçalves",
@@ -1858,7 +4095,7 @@
   "municipio": "Farroupilha",
   "uf": "RS",
   "ibge": null,
-  "orgao_ambiental": "Secretaria de Urbanismo e Meio Ambiente (SEMMA — sigla usada em e-mail institucional)",
+  "orgao_ambiental": "Secretaria de Urbanismo e Meio Ambiente (denominação/sigla oficial a confirmar; e-mail institucional usa 'semma')",
   "habilitado_licenciamento_local": null,
   "regiao": "Serra Gaúcha",
   "bioma": "Mata Atlântica",
@@ -2795,6 +5032,45 @@
   ],
   "atualizado_em": "2026-09-11",
   "_arquivo": "temas/urbanistico.md"
+ },
+ {
+  "tipo_registro": "pesquisa",
+  "id": "PESQ-2026-09-11-COBERTURA-ESTADUAL",
+  "data": "2026-09-11",
+  "comando": "/atualizar-direito-ambiental (ampliação territorial)",
+  "questao": "Levantamento inicial das normas centrais (órgão licenciador, código/política estadual, licenciamento, impacto local, recursos hídricos, flora) de SC, PR, SP, MG, MT, MS, GO, RJ, PE, PB, ES, CE, BA e PI, e dos municípios Salvador, Simões Filho, Candeias (BA) e Teresina (PI).",
+  "territorio": "SC, PR, SP, MG, MT, MS, GO, RJ, PE, PB, ES, CE, BA, PI",
+  "atividade": "transversal",
+  "temas": [
+   "competencia",
+   "licenciamento",
+   "recursos_hidricos",
+   "flora"
+  ],
+  "normas_citadas": [
+   "LEI-SC-14675-2009",
+   "RES-CEMA-PR-107-2020",
+   "LEI-SP-997-1976",
+   "LEI-MG-21972-2016",
+   "LC-MT-38-1995",
+   "LEI-MS-2257-2001",
+   "LEI-GO-20694-2019",
+   "LEI-RJ-3467-2000",
+   "LEI-PE-14249-2010",
+   "LEI-PB-6308-1996",
+   "LC-ES-1073-2023",
+   "LEI-CE-11411-1987",
+   "LEI-BA-10431-2006",
+   "LEI-PI-4854-1996"
+  ],
+  "julgados_citados": [],
+  "resposta_direta": "Perfis criados para 14 UFs com nível INDIRETA; textos oficiais não lidos; revogações relevantes detectadas em GO e RJ.",
+  "confianca": "MEDIA",
+  "risco": "MODERADO",
+  "nivel_verificacao_predominante": "INDIRETA",
+  "revisao_adversarial": false,
+  "validade_estimada": "2026-10-11",
+  "_arquivo": "memoria/pesquisas/PESQ-2026-09-11-cobertura-estadual.md"
  },
  {
   "tipo_registro": "pesquisa",

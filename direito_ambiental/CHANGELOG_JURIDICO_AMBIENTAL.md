@@ -19,6 +19,19 @@ Bloco padrão:
 
 ---
 
+## 2026-09-11 — Ampliação territorial: perfis de 14 UFs e dossiês de Salvador, Simões Filho, Candeias e Teresina
+- DATA: 2026-09-11 | DATA DO ATO: n/a
+- NORMA/JULGADO: estadual/{sc,pr,sp,mg,mt,ms,go,rj,pe,pb,es,ce,ba,pi}/PERFIL.md + fichas (ver indices/por_uf.md); municipal/ba/{salvador,simoes_filho,candeias}.md; municipal/pi/teresina.md; agente direito-ambiental-estados
+- ALTERAÇÃO: criados perfis estaduais (órgão licenciador, conselho, recursos hídricos, portal) e fichas das normas
+  centrais confirmadas por WebSearch (INDIRETA) — inclusive revogações relevantes: GO Lei 8.544/1978 → Lei 20.694/2019;
+  RJ Dec. 44.820/2014 → Dec. 46.890/2019; RJ CONEMA 42/2012 → CONEMA 92/2021. Normas lembradas sem confirmação ficaram
+  NAO_VERIFICADA ou em PENDENTES (23-29).
+- IMPACTO: habilita análise em 15 UFs; nenhum texto estadual foi lido — artigos não devem ser citados sem leitura.
+- ÁREA AFETADA: competência; licenciamento; recursos hídricos; flora; infrações (estaduais)
+- PROCESSOS/CLIENTES POTENCIALMENTE AFETADOS: projetos BA (RMS) e PI (Teresina)
+- FONTE OFICIAL: URLs nas fichas | NÍVEL DE VERIFICAÇÃO: INDIRETA (predominante)
+- RESPONSÁVEL: implantação (ampliação solicitada pelo usuário)
+
 ## 2026-09-11 — Criação do núcleo e carga inicial (seed)
 - DATA: 2026-09-11 | DATA DO ATO: n/a
 - NORMA/JULGADO: carga inicial de fichas federais, RS, municipais (dossiês), jurisprudência, temas

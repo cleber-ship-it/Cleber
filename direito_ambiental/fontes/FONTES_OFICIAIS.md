@@ -52,6 +52,26 @@ verificação (`fontes/CONTROLE_VIGENCIA.md`).
 | Garibaldi/RS | https://garibaldi.rs.gov.br/ | https://www.camaragaribaldi.rs.gov.br/ | a confirmar |
 Repositório secundário útil para localização: https://leismunicipais.com.br/ (NÃO substitui o DOM/Câmara).
 
+## Outras UFs (perfis em `estadual/<uf>/PERFIL.md`)
+| UF | Órgão licenciador | Portal de legislação | Órgão/portal ambiental |
+|---|---|---|---|
+| SC | IMA | https://leis.alesc.sc.gov.br/ | https://www.ima.sc.gov.br/ (INs: https://in.ima.sc.gov.br/) |
+| PR | IAT | https://www.legislacao.pr.gov.br/ | https://www.iat.pr.gov.br/ ; CEMA: https://www.sedest.pr.gov.br/CEMA |
+| SP | CETESB / SEMIL | https://www.al.sp.gov.br/legislacao/ | https://cetesb.sp.gov.br/ ; https://semil.sp.gov.br/ |
+| MG | SEMAD (FEAM/IEF/IGAM) | https://www.almg.gov.br/legislacao-mineira/ | https://semad.mg.gov.br/banco-de-legisla%C3%A7%C3%A3o-ambiental ; SIAM |
+| MT | SEMA-MT | https://www.al.mt.gov.br/norma-juridica/ | https://www.sema.mt.gov.br/ |
+| MS | IMASUL | https://www.imasul.ms.gov.br/legislacao-ambiental/ | https://www.imasul.ms.gov.br/ |
+| GO | SEMAD-GO | https://legisla.casacivil.go.gov.br/ | https://goias.gov.br/meioambiente/ |
+| RJ | INEA | https://www.alerj.rj.gov.br/ | https://www.inea.rj.gov.br/ |
+| PE | CPRH | https://legis.alepe.pe.gov.br/ | https://www2.cprh.pe.gov.br/ |
+| PB | SUDEMA / AESA | https://www.al.pb.leg.br/ | https://sudema.pb.gov.br/ ; http://www.aesa.pb.gov.br/ |
+| ES | IEMA / AGERH | https://www.al.es.gov.br/ | https://iema.es.gov.br/ |
+| CE | SEMACE | https://belt.al.ce.gov.br/ | https://www.semace.ce.gov.br/ |
+| BA | INEMA / SEMA-BA | https://www.legislabahia.ba.gov.br/ | https://www.inema.ba.gov.br/ ; SEIA: http://www.seia.ba.gov.br/ |
+| PI | SEMARH | https://www.al.pi.leg.br/ | https://www.semarh.pi.gov.br/legislacao |
+Municípios BA/PI: Salvador — https://sustentabilidade.salvador.ba.gov.br/ ; https://sedur.salvador.ba.gov.br/ ; Simões Filho — https://camarasimoesfilho.ba.gov.br/ ; Candeias — https://prefeitura.candeias.ba.gov.br/ ; Teresina — https://pmt.pi.gov.br/ .
+Panorama útil (secundário): PNLA/MMA "Procedimentos de Licenciamento Ambiental" por UF — https://pnla.mma.gov.br/ ; ANA/Progestão — https://progestao.ana.gov.br/panorama-dos-estados .
+
 ## Regra de preferência de URL
 1. Texto compilado oficial (Planalto/AL-RS/SEMA/Prefeitura) → 2. publicação original (LEGIN/DOU/DOE/DOM)
 → 3. portal do tribunal → 4. secundária (apenas localização).

@@ -4,7 +4,7 @@ id: MUN-RS-FARROUPILHA
 municipio: Farroupilha
 uf: RS
 ibge: null
-orgao_ambiental: "Secretaria de Urbanismo e Meio Ambiente (SEMMA — sigla usada em e-mail institucional)"
+orgao_ambiental: "Secretaria de Urbanismo e Meio Ambiente (denominação/sigla oficial a confirmar; e-mail institucional usa 'semma')"
 habilitado_licenciamento_local: null
 regiao: Serra Gaúcha
 bioma: Mata Atlântica

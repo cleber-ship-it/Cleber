@@ -21,6 +21,7 @@ julg = [r for r in regs if r["tipo_registro"] == "julgado"]
 muns = [r for r in regs if r["tipo_registro"] == "municipio"]
 temas = [r for r in regs if r["tipo_registro"] == "tema"]
 pesq = [r for r in regs if r["tipo_registro"] == "pesquisa"]
+perfis = [r for r in regs if r["tipo_registro"] == "perfil_uf"]
 
 def ver(r):
     v = r.get("verificacao") or {}
@@ -56,12 +57,12 @@ ct_ver = c((r.get("verificacao") or {}).get("nivel","?") for r in regs if r["tip
 ct_ente = c(r.get("ente","?") for r in normas)
 corpo = f"Gerado em {HOJE}.\n\n## Contadores\n"
 corpo += f"- Normas: **{len(normas)}** (federal {ct_ente.get('FEDERAL',0)}, estadual {ct_ente.get('ESTADUAL',0)}, municipal {ct_ente.get('MUNICIPAL',0)})\n"
-corpo += f"- Julgados/súmulas: **{len(julg)}** | Dossiês municipais: **{len(muns)}** | Temas: **{len(temas)}** | Pesquisas em memória: **{len(pesq)}**\n"
+corpo += f"- Julgados/súmulas: **{len(julg)}** | Perfis de UF: **{len(perfis)}** | Dossiês municipais: **{len(muns)}** | Temas: **{len(temas)}** | Pesquisas em memória: **{len(pesq)}**\n"
 corpo += "- Vigência das normas: " + ", ".join(f"{k} {v}" for k, v in sorted(ct_status.items())) + "\n"
 corpo += "- Nível de verificação (normas, julgados e municípios): " + ", ".join(f"{k} {v}" for k, v in sorted(ct_ver.items())) + "\n\n"
 corpo += "## Índices disponíveis\n" + "\n".join(f"- [{n}]({n})" for n in [
     "por_assunto.md","por_numero.md","por_ente.md","por_orgao.md","por_municipio.md","por_atividade.md",
-    "por_infracao.md","por_status_vigencia.md","jurisprudencia.md","temas.md","memoria.md","normas.json","VOCABULARIO.md"]) + "\n\n"
+    "por_infracao.md","por_status_vigencia.md","por_uf.md","jurisprudencia.md","temas.md","memoria.md","normas.json","VOCABULARIO.md"]) + "\n\n"
 corpo += "## Todas as normas\n" + HN + "\n".join(lin_norma(r) for r in sorted(normas, key=lambda r: (r.get('ente',''), str(r.get('uf') or ''), -int(r.get('ano') or 0), str(r.get('numero'))))) + "\n"
 escrever("INDICE_GERAL.md", "Índice geral do NUCLEO_DIREITO_AMBIENTAL", corpo)
 
@@ -138,6 +139,18 @@ corpo = "| ID | Data | Comando | Questão | Território | Resposta | Confiança 
 corpo += "\n".join(f"| {link(r)} | {r.get('data','')} | {r.get('comando','')} | {str(r.get('questao',''))[:80]} | {r.get('territorio','')} | {r.get('resposta_direta','')} | {r.get('confianca','')} | {r.get('risco','')} | {r.get('validade_estimada','')} |" for r in sorted(pesq, key=lambda r: str(r.get('data')), reverse=True)) + "\n"
 escrever("memoria.md", "Memória de pesquisas", corpo)
 
+# --- por UF (perfis + normas + municípios)
+corpo = "| UF | Perfil | Órgão licenciador | Conselho | Prioridade | Normas cadastradas | Municípios prioritários | Verificação |\n|---|---|---|---|---|---|---|---|\n"
+for pf in sorted(perfis, key=lambda r: r.get("uf","")):
+    corpo += f"| {pf.get('uf')} | {link(pf)} | {str(pf.get('orgao_licenciador',''))[:60]} | {pf.get('conselho_estadual','')} | {pf.get('prioridade','')} | {len(pf.get('normas_centrais') or [])} | {', '.join(pf.get('municipios_prioritarios') or [])} | {ver(pf)} |\n"
+ufs_rs = [r for r in normas if r.get("uf")=="RS"]
+corpo += f"| RS | (agente próprio: direito-ambiental-rs) | FEPAM/SEMA | CONSEMA/RS | ALTA | {len(ufs_rs)} | Farroupilha, Caxias do Sul, Bento Gonçalves, Flores da Cunha, Garibaldi | ver fichas |\n\n"
+for uf, rs in grupo([r for r in normas if r.get("ente")=="ESTADUAL"], "uf").items():
+    corpo += f"## {uf} — normas\n" + HN + "\n".join(lin_norma(r) for r in rs) + "\n\n"
+    mm = [m for m in muns if m.get("uf")==uf]
+    if mm: corpo += f"Municípios com dossiê: " + ", ".join(link(m) for m in mm) + "\n\n"
+escrever("por_uf.md", "Cobertura por Unidade da Federação", corpo)
+
 # --- JSON
 (OUT / "normas.json").write_text(json.dumps(regs, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
-print(f"Índices gerados em {rel(OUT)}: {len(normas)} normas, {len(julg)} julgados, {len(muns)} municípios, {len(temas)} temas, {len(pesq)} pesquisas.")
+print(f"Índices gerados em {rel(OUT)}: {len(normas)} normas, {len(julg)} julgados, {len(perfis)} perfis de UF, {len(muns)} municípios, {len(temas)} temas, {len(pesq)} pesquisas.")

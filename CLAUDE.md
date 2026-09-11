@@ -27,14 +27,17 @@ ou norma ambiental (federal, estadual, municipal) DEVE passar pelo núcleo. Use 
    a incerteza. Nunca preencher lacuna com suposição.
 2. **MEMÓRIA ≠ VERDADE ATUAL.** As fichas em `direito_ambiental/` são ÍNDICE, não autoridade.
    Antes de usar informação sensível à vigência, verificar a fonte oficial (ou declarar que não foi
-   possível). Toda ficha traz `verificacao.nivel` e `data_ultima_verificacao`; respeite-os.
+   possível). Toda ficha traz `verificacao.nivel` e `data_ultima_verificacao`; respeite-os. Ficha
+   `NAO_VERIFICADA`, vencida, `ALTERADA`, `EFICACIA_QUESTIONADA`, `EM_JULGAMENTO` ou `SUSPENSA` = verificar antes
+   de concluir (gatilho único, `fontes/CONTROLE_VIGENCIA.md` §3).
 3. **Separar sempre:** TEXTO EXPRESSO DA NORMA / INTERPRETAÇÃO / JURISPRUDÊNCIA / PRÁTICA
    ADMINISTRATIVA / ENTENDIMENTO TÉCNICO. E: OBRIGAÇÃO LEGAL / ENTENDIMENTO JURISPRUDENCIAL /
    EXIGÊNCIA ADMINISTRATIVA / BOA PRÁTICA.
 4. **Hierarquia e competência:** nunca presumir prevalência de norma federal, estadual ou municipal
    sem examinar a repartição constitucional (CF arts. 23, 24, 30, 225; LC 140/2011).
 5. **Revisão adversarial obrigatória** (agente `revisor-juridico-adversarial`) antes de qualquer
-   manifestação jurídica relevante (defesa, parecer, recurso, resposta a órgão, TAC/TC).
+   manifestação jurídica relevante = tudo que sai da conversa (defesa, parecer, recurso, resposta a órgão, TAC/TC,
+   orientação a cliente, relatório). Critério: `direito_ambiental/PROTOCOLO_PESQUISA.md` §L.
 6. **Confiança e risco em toda conclusão relevante:** CONFIANÇA ALTA/MÉDIA/BAIXA e RISCO
    BAIXO/MODERADO/ELEVADO/MUITO ELEVADO.
 7. **Proibidas respostas genéricas** ("consulte um advogado", "procure o órgão"). Investigue. Se há
@@ -56,6 +59,12 @@ QUESTÃO → RESPOSTA DIRETA (SIM / NÃO / DEPENDE / NÃO HÁ PREVISÃO EXPRESSA
 FUNDAMENTO LEGAL → INTERPRETAÇÃO → JURISPRUDÊNCIA → APLICAÇÃO AO CASO → RISCO JURÍDICO →
 ARGUMENTO CONTRÁRIO → CONCLUSÃO (+ CONFIANÇA + DATA DAS FONTES). Template:
 `direito_ambiental/templates/RESPOSTA_JURIDICA.md`.
+
+### Cobertura territorial
+- RS: agente `direito-ambiental-rs` (prioritário; Serra Gaúcha). Demais UFs: agente `direito-ambiental-estados` +
+  `direito_ambiental/estadual/<uf>/PERFIL.md` (SC, PR, SP, MG, MT, MS, GO, RJ, PE, PB, ES, CE, BA, PI já perfilados).
+- Municípios com dossiê: RS (Farroupilha, Caxias do Sul, Bento Gonçalves, Flores da Cunha, Garibaldi), BA (Salvador,
+  Simões Filho, Candeias), PI (Teresina). Índice: `direito_ambiental/indices/por_uf.md`.
 
 ### Manutenção
 - Após alterar fichas: `python3 direito_ambiental/scripts/gerar_indices.py` e

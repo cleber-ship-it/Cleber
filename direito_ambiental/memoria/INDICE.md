@@ -9,3 +9,4 @@ MEMÓRIA ≠ VERDADE ATUAL: antes de reutilizar uma conclusão, verificar `valid
 | ID | Data | Comando | Questão | Território | Resposta | Confiança | Validade |
 |---|---|---|---|---|---|---|---|
 | PESQ-2026-09-11-implantacao-verificacao-inicial | 2026-09-11 | /atualizar-direito-ambiental (implantação) | Verificação inicial de pontos críticos de atualização (Lei 15.190/2025; CONSEMA 372; ADPF 748; ADI 7146; Lei 15.434/RS; Dec. 11.373; Farroupilha) | FEDERAL / RS / Farroupilha | ver arquivo | MÉDIA | 2026-10-11 |
+| PESQ-2026-09-11-COBERTURA-ESTADUAL | 2026-09-11 | /atualizar-direito-ambiental (ampliação) | Levantamento inicial (WebSearch) das normas centrais de SC, PR, SP, MG, MT, MS, GO, RJ, PE, PB, ES, CE, BA, PI e municípios Salvador/Simões Filho/Candeias/Teresina | 14 UFs | ver arquivo | MÉDIA | 2026-10-11 |

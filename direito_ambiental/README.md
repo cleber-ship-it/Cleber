@@ -20,8 +20,9 @@ direito_ambiental/
 │   ├── FONTES_OFICIAIS.md            catálogo de fontes primárias (URLs) por ente/órgão
 │   └── CONTROLE_VIGENCIA.md          taxonomia de status de vigência e níveis de verificação
 ├── federal/                          fichas de normas federais (1 arquivo por norma)
-├── estadual/rs/                      fichas RS (prioritário) | estadual/outros/ demais UFs
-├── municipal/rs/<municipio>.md       dossiê por município (checklist de 18 itens obrigatórios)
+├── estadual/rs/                      fichas RS (prioritário)
+├── estadual/<uf>/PERFIL.md + fichas  14 UFs perfiladas (sc pr sp mg mt ms go rj pe pb es ce ba pi); outros/README.md para novas UFs
+├── municipal/<uf>/<municipio>.md     dossiês (RS: 5 da Serra Gaúcha; BA: Salvador, Simões Filho, Candeias; PI: Teresina)
 ├── jurisprudencia/{stf,stj,trf,tj,sumulas}/  fichas de julgados e súmulas
 ├── temas/                            sínteses por tema (ponte semântica: pergunta → normas → julgados)
 ├── memoria/pesquisas/                registros de pesquisas/pareceres já realizados + INDICE.md
@@ -45,6 +46,7 @@ direito_ambiental/
 | `revisor-juridico-adversarial` | Tenta DESTRUIR a conclusão: norma esquecida, exceção, revogação, jurisprudência contrária, competência, argumento do órgão/MP/parte contrária |
 | `direito-ambiental-federal` | CF, PNMA, Lei 9.605, Dec. 6.514, Código Florestal, Mata Atlântica, LC 140, CONAMA, recursos hídricos, resíduos, fauna, flora |
 | `direito-ambiental-rs` | Código Estadual (Lei 15.434/2020), CONSEMA, FEPAM, SEMA, DRHS, CRH, municipalização, enquadramentos |
+| `direito-ambiental-estados` | Demais UFs (SC, PR, SP, MG, MT, MS, GO, RJ, PE, PB, ES, CE, BA, PI e outras) a partir de `estadual/<uf>/PERFIL.md` |
 | `direito-ambiental-municipal` | Localiza e interpreta legislação municipal (checklist obrigatório de 18 itens) |
 | `licenciamento-ambiental` | LP/LI/LO/LOR, corretivo, renovação, condicionantes, competência, enquadramento, estudos (EIA/RIMA, RCA, PCA, RAS, PRAD), Lei 15.190/2025 |
 | `flora-app-mata-atlantica` | Lei 11.428, Dec. 6.660, Lei 12.651, APP, RL, estágio sucessional, supressão, compensação, SINAFLOR, espécies |
@@ -54,6 +56,7 @@ direito_ambiental/
 | `urbanistico-ambiental` | Estatuto da Cidade, Lei 6.766, APP urbana, plano diretor, REURB, área urbana consolidada |
 | `jurisprudencia-ambiental` | localiza, autentica e analisa precedentes; superação/distinção |
 | `verificador-fontes-normativas` | SUBAGENTE: confere existência, vigência, redação e URL oficial de cada citação; atribui nível de verificação |
+| `consultor-tecnico-ambiental` | Técnico GENÉRICO (substituto até haver especialistas por área): confirma/refuta/declara indeterminada a premissa técnica no formato RESPOSTA_TECNICA |
 
 ## Comandos (`.claude/skills/`)
 `/direito-ambiental`, `/pesquisa-juridica`, `/auditar-juridico`, `/atualizar-direito-ambiental`, `/registrar-norma`.

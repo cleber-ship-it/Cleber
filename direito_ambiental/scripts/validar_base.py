@@ -18,6 +18,7 @@ REQ = {
  "municipio": ["id","municipio","uf","orgao_ambiental","prioridade","checklist_completo","verificacao"],
  "tema": ["id","titulo","assuntos","normas","julgados","atualizado_em"],
  "pesquisa": ["id","data","comando","questao","temas","normas_citadas","julgados_citados","resposta_direta","confianca","risco","nivel_verificacao_predominante","revisao_adversarial","validade_estimada"],
+ "perfil_uf": ["id","uf","nome","orgao_licenciador","conselho_estadual","orgao_recursos_hidricos","portal_legislacao","prioridade","normas_centrais","verificacao"],
 }
 VENC_NORMA, VENC_JULG = 180, 365
 erros, avisos, ids = [], [], {}
@@ -80,7 +81,7 @@ for p in iter_fichas():
 # referências cruzadas
 for r, fm in regs:
     refs = []
-    for k in ("alterada_por","altera","revoga","normas_relacionadas","normas","julgados","normas_citadas","julgados_citados"):
+    for k in ("alterada_por","altera","revoga","normas_relacionadas","normas","julgados","normas_citadas","julgados_citados","normas_centrais"):
         vals = fm.get(k) or []
         if isinstance(vals, list): refs += [x for x in vals if isinstance(x, str)]
     if fm.get("revogada_por"): refs.append(fm["revogada_por"])
@@ -91,7 +92,7 @@ for r, fm in regs:
 
 # estrutura do Claude Code
 ag = REPO / ".claude" / "agents"
-esperados = ["coordenador-direito-ambiental","revisor-juridico-adversarial","verificador-fontes-normativas","direito-ambiental-federal","direito-ambiental-rs","direito-ambiental-municipal","licenciamento-ambiental","flora-app-mata-atlantica","infracoes-processo-administrativo","responsabilidade-civil-ambiental","recursos-hidricos-saneamento","urbanistico-ambiental","jurisprudencia-ambiental"]
+esperados = ["coordenador-direito-ambiental","direito-ambiental-estados","consultor-tecnico-ambiental","revisor-juridico-adversarial","verificador-fontes-normativas","direito-ambiental-federal","direito-ambiental-rs","direito-ambiental-municipal","licenciamento-ambiental","flora-app-mata-atlantica","infracoes-processo-administrativo","responsabilidade-civil-ambiental","recursos-hidricos-saneamento","urbanistico-ambiental","jurisprudencia-ambiental"]
 for n in esperados:
     f = ag / f"{n}.md"
     if not f.exists(): erros.append(f"agente ausente: {rel(f) if f.exists() else f}")

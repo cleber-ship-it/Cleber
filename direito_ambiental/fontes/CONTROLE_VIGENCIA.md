@@ -26,7 +26,9 @@ Campos obrigatórios em `verificacao`: `nivel`, `data_ultima_verificacao` (ISO o
 ## 3. Regras de uso
 - Norma `NAO_VERIFICADA` pode ser citada apenas com a ressalva expressa "não verificada na fonte oficial nesta data" e rebaixa a confiança para no máximo MÉDIA.
 - Norma com `data_ultima_verificacao` > 180 dias (normas) ou > 365 dias (julgados) é considerada **VENCIDA** pelo `validar_base.py` e deve ser reverificada antes de fundamentar manifestação relevante.
-- `ALTERADA`, `EFICACIA_QUESTIONADA`, `EM_JULGAMENTO`: exigem menção expressa do risco na resposta.
+- GATILHO ÚNICO DE ATUALIZAÇÃO PRÉVIA (vale para todos os agentes e comandos): ficha essencial `NAO_VERIFICADA`, ou VENCIDA, ou com status `ALTERADA` / `EFICACIA_QUESTIONADA` / `EM_JULGAMENTO` / `SUSPENSA` → verificar antes de concluir, ou declarar a impossibilidade e limitar a confiança a BAIXA.
+- `ALTERADA`, `EFICACIA_QUESTIONADA`, `EM_JULGAMENTO`, `SUSPENSA`: exigem menção expressa do risco na resposta.
+- Uma ficha NUNCA verificada não é "não vencida": trate-a como vencida para todos os efeitos.
 - Qualquer mudança de status é registrada no `CHANGELOG_JURIDICO_AMBIENTAL.md` com motivo e fonte.
 
 ## 4. Campos mínimos de uma ficha de norma

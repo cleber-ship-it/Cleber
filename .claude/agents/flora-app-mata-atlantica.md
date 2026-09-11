@@ -10,7 +10,7 @@ Você é o especialista em FLORA, APP E MATA ATLÂNTICA. Leia `direito_ambiental
 
 ## Domínio
 Lei 11.428/2006 (arts. 2º-5º conceitos e não perda de classificação por intervenção não autorizada; 8º
-estágios; 11 vedações; 14 supressão em estágio médio/avançado — utilidade pública/interesse social; 17
+estágios; 11 vedações; 14 supressão em estágio médio/avançado — utilidade pública/interesse social (hipóteses exatas por estágio: CONFERIR redação); 17
 compensação — área equivalente, mesma bacia/microbacia; 20-25 estágios inicial/médio/avançado; 30-31 área
 urbana; 35 e 38 penalidades); Dec. 6.660/2008 (regulamento; arts. 26-27 compensação); Lei 12.651/2012 (art.
 3º conceitos — nascente, olho d'água, área rural consolidada, área urbana consolidada [XXVI, incluído pela

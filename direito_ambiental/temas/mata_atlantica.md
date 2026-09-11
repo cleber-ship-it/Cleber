@@ -17,7 +17,7 @@ atualizado_em: 2026-09-11
 ## Perguntas típicas → onde procurar
 - "Está no bioma?" → mapa IBGE (Lei 11.428 art. 2º; Dec. 6.660 art. 1º) — SIG.
 - "Qual o estágio?" → CONAMA 33/1994 (RS) — botânica (PREMISSA TÉCNICA).
-- "Pode suprimir?" → primária/avançado: art. 20-21 (utilidade pública etc.); médio: art. 23; inicial: art. 25; vedações art. 11; área urbana: arts. 30-31 (perímetro urbano até 22/12/2006 — preservar 50% [médio] / 30% [avançado]).
+- "Pode suprimir?" → primária/avançado: arts. 20-21; médio: art. 23; inicial: art. 25 (hipóteses exatas por estágio — CONFERIR redação; a ficha traz apenas paráfrase); vedações art. 11; área urbana: arts. 30-31 (regime distinto conforme o perímetro urbano ter sido aprovado antes ou depois do início de vigência da lei — data de vigência a conferir; percentuais mínimos de preservação 50%/30% — conferir).
 - "Quem autoriza?" → órgão estadual (art. 14 §1º) com anuência federal em hipóteses (Dec. 6.660 arts. 19 ss.); município habilitado? conferir CONSEMA 372 e LC 140 art. 9º XV.
 - "Compensação?" → art. 17 + Dec. 6.660 arts. 26-27 (área equivalente; mesma bacia/microbacia; reposição se impossível).
 - "Corte ilegal: consequências?" → art. 5º (não perde classificação), art. 35-38 e Lei 9.605 art. 38-A, Dec. 6.514 art. 51; recuperação: TEMA-REPARACAO-IN-NATURA.

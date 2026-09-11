@@ -49,8 +49,9 @@ Consultas cruzadas relevantes são anotadas na ficha de pesquisa (`memoria/pesqu
 "Premissas técnicas".
 
 ## Agentes técnicos existentes nesta base
-Em 2026-09-11 **não havia** agentes técnicos em `.claude/agents/`. Quando forem criados, usar o template
-`templates/AGENTE_TECNICO.md` e registrar aqui:
+Em 2026-09-11 não havia agentes técnicos especializados; foi criado um consultor técnico GENÉRICO. Agentes
+especializados por área devem ser criados com `templates/AGENTE_TECNICO.md` e registrados aqui (o genérico passa a
+encaminhar para eles):
 | Agente | Arquivo | Área | Criado em |
 |---|---|---|---|
-| (nenhum ainda) | | | |
+| `consultor-tecnico-ambiental` (GENÉRICO — substituto até existirem especialistas) | `.claude/agents/consultor-tecnico-ambiental.md` | todas as áreas da tabela acima | 2026-09-11 |

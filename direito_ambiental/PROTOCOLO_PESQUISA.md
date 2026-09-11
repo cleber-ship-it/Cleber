@@ -80,8 +80,15 @@ resolvem por busca literal. Começar por `temas/` (mapa conceito → normas → 
 sinônimos e institutos correlatos (dever de reparar, reparação in natura, restitutio in integrum,
 recuperação de APP, propter rem...), e então separar: expresso / interpretação / jurisprudência.
 
+## L. O que é "manifestação relevante" (critério objetivo)
+RELEVANTE = qualquer conclusão que será usada fora da conversa: perante órgão ambiental, MP, juízo, cliente, em
+parecer, defesa, recurso, TAC/TC, resposta a notificação, relatório técnico ou e-mail com orientação. Exige fluxo
+completo (especialistas → verificador → revisor adversarial → coordenador). TRIVIAL = orientação interna imediata,
+sem uso externo, integralmente respondida por ficha verificada; ainda assim mantém formato, confiança e data das
+fontes e declara "sem revisão adversarial". Na dúvida, é RELEVANTE.
+
 ## K. Data de corte e atualização
 Toda análise informa `DATA_DAS_FONTES` e o nível de verificação. Se a análise tem impacto jurídico
-significativo e a fonte não foi conferida recentemente (> 180 dias para normas, > 365 para julgados,
-qualquer prazo se houver notícia de alteração): ATUALIZAR ANTES DE CONCLUIR, ou declarar a
+significativo e a fonte não foi conferida recentemente (> 180 dias para normas, > 365 para julgados, NUNCA verificada,
+ou qualquer prazo se houver notícia de alteração): ATUALIZAR ANTES DE CONCLUIR, ou declarar a
 impossibilidade e rebaixar a confiança.

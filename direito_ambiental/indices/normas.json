@@ -1,0 +1,2840 @@
+[
+ {
+  "tipo_registro": "norma",
+  "id": "CF-1988",
+  "tipo_normativo": "Constituição",
+  "numero": "CF",
+  "ano": 1988,
+  "data": "1988-10-05",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Assembleia Nacional Constituinte",
+  "ementa": "Constituição da República Federativa do Brasil de 1988 — dispositivos ambientais, urbanísticos e de repartição de competências.",
+  "assuntos": [
+   "principios",
+   "competencia",
+   "urbanistico",
+   "recursos_hidricos",
+   "responsabilidade_civil",
+   "responsabilidade_penal"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Emendas Constitucionais (diversas) — verificar texto compilado"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/CF-1988.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-FED-10936-2022",
+  "tipo_normativo": "Decreto",
+  "numero": "10.936",
+  "ano": 2022,
+  "data": "2022-01-12",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Presidência da República",
+  "ementa": "Regulamenta a Lei 12.305/2010 (PNRS); revoga o Decreto 7.404/2010.",
+  "assuntos": [
+   "residuos"
+  ],
+  "atividades": [
+   "industria",
+   "saneamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/decreto/D10936.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/DEC-FED-10936-2022.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-FED-11373-2023",
+  "tipo_normativo": "Decreto",
+  "numero": "11.373",
+  "ano": 2023,
+  "data": "2023-01-01",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Presidência da República",
+  "ementa": "Altera o Decreto 6.514/2008 (infrações e processo administrativo ambiental federal) — revoga a conciliação ambiental e altera a conversão de multas.",
+  "assuntos": [
+   "infracoes",
+   "processo_administrativo"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [
+   "DEC-FED-6514-2008"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/decreto/D11373.htm",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Conteúdo confirmado por fontes secundárias (ConJur 2023-01; Mattos Filho; Milaré). URL do Planalto não acessada (bloqueio de rede)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/DEC-FED-11373-2023.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-FED-6514-2008",
+  "tipo_normativo": "Decreto",
+  "numero": "6.514",
+  "ano": 2008,
+  "data": "2008-07-22",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Presidência da República",
+  "ementa": "Dispõe sobre as infrações e sanções administrativas ao meio ambiente e estabelece o processo administrativo federal para apuração destas infrações.",
+  "assuntos": [
+   "infracoes",
+   "processo_administrativo",
+   "prescricao",
+   "flora",
+   "fauna",
+   "app",
+   "mata_atlantica",
+   "licenciamento",
+   "residuos",
+   "unidades_conservacao"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Dec. 6.686/2008",
+   "Dec. 7.640/2011",
+   "Dec. 7.719/2012",
+   "Dec. 9.179/2017 (conversão de multa)",
+   "Dec. 9.760/2019 (conciliação ambiental; conversão)",
+   "DEC-FED-11373-2023 (revoga conciliação; altera conversão)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [
+   "Dec. 3.179/1999"
+  ],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6514.htm",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11 confirmou alterações pelo Dec. 11.373/2023 (revogação da conciliação; conversão de multa até alegações finais; 60 dias para projeto; 50% ao FNMA). Texto compilado não acessado. Verificar se houve novos decretos 2023-2026."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/DEC-FED-6514-2008.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-FED-6660-2008",
+  "tipo_normativo": "Decreto",
+  "numero": "6.660",
+  "ano": 2008,
+  "data": "2008-11-21",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Presidência da República",
+  "ementa": "Regulamenta dispositivos da Lei 11.428/2006 (Mata Atlântica).",
+  "assuntos": [
+   "mata_atlantica",
+   "flora",
+   "supressao_vegetal",
+   "compensacao",
+   "estagio_sucessional"
+  ],
+  "atividades": [
+   "loteamento",
+   "agropecuario"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6660.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/DEC-FED-6660-2008.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "DEC-FED-99274-1990",
+  "tipo_normativo": "Decreto",
+  "numero": "99.274",
+  "ano": 1990,
+  "data": "1990-06-06",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Presidência da República",
+  "ementa": "Regulamenta a Lei 6.902/1981 e a Lei 6.938/1981 (PNMA) — CONAMA, licenciamento.",
+  "assuntos": [
+   "organizacao_sisnama",
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Dec. 9.806/2019 (composição do CONAMA) e decretos posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/decreto/antigos/d99274.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/DEC-FED-99274-1990.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LC-FED-140-2011",
+  "tipo_normativo": "Lei Complementar",
+  "numero": "140",
+  "ano": 2011,
+  "data": "2011-12-08",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Fixa normas de cooperação entre União, Estados, DF e Municípios nas ações administrativas decorrentes do exercício da competência comum relativas à proteção do meio ambiente (CF art. 23, par. único); altera a Lei 6.938/1981.",
+  "assuntos": [
+   "competencia",
+   "licenciamento",
+   "infracoes",
+   "supressao_vegetal",
+   "fauna",
+   "organizacao_sisnama"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 15.190/2025 (verificar se alterou dispositivos)"
+  ],
+  "revogada_por": null,
+  "altera": [
+   "LEI-FED-6938-1981"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp140.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LC-FED-140-2011.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-10257-2001",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "10.257",
+  "ano": 2001,
+  "data": "2001-07-10",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Regulamenta os arts. 182 e 183 da CF; estabelece diretrizes gerais da política urbana (Estatuto da Cidade).",
+  "assuntos": [
+   "urbanistico",
+   "competencia"
+  ],
+  "atividades": [
+   "loteamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 12.608/2012",
+   "Lei 13.465/2017"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/leis_2001/l10257.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-10257-2001.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-11428-2006",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.428",
+  "ano": 2006,
+  "data": "2006-12-22",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre a utilização e proteção da vegetação nativa do Bioma Mata Atlântica (Lei da Mata Atlântica).",
+  "assuntos": [
+   "mata_atlantica",
+   "flora",
+   "supressao_vegetal",
+   "estagio_sucessional",
+   "compensacao",
+   "reparacao",
+   "urbanistico",
+   "infracoes",
+   "competencia"
+  ],
+  "atividades": [
+   "loteamento",
+   "mineracao",
+   "agropecuario",
+   "industria"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 12.651/2012 (dispositivos pontuais — verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [
+   "LEI-FED-9605-1998"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11428.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-11428-2006.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-11445-2007",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.445",
+  "ano": 2007,
+  "data": "2007-01-05",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Diretrizes nacionais para o saneamento básico.",
+  "assuntos": [
+   "saneamento",
+   "recursos_hidricos",
+   "efluentes"
+  ],
+  "atividades": [
+   "saneamento"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Lei 14.026/2020 (Novo Marco do Saneamento — metas de universalização 2033; ANA como reguladora de referência; prestação regionalizada)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/lei/l11445.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/LEI-FED-11445-2007.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-12305-2010",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.305",
+  "ano": 2010,
+  "data": "2010-08-02",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Institui a Política Nacional de Resíduos Sólidos (PNRS); altera a Lei 9.605/1998.",
+  "assuntos": [
+   "residuos",
+   "responsabilidade_civil",
+   "licenciamento"
+  ],
+  "atividades": [
+   "industria",
+   "saneamento",
+   "mineracao"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 14.026/2020 (prazos de aterros)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-12305-2010.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-12334-2010",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.334",
+  "ano": 2010,
+  "data": "2010-09-20",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Política Nacional de Segurança de Barragens (PNSB).",
+  "assuntos": [
+   "barragens",
+   "recursos_hidricos",
+   "mineracao"
+  ],
+  "atividades": [
+   "barragens",
+   "mineracao"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Lei 14.066/2020 (ampla reforma pós-Brumadinho)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12334.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/LEI-FED-12334-2010.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-12651-2012",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "12.651",
+  "ano": 2012,
+  "data": "2012-05-25",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre a proteção da vegetação nativa (Código Florestal) — APP, Reserva Legal, área rural consolidada, CAR, PRA, supressão de vegetação.",
+  "assuntos": [
+   "flora",
+   "app",
+   "reserva_legal",
+   "area_consolidada",
+   "supressao_vegetal",
+   "reparacao",
+   "responsabilidade_civil",
+   "urbanistico",
+   "competencia"
+  ],
+  "atividades": [
+   "agropecuario",
+   "loteamento",
+   "silvicultura"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Lei 12.727/2012",
+   "Lei 13.887/2019 (CAR/PRA prazos)",
+   "Lei 14.119/2021",
+   "LEI-FED-14285-2021 (art. 3º XXVI; art. 4º §10; Lei 6.766 art. 4º)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [
+   "Lei 4.771/1965 (Código Florestal anterior)",
+   "Lei 7.754/1989",
+   "MP 2.166-67/2001"
+  ],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-12651-2012.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-13465-2017",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "13.465",
+  "ano": 2017,
+  "data": "2017-07-11",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre a regularização fundiária rural e urbana (REURB).",
+  "assuntos": [
+   "reurb",
+   "urbanistico",
+   "app"
+  ],
+  "atividades": [
+   "loteamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 14.118/2021",
+   "leis posteriores (verificar lista completa)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13465.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-13465-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-14119-2021",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "14.119",
+  "ano": 2021,
+  "data": "2021-01-13",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Institui a Política Nacional de Pagamento por Serviços Ambientais (PNPSA).",
+  "assuntos": [
+   "clima",
+   "compensacao",
+   "reserva_legal"
+  ],
+  "atividades": [
+   "agropecuario"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14119.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/LEI-FED-14119-2021.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-14285-2021",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "14.285",
+  "ano": 2021,
+  "data": "2021-12-29",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Altera a Lei 12.651/2012 (Código Florestal), a Lei 11.952/2009 e a Lei 6.766/1979 para dispor sobre as áreas de preservação permanente no entorno de cursos d'água em áreas urbanas consolidadas.",
+  "assuntos": [
+   "app",
+   "urbanistico",
+   "area_consolidada",
+   "parcelamento_solo",
+   "competencia",
+   "controle_constitucionalidade"
+  ],
+  "atividades": [
+   "loteamento"
+  ],
+  "status_vigencia": "EFICACIA_QUESTIONADA",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [
+   "LEI-FED-12651-2012",
+   "LEI-FED-6766-1979",
+   "Lei 11.952/2009"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/L14285.htm",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: ADI 7146 (Rel. Min. André Mendonça) sem julgamento de mérito segundo fontes de meados de 2025; informação pode estar desatualizada — RECHECAR. Nota Técnica Conjunta CAOMA-CAOURB/MPRS 01/2024 trata da aplicação da lei no RS (posição institucional do MP, não norma)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-14285-2021.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-15190-2025",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "15.190",
+  "ano": 2025,
+  "data": "2025-08-08",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Lei Geral do Licenciamento Ambiental — dispõe sobre o licenciamento ambiental (normas gerais), tipos de licença, procedimentos, dispensas e competências (conteúdo detalhado a confirmar no texto oficial consolidado).",
+  "assuntos": [
+   "licenciamento",
+   "competencia",
+   "organizacao_sisnama"
+  ],
+  "atividades": [],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Promulgação de 52 dispositivos vetados (Congresso, 2025-11-27)",
+   "MP 1.308/2025 (Licença Ambiental Especial — LAE) — situação a confirmar"
+  ],
+  "revogada_por": null,
+  "altera": [
+   "LEI-FED-6938-1981 (verificar)",
+   "LC-FED-140-2011 (verificar)"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www2.camara.leg.br/legin/fed/lei/2025/lei-15190-8-agosto-2025-797833-publicacaooriginal-176089-pl.html",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11 (Senado Notícias 2025-08-08 e 2025-11-27; MPPR; LexLegal): publicada em 08/08/2025 com 63 vetos; Congresso derrubou 52 vetos em 27/11/2025; vetos sobre LAE não apreciados por serem objeto da MP 1.308/2025. TEXTO CONSOLIDADO NÃO LIDO. Não afirmar conteúdo de artigos específicos sem conferir."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/LEI-FED-15190-2025.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-5197-1967",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "5.197",
+  "ano": 1967,
+  "data": "1967-01-03",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre a proteção à fauna (Lei de Proteção à Fauna).",
+  "assuntos": [
+   "fauna"
+  ],
+  "atividades": [],
+  "status_vigencia": "PARCIALMENTE_VIGENTE",
+  "alterada_por": [
+   "Lei 7.653/1988",
+   "Lei 9.605/1998 (revogou os tipos penais)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l5197.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/LEI-FED-5197-1967.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-6766-1979",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "6.766",
+  "ano": 1979,
+  "data": "1979-12-19",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre o parcelamento do solo urbano (loteamento e desmembramento).",
+  "assuntos": [
+   "parcelamento_solo",
+   "urbanistico",
+   "app",
+   "competencia"
+  ],
+  "atividades": [
+   "loteamento"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "Lei 9.785/1999",
+   "Lei 10.932/2004",
+   "Lei 12.608/2012 (áreas de risco)",
+   "Lei 13.465/2017",
+   "Lei 13.913/2019 (art. 4º III — faixa não edificável; redução para 5 m em alguns casos — conferir)",
+   "LEI-FED-14285-2021 (art. 4º III — remissão às APPs)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l6766.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-6766-1979.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-6938-1981",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "6.938",
+  "ano": 1981,
+  "data": "1981-08-31",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre a Política Nacional do Meio Ambiente (PNMA), seus fins e mecanismos de formulação e aplicação.",
+  "assuntos": [
+   "principios",
+   "organizacao_sisnama",
+   "licenciamento",
+   "responsabilidade_civil",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 7.804/1989",
+   "Lei 8.028/1990",
+   "Lei 10.165/2000 (TCFA)",
+   "LC 140/2011",
+   "Lei 12.651/2012",
+   "Lei 15.190/2025 (verificar alcance)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l6938.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-6938-1981.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-7347-1985",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "7.347",
+  "ano": 1985,
+  "data": "1985-07-24",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Disciplina a ação civil pública de responsabilidade por danos causados ao meio ambiente, ao consumidor e a outros interesses difusos/coletivos.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "reparacao"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 8.078/1990 (art. 5º §6º TAC; art. 21)",
+   "Lei 12.529/2011",
+   "Lei 13.004/2014"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l7347orig.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-7347-1985.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-9433-1997",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.433",
+  "ano": 1997,
+  "data": "1997-01-08",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Institui a Política Nacional de Recursos Hídricos e o Sistema Nacional de Gerenciamento de Recursos Hídricos (Lei das Águas).",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga",
+   "competencia"
+  ],
+  "atividades": [
+   "saneamento",
+   "industria",
+   "agropecuario",
+   "barragens"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 9.984/2000 (ANA)",
+   "Lei 14.026/2020 (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l9433.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-9433-1997.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-9605-1998",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.605",
+  "ano": 1998,
+  "data": "1998-02-12",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Dispõe sobre as sanções penais e administrativas derivadas de condutas e atividades lesivas ao meio ambiente (Lei de Crimes Ambientais).",
+  "assuntos": [
+   "responsabilidade_penal",
+   "infracoes",
+   "processo_administrativo",
+   "flora",
+   "fauna",
+   "app",
+   "mata_atlantica",
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 9.985/2000",
+   "Lei 11.284/2006",
+   "Lei 11.428/2006 (art. 38-A)",
+   "Lei 12.305/2010",
+   "Lei 12.408/2010",
+   "Lei 12.651/2012",
+   "Lei 13.052/2014",
+   "Lei 14.064/2020"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l9605.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-9605-1998.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-9784-1999",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.784",
+  "ano": 1999,
+  "data": "1999-01-29",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Regula o processo administrativo no âmbito da Administração Pública Federal.",
+  "assuntos": [
+   "procedimento_geral",
+   "processo_administrativo"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 11.417/2006",
+   "Lei 12.008/2009"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l9784.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-9784-1999.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-9873-1999",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.873",
+  "ano": 1999,
+  "data": "1999-11-23",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Prazo de prescrição para o exercício de ação punitiva pela Administração Pública Federal, direta e indireta.",
+  "assuntos": [
+   "prescricao",
+   "infracoes",
+   "processo_administrativo"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 11.941/2009 (art. 1º-A — prescrição da execução)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l9873.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-9873-1999.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-FED-9985-2000",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.985",
+  "ano": 2000,
+  "data": "2000-07-18",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "Congresso Nacional",
+  "ementa": "Institui o Sistema Nacional de Unidades de Conservação da Natureza (SNUC).",
+  "assuntos": [
+   "unidades_conservacao",
+   "compensacao",
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 11.132/2005",
+   "Lei 11.460/2007"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.planalto.gov.br/ccivil_03/leis/l9985.htm",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/LEI-FED-9985-2000.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-001-1986",
+  "tipo_normativo": "Resolução",
+  "numero": "001",
+  "ano": 1986,
+  "data": "1986-01-23",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Estabelece definições, responsabilidades, critérios básicos e diretrizes gerais para uso e implementação da Avaliação de Impacto Ambiental (EIA/RIMA).",
+  "assuntos": [
+   "licenciamento"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "CONAMA 237/1997 (art. 2º e outros)",
+   "Lei 15.190/2025 (compatibilidade a verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-001-1986.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-237-1997",
+  "tipo_normativo": "Resolução",
+  "numero": "237",
+  "ano": 1997,
+  "data": "1997-12-19",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Dispõe sobre licenciamento ambiental; competência; licenças (LP, LI, LO); prazos; atividades sujeitas (Anexo 1).",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "EFICACIA_QUESTIONADA",
+  "alterada_por": [
+   "LC 140/2011 (competência — superou o critério da abrangência do impacto)",
+   "Lei 15.190/2025 (norma geral legal posterior — dispositivos incompatíveis perdem aplicação; verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-237-1997.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-302-2002",
+  "tipo_normativo": "Resolução",
+  "numero": "302",
+  "ano": 2002,
+  "data": "2002-03-20",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Parâmetros, definições e limites de APP de reservatórios artificiais e regime de uso do entorno.",
+  "assuntos": [
+   "app",
+   "recursos_hidricos",
+   "barragens"
+  ],
+  "atividades": [
+   "barragens"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Revogada pela CONAMA 500/2020 → revogação declarada inconstitucional (STF ADPF 748, 2021) → vigência restabelecida"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-302-2002.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-303-2002",
+  "tipo_normativo": "Resolução",
+  "numero": "303",
+  "ano": 2002,
+  "data": "2002-03-20",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Parâmetros, definições e limites de Áreas de Preservação Permanente.",
+  "assuntos": [
+   "app",
+   "flora",
+   "recursos_hidricos"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Revogada pela CONAMA 500/2020 → revogação declarada inconstitucional (STF ADPF 748, 2021) → vigência restabelecida"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-303-2002.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-33-1994",
+  "tipo_normativo": "Resolução",
+  "numero": "33",
+  "ano": 1994,
+  "data": "1994-12-07",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Define estágios sucessionais das formações vegetais que ocorrem na região da Mata Atlântica do Estado do Rio Grande do Sul.",
+  "assuntos": [
+   "mata_atlantica",
+   "estagio_sucessional",
+   "flora"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/RES-CONAMA-33-1994.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-357-2005",
+  "tipo_normativo": "Resolução",
+  "numero": "357",
+  "ano": 2005,
+  "data": "2005-03-17",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Classificação dos corpos de água e diretrizes ambientais para o seu enquadramento; condições e padrões de lançamento de efluentes (parte de efluentes alterada/complementada pela CONAMA 430/2011).",
+  "assuntos": [
+   "recursos_hidricos",
+   "efluentes"
+  ],
+  "atividades": [
+   "industria",
+   "saneamento"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "RES-CONAMA-430-2011 (efluentes — arts. 24-38 alterados/complementados)",
+   "CONAMA 393/2007",
+   "CONAMA 410/2009"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-357-2005.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-369-2006",
+  "tipo_normativo": "Resolução",
+  "numero": "369",
+  "ano": 2006,
+  "data": "2006-03-28",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Casos excepcionais de utilidade pública, interesse social ou baixo impacto ambiental que possibilitam a intervenção ou supressão de vegetação em APP.",
+  "assuntos": [
+   "app",
+   "supressao_vegetal",
+   "urbanistico",
+   "mineracao"
+  ],
+  "atividades": [
+   "loteamento",
+   "mineracao",
+   "saneamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Lei 12.651/2012 (arts. 3º VIII-X e 8º regem hoje as hipóteses; resolução aplicável no que compatível)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-369-2006.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-396-2008",
+  "tipo_normativo": "Resolução",
+  "numero": "396",
+  "ano": 2008,
+  "data": "2008-04-03",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Classificação e diretrizes ambientais para o enquadramento das águas subterrâneas.",
+  "assuntos": [
+   "recursos_hidricos"
+  ],
+  "atividades": [
+   "industria"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-396-2008.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-420-2009",
+  "tipo_normativo": "Resolução",
+  "numero": "420",
+  "ano": 2009,
+  "data": "2009-12-28",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Critérios e valores orientadores de qualidade do solo quanto à presença de substâncias químicas e diretrizes para gerenciamento de áreas contaminadas.",
+  "assuntos": [
+   "areas_contaminadas"
+  ],
+  "atividades": [
+   "industria",
+   "mineracao"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "CONAMA 460/2013 (prazos)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-420-2009.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-429-2011",
+  "tipo_normativo": "Resolução",
+  "numero": "429",
+  "ano": 2011,
+  "data": "2011-02-28",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Dispõe sobre a metodologia de recuperação das Áreas de Preservação Permanente.",
+  "assuntos": [
+   "app",
+   "reparacao",
+   "flora"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "federal/RES-CONAMA-429-2011.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONAMA-430-2011",
+  "tipo_normativo": "Resolução",
+  "numero": "430",
+  "ano": 2011,
+  "data": "2011-05-13",
+  "ente": "FEDERAL",
+  "uf": null,
+  "municipio": null,
+  "orgao_emissor": "CONAMA",
+  "ementa": "Condições e padrões de lançamento de efluentes; complementa e altera a Resolução CONAMA 357/2005.",
+  "assuntos": [
+   "efluentes",
+   "recursos_hidricos"
+  ],
+  "atividades": [
+   "industria",
+   "saneamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://conama.mma.gov.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 a partir do conhecimento do modelo; texto oficial não conferido nesta base."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "federal/RES-CONAMA-430-2011.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "CE-RS-1989",
+  "tipo_normativo": "Constituição",
+  "numero": "CE/RS",
+  "ano": 1989,
+  "data": "1989-10-03",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do RS (Constituinte Estadual)",
+  "ementa": "Constituição do Estado do Rio Grande do Sul — capítulo do meio ambiente e competências estaduais/municipais.",
+  "assuntos": [
+   "principios",
+   "competencia"
+  ],
+  "atividades": [],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "Emendas Constitucionais estaduais (diversas) — verificar texto compilado no LEGIS/AL-RS"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.rs.gov.br/legis/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; capítulo do meio ambiente (arts. 250 ss., numeração a conferir) não transcrito."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/CE-RS-1989.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RS-10350-1994",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "10.350",
+  "ano": 1994,
+  "data": "1994-12-30",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do RS",
+  "ementa": "Institui o Sistema Estadual de Recursos Hídricos do RS (regulamenta o art. 171 da Constituição Estadual).",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga",
+   "competencia"
+  ],
+  "atividades": [
+   "saneamento",
+   "industria",
+   "agropecuario",
+   "barragens"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "leis estaduais posteriores (verificar)",
+   "LEI-RS-15434-2020 (verificar interface)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.rs.gov.br/legis/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11. Conteúdo geral de memória; artigos não transcritos."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/LEI-RS-10350-1994.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RS-11520-2000",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "11.520",
+  "ano": 2000,
+  "data": "2000-08-03",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do RS",
+  "ementa": "Instituía o Código Estadual do Meio Ambiente do RS (REVOGADO pela Lei 15.434/2020).",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "infracoes"
+  ],
+  "atividades": [],
+  "status_vigencia": "REVOGADA",
+  "alterada_por": [],
+  "revogada_por": "LEI-RS-15434-2020",
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.rs.gov.br/legis/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Revogação integral pela Lei 15.434/2020 confirmada por fontes secundárias em 2026-09-11."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rs/LEI-RS-11520-2000.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RS-15434-2020",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "15.434",
+  "ano": 2020,
+  "data": "2020-01-09",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do RS",
+  "ementa": "Institui o Código Estadual do Meio Ambiente do Estado do Rio Grande do Sul.",
+  "assuntos": [
+   "principios",
+   "licenciamento",
+   "competencia",
+   "app",
+   "flora",
+   "fauna",
+   "recursos_hidricos",
+   "residuos",
+   "infracoes",
+   "processo_administrativo",
+   "compensacao",
+   "unidades_conservacao"
+  ],
+  "atividades": [
+   "industria",
+   "agropecuario",
+   "loteamento",
+   "mineracao",
+   "saneamento",
+   "silvicultura"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "leis estaduais posteriores (verificar no LEGIS — há alterações desde 2020)"
+  ],
+  "revogada_por": null,
+  "altera": [
+   "LEI-RS-9519-1992 (revoga dispositivos)"
+  ],
+  "revoga": [
+   "LEI-RS-11520-2000"
+  ],
+  "fonte_oficial_url": "https://www.al.rs.gov.br/legis/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11 (SEMA PDF; Famurs; Souto Correa): institui o Código Estadual, revogou integralmente a Lei 11.520/2000 e artigos da Lei 9.519/1992; alinhamento com normas gerais federais; novos procedimentos de licenciamento; conceitos de APP. Texto oficial (PDF SEMA 2023-06: https://www.sema.rs.gov.br/upload/arquivos/202306/13094545-codigo-estadual-do-meio-ambiente-lei-15434-2020.pdf) NÃO lido; artigos não transcritos."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rs/LEI-RS-15434-2020.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "LEI-RS-9519-1992",
+  "tipo_normativo": "Lei Ordinária",
+  "numero": "9.519",
+  "ano": 1992,
+  "data": "1992-01-21",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "Assembleia Legislativa do RS",
+  "ementa": "Institui o Código Florestal do Estado do Rio Grande do Sul.",
+  "assuntos": [
+   "flora",
+   "app",
+   "supressao_vegetal",
+   "compensacao",
+   "mata_atlantica"
+  ],
+  "atividades": [
+   "agropecuario",
+   "silvicultura"
+  ],
+  "status_vigencia": "PARCIALMENTE_VIGENTE",
+  "alterada_por": [
+   "LEI-RS-15434-2020 (revogou artigos — quais: A CONFIRMAR)",
+   "leis estaduais anteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.al.rs.gov.br/legis/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Fontes secundárias (2026-09-11) indicam que a Lei 15.434/2020 revogou 'alguns artigos' desta lei; quais artigos permanecem vigentes NÃO foi confirmado. Ver PENDENTES_DE_LEVANTAMENTO #17."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/LEI-RS-9519-1992.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-RS-355-2017",
+  "tipo_normativo": "Resolução",
+  "numero": "355",
+  "ano": 2017,
+  "data": "2017-07-13",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/RS",
+  "ementa": "Dispõe sobre os critérios e padrões de emissão de efluentes líquidos para as fontes geradoras que lancem seus efluentes em águas superficiais no RS.",
+  "assuntos": [
+   "efluentes",
+   "recursos_hidricos"
+  ],
+  "atividades": [
+   "industria",
+   "saneamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [
+   "resoluções CONSEMA posteriores (verificar)"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [
+   "CONSEMA 128/2006 (confirmar)"
+  ],
+  "fonte_oficial_url": "https://www.sema.rs.gov.br/resolucoes",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11. Padrões numéricos não transcritos; conferir texto oficial."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/RES-CONSEMA-RS-355-2017.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-RS-372-2018",
+  "tipo_normativo": "Resolução",
+  "numero": "372",
+  "ano": 2018,
+  "data": "2018-02-22",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/RS",
+  "ementa": "Dispõe sobre os empreendimentos e atividades utilizadores de recursos ambientais, efetiva ou potencialmente poluidores ou capazes de causar degradação ambiental, passíveis de licenciamento ambiental no RS, destacando os de impacto de âmbito local para o exercício da competência municipal (CODRAM; Anexos I, II e III).",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "atividades": [
+   "industria",
+   "agropecuario",
+   "loteamento",
+   "mineracao",
+   "saneamento",
+   "silvicultura"
+  ],
+  "status_vigencia": "ALTERADA",
+  "alterada_por": [
+   "diversas resoluções CONSEMA 2018-2026",
+   "RES-CONSEMA-RS-527-2025",
+   "RES-CONSEMA-RS-543-2026",
+   "RES-CONSEMA-RS-544-2026"
+  ],
+  "revogada_por": null,
+  "altera": [],
+  "revoga": [
+   "resolução CONSEMA anterior sobre atividades de impacto local (número a confirmar)"
+  ],
+  "fonte_oficial_url": "https://www.sema.rs.gov.br/upload/arquivos/202512/03160402-3722018-ultima-atualizacao-compilada.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: SEMA mantém compilação ('última atualização compilada', 2025-12); alterações por 527/2025, 543/2026 e 544/2026 confirmadas por fontes secundárias (DPM, Silveiro). Conteúdo dos Anexos NÃO lido; CODRAMs específicos devem ser conferidos na compilação vigente."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "estadual/rs/RES-CONSEMA-RS-372-2018.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-RS-527-2025",
+  "tipo_normativo": "Resolução",
+  "numero": "527",
+  "ano": 2025,
+  "data": null,
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/RS",
+  "ementa": "Altera a Resolução CONSEMA 372/2018 — inclui no Anexo III atividades não incidentes de licenciamento (saneamento, data center, espuma — conforme título do PDF oficial da SEMA).",
+  "assuntos": [
+   "licenciamento",
+   "competencia",
+   "saneamento"
+  ],
+  "atividades": [
+   "saneamento"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [
+   "RES-CONSEMA-RS-372-2018"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.sema.rs.gov.br/upload/arquivos/202505/19085550-resolucao-527-2025-altera-a-resolucao-3722018-saneamento-data-center-espuma.pdf",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "PDF oficial localizado (título) via WebSearch 2026-09-11; conteúdo não lido; data exata do ato não confirmada (PDF publicado 2025-05)."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/RES-CONSEMA-RS-527-2025.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-RS-543-2026",
+  "tipo_normativo": "Resolução",
+  "numero": "543",
+  "ano": 2026,
+  "data": "2026-02-23",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/RS",
+  "ementa": "Altera a Resolução CONSEMA 372/2018 — exclui Silvicultura de Exóticas do Anexo I (não incidência) e altera CODRAM 3510,52 e 10430,20 (linhas de transmissão acima de 138 kV).",
+  "assuntos": [
+   "licenciamento",
+   "competencia",
+   "flora"
+  ],
+  "atividades": [
+   "silvicultura"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [
+   "RES-CONSEMA-RS-372-2018"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.sema.rs.gov.br/resolucoes",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Conteúdo via LegisWeb/DPM/Silveiro (WebSearch 2026-09-11); PDF oficial não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/RES-CONSEMA-RS-543-2026.md"
+ },
+ {
+  "tipo_registro": "norma",
+  "id": "RES-CONSEMA-RS-544-2026",
+  "tipo_normativo": "Resolução",
+  "numero": "544",
+  "ano": 2026,
+  "data": "2026-02-23",
+  "ente": "ESTADUAL",
+  "uf": "RS",
+  "municipio": null,
+  "orgao_emissor": "CONSEMA/RS",
+  "ementa": "Altera a Resolução CONSEMA 372/2018 — lavra de gemas a céu aberto porte pequeno (CODRAM 530,04) passa à competência municipal; cria CODRAM 3510,55 (sistema de armazenamento de energia por baterias) sob competência estadual.",
+  "assuntos": [
+   "licenciamento",
+   "competencia",
+   "mineracao"
+  ],
+  "atividades": [
+   "mineracao"
+  ],
+  "status_vigencia": "VIGENTE",
+  "alterada_por": [],
+  "revogada_por": null,
+  "altera": [
+   "RES-CONSEMA-RS-372-2018"
+  ],
+  "revoga": [],
+  "fonte_oficial_url": "https://www.sema.rs.gov.br/resolucoes",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "Conteúdo via DPM/Silveiro (WebSearch 2026-09-11); PDF oficial não lido."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "estadual/rs/RES-CONSEMA-RS-544-2026.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-RS-BENTO-GONCALVES",
+  "municipio": "Bento Gonçalves",
+  "uf": "RS",
+  "ibge": null,
+  "orgao_ambiental": "Secretaria Municipal de Meio Ambiente — A CONFIRMAR",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Serra Gaúcha",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio Taquari-Antas (a confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; nada confirmado — ver PENDENTES #10."
+  },
+  "_arquivo": "municipal/rs/bento_goncalves.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-RS-CAXIAS-DO-SUL",
+  "municipio": "Caxias do Sul",
+  "uf": "RS",
+  "ibge": null,
+  "orgao_ambiental": "Secretaria Municipal do Meio Ambiente (SEMMA) — A CONFIRMAR",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Serra Gaúcha",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio Taquari-Antas / Rio Caí (a confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; órgão e Plano Diretor (lembrado como LC 589/2019) NÃO confirmados — ver PENDENTES #8."
+  },
+  "_arquivo": "municipal/rs/caxias_do_sul.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-RS-FARROUPILHA",
+  "municipio": "Farroupilha",
+  "uf": "RS",
+  "ibge": null,
+  "orgao_ambiental": "Secretaria de Urbanismo e Meio Ambiente (SEMMA — sigla usada em e-mail institucional)",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Serra Gaúcha",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio Taquari-Antas (sub-bacia a confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: site da Prefeitura indica Secretaria de Urbanismo e Meio Ambiente como responsável pelo licenciamento municipal; notícias locais (2026-09-05) sobre Decreto Municipal 7.901/2026 alinhando procedimentos à Lei 15.190/2025 e ao Dec. 10.936/2022."
+  },
+  "_arquivo": "municipal/rs/farroupilha.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-RS-FLORES-DA-CUNHA",
+  "municipio": "Flores da Cunha",
+  "uf": "RS",
+  "ibge": null,
+  "orgao_ambiental": "A CONFIRMAR",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Serra Gaúcha",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio das Antas (a confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; nada confirmado — ver PENDENTES #10."
+  },
+  "_arquivo": "municipal/rs/flores_da_cunha.md"
+ },
+ {
+  "tipo_registro": "municipio",
+  "id": "MUN-RS-GARIBALDI",
+  "municipio": "Garibaldi",
+  "uf": "RS",
+  "ibge": null,
+  "orgao_ambiental": "A CONFIRMAR",
+  "habilitado_licenciamento_local": null,
+  "regiao": "Serra Gaúcha",
+  "bioma": "Mata Atlântica",
+  "bacia_hidrografica": "Rio Taquari-Antas (a confirmar)",
+  "prioridade": "ALTA",
+  "checklist_completo": false,
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11; nada confirmado — ver PENDENTES #10."
+  },
+  "_arquivo": "municipal/rs/garibaldi.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STF-ADC-42",
+  "tribunal": "STF",
+  "orgao_julgador": "Plenário",
+  "classe": "ADC",
+  "numero": "42",
+  "uf_origem": "DF",
+  "relator": "Min. Luiz Fux",
+  "data_julgamento": "2018-02-28",
+  "data_publicacao": null,
+  "tipo_precedente": "controle_concentrado",
+  "tema_numero": null,
+  "tese": "Constitucionalidade da Lei 12.651/2012 (Código Florestal), com declaração de inconstitucionalidade de poucos dispositivos e interpretação conforme em outros (julgamento conjunto com ADIs 4.901, 4.902, 4.903 e 4.937).",
+  "assuntos": [
+   "controle_constitucionalidade",
+   "flora",
+   "app",
+   "reserva_legal",
+   "area_consolidada"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-12651-2012"
+  ],
+  "situacao_processual": "transitado (com embargos julgados posteriormente — verificar)",
+  "superado_por": null,
+  "fonte_oficial_url": "https://portal.stf.jus.br/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação. Pontos lembrados (CONFERIR na ementa oficial): inconstitucionalidade da extinção automática das obrigações por adesão ao PRA quanto a certos dispositivos? intervenção em APP para gestão de resíduos e competições esportivas (inconstitucional); interpretação conforme sobre nascentes intermitentes; validade das áreas consolidadas (arts. 61-A ss.) e da compensação de RL por bioma (interpretação conforme: mesma identidade ecológica)."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stf/STF-ADC-42.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STF-ADI-7146",
+  "tribunal": "STF",
+  "orgao_julgador": "Plenário",
+  "classe": "ADI",
+  "numero": "7146",
+  "uf_origem": "DF",
+  "relator": "Min. André Mendonça",
+  "data_julgamento": null,
+  "data_publicacao": null,
+  "tipo_precedente": "controle_concentrado",
+  "tema_numero": null,
+  "tese": "Impugnação da Lei 14.285/2021 (APP em áreas urbanas consolidadas definida por lei municipal). Sem julgamento de mérito segundo a última informação localizada (meados de 2025).",
+  "assuntos": [
+   "controle_constitucionalidade",
+   "app",
+   "urbanistico",
+   "competencia"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-14285-2021",
+   "LEI-FED-12651-2012"
+  ],
+  "situacao_processual": "pendente (sem cautelar apreciada; sem mérito) — informação de 2025; RECHECAR",
+  "superado_por": null,
+  "fonte_oficial_url": "https://portal.stf.jus.br/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11: fontes (escritórios; NT MPRS 01/2024) indicam ADI ajuizada por PSOL/PT/PSB/Rede, Rel. Min. André Mendonça, pendente até meados de 2025. Pode ter havido julgamento posterior — prioridade de reverificação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stf/STF-ADI-7146.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STF-ADPF-748",
+  "tribunal": "STF",
+  "orgao_julgador": "Plenário",
+  "classe": "ADPF",
+  "numero": "748",
+  "uf_origem": "DF",
+  "relator": "Min. Rosa Weber",
+  "data_julgamento": null,
+  "data_publicacao": null,
+  "tipo_precedente": "controle_concentrado",
+  "tema_numero": null,
+  "tese": "Inconstitucionalidade da Resolução CONAMA 500/2020, que revogava as Resoluções CONAMA 284/2001, 302/2002 e 303/2002; restabelecimento da vigência e eficácia dessas resoluções (julgamento conjunto com ADPFs 747 e 749).",
+  "assuntos": [
+   "controle_constitucionalidade",
+   "app",
+   "licenciamento"
+  ],
+  "normas_relacionadas": [
+   "RES-CONAMA-302-2002",
+   "RES-CONAMA-303-2002"
+  ],
+  "situacao_processual": "mérito julgado (dez/2021) — data exata do julgamento a confirmar",
+  "superado_por": null,
+  "fonte_oficial_url": "https://noticias.stf.jus.br/postsnoticias/restabelecidas-normas-do-conama-sobre-areas-de-protecao-e-licenciamento/",
+  "verificacao": {
+   "nivel": "INDIRETA",
+   "data_ultima_verificacao": "2026-09-11",
+   "metodo": "websearch_secundaria",
+   "observacao": "WebSearch 2026-09-11 (notícia oficial STF; PDF adpf748 no portal): cautelar suspendeu a 500/2020 e restaurou 284/302/303; mérito em dez/2021 por unanimidade declarou inconstitucional a 500/2020 (vedação ao retrocesso). Mês do julgamento de mérito (dez/2021) confirmado; dia não confirmado — campo data_julgamento deixado nulo."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stf/STF-ADPF-748.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STF-RE-586224",
+  "tribunal": "STF",
+  "orgao_julgador": "Plenário",
+  "classe": "RE",
+  "numero": "586224",
+  "uf_origem": "SP",
+  "relator": "Min. Luiz Fux",
+  "data_julgamento": "2015-03-05",
+  "data_publicacao": null,
+  "tipo_precedente": "repercussao_geral",
+  "tema_numero": 145,
+  "tese": "O município é competente para legislar sobre meio ambiente com União e Estado, no limite de seu interesse local e desde que tal regramento seja harmônico com a disciplina estabelecida pelos demais entes federados (art. 24, VI, c/c 30, I e II, da CF).",
+  "assuntos": [
+   "competencia",
+   "urbanistico"
+  ],
+  "normas_relacionadas": [
+   "CF-1988",
+   "LC-FED-140-2011"
+  ],
+  "situacao_processual": "transitado (tese de RG fixada)",
+  "superado_por": null,
+  "fonte_oficial_url": "https://portal.stf.jus.br/jurisprudenciaRepercussao/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação. Caso: lei municipal de Paulínia/SP proibindo queima da palha de cana — declarada inconstitucional por conflito com a disciplina estadual/federal."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stf/STF-RE-586224.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STF-RE-654833",
+  "tribunal": "STF",
+  "orgao_julgador": "Plenário",
+  "classe": "RE",
+  "numero": "654833",
+  "uf_origem": "AC",
+  "relator": "Min. Alexandre de Moraes",
+  "data_julgamento": "2020-04-20",
+  "data_publicacao": null,
+  "tipo_precedente": "repercussao_geral",
+  "tema_numero": 999,
+  "tese": "É imprescritível a pretensão de reparação civil de dano ambiental.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "prescricao",
+   "reparacao"
+  ],
+  "normas_relacionadas": [
+   "CF-1988",
+   "LEI-FED-6938-1981"
+  ],
+  "situacao_processual": "transitado (tese de RG fixada)",
+  "superado_por": null,
+  "fonte_oficial_url": "https://portal.stf.jus.br/jurisprudenciaRepercussao/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stf/STF-RE-654833.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-ERESP-1318051",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "EREsp",
+  "numero": "1318051",
+  "uf_origem": "RJ",
+  "relator": "Min. Mauro Campbell Marques",
+  "data_julgamento": "2019-05-08",
+  "data_publicacao": null,
+  "tipo_precedente": "acordao",
+  "tema_numero": null,
+  "tese": "A responsabilidade administrativa ambiental é de natureza SUBJETIVA: a aplicação de penalidades administrativas exige demonstração de dolo ou culpa do autuado (não basta a condição de proprietário/transportador etc.).",
+  "assuntos": [
+   "infracoes",
+   "processo_administrativo",
+   "responsabilidade_civil"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008"
+  ],
+  "situacao_processual": "acórdão de Seção (uniformização) — verificar decisões posteriores e eventual tema repetitivo",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação. Caso lembrado: transportadora/proprietária de veículo autuada por carga de terceiro."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-ERESP-1318051.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-RESP-1071741",
+  "tribunal": "STJ",
+  "orgao_julgador": "2ª Turma",
+  "classe": "REsp",
+  "numero": "1071741",
+  "uf_origem": "SP",
+  "relator": "Min. Herman Benjamin",
+  "data_julgamento": "2009-03-24",
+  "data_publicacao": null,
+  "tipo_precedente": "acordao",
+  "tema_numero": null,
+  "tese": "Responsabilidade civil do Estado por omissão no dever de fiscalização ambiental é solidária, de execução subsidiária (o Estado só é chamado a executar se o degradador direto não o fizer).",
+  "assuntos": [
+   "responsabilidade_civil"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-6938-1981"
+  ],
+  "situacao_processual": "acórdão de Turma; orientação consolidada na Súmula 652",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "jurisprudencia/stj/STJ-RESP-1071741.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-RESP-1198727",
+  "tribunal": "STJ",
+  "orgao_julgador": "2ª Turma",
+  "classe": "REsp",
+  "numero": "1198727",
+  "uf_origem": "MG",
+  "relator": "Min. Herman Benjamin",
+  "data_julgamento": "2012-08-14",
+  "data_publicacao": null,
+  "tipo_precedente": "acordao",
+  "tema_numero": null,
+  "tese": "Princípio da reparação integral do dano ambiental: cumulação de obrigação de fazer (recuperação in natura), não fazer e indenizar; a recuperação da área não exclui indenização pelo dano intercorrente/residual e por danos extrapatrimoniais coletivos.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "reparacao"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-6938-1981",
+   "LEI-FED-7347-1985"
+  ],
+  "situacao_processual": "acórdão de Turma; orientação consolidada na Súmula 629",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação. Data de julgamento de memória — conferir."
+  },
+  "confianca_registro": "MEDIA",
+  "_arquivo": "jurisprudencia/stj/STJ-RESP-1198727.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-RESP-1770760",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "REsp",
+  "numero": "1770760",
+  "uf_origem": "SC",
+  "relator": "Min. Benedito Gonçalves",
+  "data_julgamento": "2021-04-28",
+  "data_publicacao": null,
+  "tipo_precedente": "repetitivo",
+  "tema_numero": 1010,
+  "tese": "Na vigência do novo Código Florestal (Lei 12.651/2012), a extensão não edificável nas APPs de qualquer curso d'água, perene ou intermitente, em trechos caracterizados como área urbana consolidada, deve respeitar o que disciplinado pelo seu art. 4º, caput, I, alíneas a-e, a fim de assegurar a mais ampla garantia ambiental a esses espaços territoriais especialmente protegidos e, por conseguinte, à coletividade.",
+  "assuntos": [
+   "app",
+   "urbanistico",
+   "parcelamento_solo",
+   "area_consolidada"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-12651-2012",
+   "LEI-FED-6766-1979",
+   "LEI-FED-14285-2021"
+  ],
+  "situacao_processual": "tese fixada (repetitivo, com REsps 1.770.808 e 1.770.967); impacto da Lei 14.285/2021 posterior a analisar",
+  "superado_por": null,
+  "fonte_oficial_url": "https://processo.stj.jus.br/repetitivos/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação. Tese transcrita de memória — CONFERIR redação oficial."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-RESP-1770760.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-467",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "467",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2010-10-13",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "Prescreve em cinco anos, contados do término do processo administrativo, a pretensão da Administração Pública de promover a execução da multa por infração ambiental.",
+  "assuntos": [
+   "infracoes",
+   "prescricao",
+   "processo_administrativo"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-9873-1999",
+   "DEC-FED-6514-2008"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-467.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-613",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "613",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2018-05-09",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "Não se admite a aplicação da teoria do fato consumado em tema de Direito Ambiental.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "app",
+   "urbanistico",
+   "infracoes"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-12651-2012"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-613.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-618",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "618",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2018-10-24",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "A inversão do ônus da prova aplica-se às ações de degradação ambiental.",
+  "assuntos": [
+   "responsabilidade_civil"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-6938-1981",
+   "LEI-FED-7347-1985"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-618.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-623",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "623",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2018-12-12",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "As obrigações ambientais possuem natureza propter rem, sendo admissível cobrá-las do proprietário ou possuidor atual e/ou dos anteriores, à escolha do credor.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "reparacao",
+   "app",
+   "reserva_legal"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-12651-2012",
+   "LEI-FED-6938-1981"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-623.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-629",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "629",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2018-12-12",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "Quanto ao dano ambiental, é admitida a condenação do réu à obrigação de fazer ou à de não fazer cumulada com a de indenizar.",
+  "assuntos": [
+   "responsabilidade_civil",
+   "reparacao"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-7347-1985",
+   "LEI-FED-6938-1981"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-629.md"
+ },
+ {
+  "tipo_registro": "julgado",
+  "id": "STJ-SUMULA-652",
+  "tribunal": "STJ",
+  "orgao_julgador": "1ª Seção",
+  "classe": "Súmula",
+  "numero": "652",
+  "uf_origem": null,
+  "relator": "—",
+  "data_julgamento": "2021-12-02",
+  "data_publicacao": null,
+  "tipo_precedente": "sumula",
+  "tema_numero": null,
+  "tese": "A responsabilidade civil da Administração Pública por danos ao meio ambiente, decorrente de sua omissão no dever de fiscalização, é de caráter solidário, mas de execução subsidiária.",
+  "assuntos": [
+   "responsabilidade_civil"
+  ],
+  "normas_relacionadas": [
+   "LEI-FED-6938-1981"
+  ],
+  "situacao_processual": "vigente",
+  "superado_por": null,
+  "fonte_oficial_url": "https://scon.stj.jus.br/SCON/sumstj/",
+  "verificacao": {
+   "nivel": "NAO_VERIFICADA",
+   "data_ultima_verificacao": null,
+   "metodo": "memoria_modelo",
+   "observacao": "Seed 2026-09-11 (memória do modelo); autenticar no portal do tribunal antes de citar em manifestação."
+  },
+  "confianca_registro": "ALTA",
+  "_arquivo": "jurisprudencia/stj/STJ-SUMULA-652.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-APP",
+  "titulo": "Áreas de Preservação Permanente (rural e urbana)",
+  "assuntos": [
+   "app",
+   "flora",
+   "urbanistico",
+   "area_consolidada",
+   "recursos_hidricos"
+  ],
+  "normas": [
+   "LEI-FED-12651-2012",
+   "LEI-FED-14285-2021",
+   "LEI-FED-6766-1979",
+   "RES-CONAMA-303-2002",
+   "RES-CONAMA-302-2002",
+   "RES-CONAMA-369-2006",
+   "RES-CONAMA-429-2011",
+   "LEI-FED-13465-2017",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [
+   "STJ-RESP-1770760",
+   "STF-ADI-7146",
+   "STF-ADPF-748",
+   "STF-ADC-42",
+   "STJ-SUMULA-613",
+   "STJ-SUMULA-623"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/app.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-COMPETENCIA",
+  "titulo": "Competência ambiental — legislativa, administrativa, fiscalizatória",
+  "assuntos": [
+   "competencia",
+   "organizacao_sisnama"
+  ],
+  "normas": [
+   "CF-1988",
+   "LC-FED-140-2011",
+   "LEI-FED-6938-1981",
+   "RES-CONSEMA-RS-372-2018",
+   "LEI-FED-15190-2025",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [
+   "STF-RE-586224"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/competencia.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-EFLUENTES",
+  "titulo": "Efluentes líquidos e emissões",
+  "assuntos": [
+   "efluentes",
+   "emissoes",
+   "recursos_hidricos"
+  ],
+  "normas": [
+   "RES-CONAMA-357-2005",
+   "RES-CONAMA-430-2011",
+   "RES-CONSEMA-RS-355-2017",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008"
+  ],
+  "julgados": [],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/efluentes.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-FAUNA",
+  "titulo": "Fauna silvestre",
+  "assuntos": [
+   "fauna"
+  ],
+  "normas": [
+   "LEI-FED-5197-1967",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008",
+   "LC-FED-140-2011",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/fauna.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-FLORA",
+  "titulo": "Flora, supressão, Reserva Legal, CAR/PRA, espécies",
+  "assuntos": [
+   "flora",
+   "reserva_legal",
+   "supressao_vegetal",
+   "area_consolidada"
+  ],
+  "normas": [
+   "LEI-FED-12651-2012",
+   "LEI-FED-11428-2006",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008",
+   "LC-FED-140-2011",
+   "LEI-RS-15434-2020",
+   "LEI-RS-9519-1992",
+   "RES-CONSEMA-RS-543-2026"
+  ],
+  "julgados": [
+   "STF-ADC-42",
+   "STJ-SUMULA-623"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/flora.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-INFRACOES",
+  "titulo": "Infrações administrativas e processo administrativo ambiental",
+  "assuntos": [
+   "infracoes",
+   "processo_administrativo",
+   "prescricao"
+  ],
+  "normas": [
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008",
+   "DEC-FED-11373-2023",
+   "LEI-FED-9873-1999",
+   "LEI-FED-9784-1999",
+   "LC-FED-140-2011",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [
+   "STJ-ERESP-1318051",
+   "STJ-SUMULA-467",
+   "STJ-SUMULA-613"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/infracoes.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-LICENCIAMENTO",
+  "titulo": "Licenciamento ambiental — regime, competência, licenças, estudos, condicionantes",
+  "assuntos": [
+   "licenciamento",
+   "competencia"
+  ],
+  "normas": [
+   "LEI-FED-6938-1981",
+   "LC-FED-140-2011",
+   "LEI-FED-15190-2025",
+   "RES-CONAMA-237-1997",
+   "RES-CONAMA-001-1986",
+   "DEC-FED-99274-1990",
+   "LEI-FED-9985-2000",
+   "LEI-RS-15434-2020",
+   "RES-CONSEMA-RS-372-2018",
+   "RES-CONSEMA-RS-527-2025",
+   "RES-CONSEMA-RS-543-2026",
+   "RES-CONSEMA-RS-544-2026",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008"
+  ],
+  "julgados": [
+   "STF-RE-586224"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/licenciamento.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-MATA-ATLANTICA",
+  "titulo": "Mata Atlântica — supressão, estágios, compensação, área urbana",
+  "assuntos": [
+   "mata_atlantica",
+   "flora",
+   "estagio_sucessional",
+   "supressao_vegetal",
+   "compensacao"
+  ],
+  "normas": [
+   "LEI-FED-11428-2006",
+   "DEC-FED-6660-2008",
+   "RES-CONAMA-33-1994",
+   "LEI-FED-12651-2012",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008",
+   "LC-FED-140-2011",
+   "LEI-RS-15434-2020",
+   "RES-CONSEMA-RS-372-2018"
+  ],
+  "julgados": [
+   "STF-ADC-42"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/mata_atlantica.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-MINERACAO-BARRAGENS",
+  "titulo": "Mineração e barragens",
+  "assuntos": [
+   "mineracao",
+   "barragens",
+   "unidades_conservacao"
+  ],
+  "normas": [
+   "CF-1988",
+   "LEI-FED-12334-2010",
+   "LEI-FED-11428-2006",
+   "RES-CONAMA-001-1986",
+   "RES-CONAMA-369-2006",
+   "RES-CONSEMA-RS-544-2026",
+   "LEI-FED-9985-2000"
+  ],
+  "julgados": [],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/mineracao_barragens.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-RECURSOS-HIDRICOS",
+  "titulo": "Recursos hídricos, outorga, intervenção em cursos d água, saneamento, barragens",
+  "assuntos": [
+   "recursos_hidricos",
+   "outorga",
+   "saneamento",
+   "barragens"
+  ],
+  "normas": [
+   "CF-1988",
+   "LEI-FED-9433-1997",
+   "LEI-RS-10350-1994",
+   "RES-CONAMA-357-2005",
+   "RES-CONAMA-396-2008",
+   "LEI-FED-12651-2012",
+   "LEI-FED-11445-2007",
+   "LEI-FED-12334-2010",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/recursos_hidricos.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-REPARACAO-IN-NATURA",
+  "titulo": "Reparação in natura, recuperação no mesmo local e reparação integral",
+  "assuntos": [
+   "reparacao",
+   "responsabilidade_civil",
+   "app",
+   "mata_atlantica",
+   "flora"
+  ],
+  "normas": [
+   "CF-1988",
+   "LEI-FED-6938-1981",
+   "LEI-FED-12651-2012",
+   "LEI-FED-11428-2006",
+   "DEC-FED-6660-2008",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008",
+   "LEI-FED-7347-1985",
+   "RES-CONAMA-429-2011",
+   "RES-CONAMA-369-2006",
+   "LEI-RS-15434-2020"
+  ],
+  "julgados": [
+   "STF-RE-654833",
+   "STJ-SUMULA-623",
+   "STJ-SUMULA-629",
+   "STJ-SUMULA-613",
+   "STJ-SUMULA-618",
+   "STJ-RESP-1198727"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/reparacao_in_natura.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-RESIDUOS",
+  "titulo": "Resíduos sólidos e áreas contaminadas",
+  "assuntos": [
+   "residuos",
+   "areas_contaminadas"
+  ],
+  "normas": [
+   "LEI-FED-12305-2010",
+   "DEC-FED-10936-2022",
+   "RES-CONAMA-420-2009",
+   "LEI-FED-9605-1998",
+   "DEC-FED-6514-2008"
+  ],
+  "julgados": [],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/residuos.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-RESPONSABILIDADE-CIVIL",
+  "titulo": "Responsabilidade civil ambiental",
+  "assuntos": [
+   "responsabilidade_civil",
+   "reparacao",
+   "prescricao"
+  ],
+  "normas": [
+   "CF-1988",
+   "LEI-FED-6938-1981",
+   "LEI-FED-7347-1985",
+   "LEI-FED-12651-2012",
+   "LEI-FED-11428-2006"
+  ],
+  "julgados": [
+   "STF-RE-654833",
+   "STJ-SUMULA-613",
+   "STJ-SUMULA-618",
+   "STJ-SUMULA-623",
+   "STJ-SUMULA-629",
+   "STJ-SUMULA-652",
+   "STJ-RESP-1198727",
+   "STJ-RESP-1071741"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/responsabilidade_civil.md"
+ },
+ {
+  "tipo_registro": "tema",
+  "id": "TEMA-URBANISTICO",
+  "titulo": "Urbanístico-ambiental — parcelamento, plano diretor, REURB, área urbana consolidada",
+  "assuntos": [
+   "urbanistico",
+   "parcelamento_solo",
+   "reurb",
+   "app",
+   "area_consolidada"
+  ],
+  "normas": [
+   "LEI-FED-6766-1979",
+   "LEI-FED-10257-2001",
+   "LEI-FED-13465-2017",
+   "LEI-FED-12651-2012",
+   "LEI-FED-14285-2021",
+   "LEI-FED-11428-2006",
+   "RES-CONAMA-001-1986"
+  ],
+  "julgados": [
+   "STJ-RESP-1770760",
+   "STF-ADI-7146",
+   "STF-RE-586224"
+  ],
+  "atualizado_em": "2026-09-11",
+  "_arquivo": "temas/urbanistico.md"
+ },
+ {
+  "tipo_registro": "pesquisa",
+  "id": "PESQ-2026-09-11-IMPLANTACAO-VERIFICACAO-INICIAL",
+  "data": "2026-09-11",
+  "comando": "/atualizar-direito-ambiental (implantação do núcleo)",
+  "questao": "Verificação inicial, via WebSearch, dos pontos de maior risco de desatualização do conhecimento do modelo: Lei Geral do Licenciamento; CONSEMA 372/2018; ADPF 748; ADI 7146; Código Estadual RS; Dec. 6.514; legislação de Farroupilha.",
+  "territorio": "FEDERAL / RS / Farroupilha-RS",
+  "atividade": "transversal",
+  "temas": [
+   "licenciamento",
+   "competencia",
+   "app",
+   "infracoes"
+  ],
+  "normas_citadas": [
+   "LEI-FED-15190-2025",
+   "RES-CONSEMA-RS-372-2018",
+   "RES-CONSEMA-RS-527-2025",
+   "RES-CONSEMA-RS-543-2026",
+   "RES-CONSEMA-RS-544-2026",
+   "LEI-FED-14285-2021",
+   "LEI-RS-15434-2020",
+   "LEI-RS-11520-2000",
+   "LEI-RS-9519-1992",
+   "DEC-FED-6514-2008",
+   "DEC-FED-11373-2023",
+   "RES-CONAMA-302-2002",
+   "RES-CONAMA-303-2002"
+  ],
+  "julgados_citados": [
+   "STF-ADPF-748",
+   "STF-ADI-7146"
+  ],
+  "resposta_direta": "Confirmadas indiretamente 7 novidades/alterações relevantes; nenhuma fonte primária pôde ser lida (bloqueio de rede).",
+  "confianca": "MEDIA",
+  "risco": "ELEVADO",
+  "nivel_verificacao_predominante": "INDIRETA",
+  "revisao_adversarial": false,
+  "validade_estimada": "2026-10-11",
+  "_arquivo": "memoria/pesquisas/PESQ-2026-09-11-implantacao-verificacao-inicial.md"
+ }
+]

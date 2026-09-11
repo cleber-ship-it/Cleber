@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash direito_ambiental/scripts/status_nucleo.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

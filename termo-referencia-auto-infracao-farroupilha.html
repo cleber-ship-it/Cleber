@@ -1,0 +1,648 @@
+<title>Auto de Infração Ambiental Farroupilha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #F5F7F4;
+    --surface: #FFFFFF;
+    --surface-2: #ECF0EB;
+    --ink: #1B2321;
+    --ink-2: #4A5652;
+    --ink-3: #7A8783;
+    --line: #D5DCD7;
+    --accent: #1F5C4A;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #DCEBE3;
+    --crit: #9C3B2E;
+    --crit-soft: #F4E2DE;
+    --warn: #8A6414;
+    --warn-soft: #F5EBD2;
+    --ok: #2E6B4A;
+    --ok-soft: #DDEEE3;
+    --mono-bg: #EEF2EF;
+    --shadow: 0 1px 2px rgba(27,35,33,.06), 0 8px 24px rgba(27,35,33,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131A17;
+      --surface: #1B2320;
+      --surface-2: #222C28;
+      --ink: #E4EAE6;
+      --ink-2: #AEB9B3;
+      --ink-3: #7F8B86;
+      --line: #2F3A35;
+      --accent: #7FC9AC;
+      --accent-ink: #0F1E18;
+      --accent-soft: #1E3A30;
+      --crit: #E48A7C;
+      --crit-soft: #3A2320;
+      --warn: #E0B860;
+      --warn-soft: #3A3120;
+      --ok: #8CCFA8;
+      --ok-soft: #1F3428;
+      --mono-bg: #222C28;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #131A17;
+    --surface: #1B2320;
+    --surface-2: #222C28;
+    --ink: #E4EAE6;
+    --ink-2: #AEB9B3;
+    --ink-3: #7F8B86;
+    --line: #2F3A35;
+    --accent: #7FC9AC;
+    --accent-ink: #0F1E18;
+    --accent-soft: #1E3A30;
+    --crit: #E48A7C;
+    --crit-soft: #3A2320;
+    --warn: #E0B860;
+    --warn-soft: #3A3120;
+    --ok: #8CCFA8;
+    --ok-soft: #1F3428;
+    --mono-bg: #222C28;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    padding-inline: 16px;
+    padding-block: 0 64px;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page { max-width: 1180px; margin: 0 auto; }
+
+  /* Masthead */
+  .mast {
+    border-bottom: 1px solid var(--line);
+    padding-block: 28px 24px;
+    display: grid;
+    gap: 14px;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+  }
+  .mast h1 {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.12;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+  .mast .sub { color: var(--ink-2); max-width: 70ch; margin: 0; font-size: 18px; }
+  .meta {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 24px;
+    margin-top: 6px;
+  }
+  .meta div { border-top: 2px solid var(--line); padding-top: 8px; }
+  .meta dt { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 2px; }
+  .meta dd { margin: 0; font-weight: 600; }
+
+  /* Layout */
+  .body { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; padding-top: 28px; }
+  @media (max-width: 860px) { .body { grid-template-columns: 1fr; gap: 20px; } }
+  nav.toc { position: sticky; top: 16px; align-self: start; font-size: 14.5px; }
+  @media (max-width: 860px) { nav.toc { position: static; } }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line); }
+  nav.toc li a { display: block; padding: 5px 12px; color: var(--ink-2); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  nav.toc li a:hover { color: var(--ink); border-left-color: var(--accent); }
+  nav.toc .n { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; color: var(--ink-3); margin-right: 6px; }
+  main { min-width: 0; max-width: 78ch; }
+
+  section { padding-block: 8px 30px; border-bottom: 1px solid var(--line); margin-bottom: 30px; }
+  section:last-of-type { border-bottom: 0; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 27px; line-height: 1.2; margin: 0 0 14px; text-wrap: balance;
+    display: flex; gap: 12px; align-items: baseline;
+  }
+  h2 .n { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; color: var(--accent); font-weight: 500; }
+  h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 20px; margin: 26px 0 8px; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 5px; }
+  li::marker { color: var(--ink-3); }
+  strong { font-weight: 600; }
+
+  .ref {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 12.5px; background: var(--mono-bg); border-radius: 3px; padding: 1px 5px; white-space: nowrap; color: var(--ink-2);
+  }
+
+  /* Callouts */
+  .note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 14px 0; }
+  .note.crit { border-left-color: var(--crit); background: var(--crit-soft); }
+  .note.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .note p:last-child { margin-bottom: 0; }
+  .note .t { font-size: 12px; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; display: block; }
+  .note.crit .t { color: var(--crit); } .note.warn .t { color: var(--warn); } .note:not(.crit):not(.warn) .t { color: var(--accent); }
+
+  /* Badges */
+  .badge { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; vertical-align: middle; white-space: nowrap; }
+  .b-ok { background: var(--ok-soft); color: var(--ok); }
+  .b-warn { background: var(--warn-soft); color: var(--warn); }
+  .b-crit { background: var(--crit-soft); color: var(--crit); }
+  .b-neutral { background: var(--surface-2); color: var(--ink-2); }
+
+  /* Tables */
+  .tw { overflow-x: auto; margin: 14px 0 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); background: var(--surface-2); font-weight: 700; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* Checklist */
+  .check { list-style: none; padding: 0; margin: 12px 0 16px; display: grid; gap: 8px; }
+  .check li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; margin: 0; }
+  .check .box { width: 18px; height: 18px; border: 2px solid var(--accent); border-radius: 4px; margin-top: 3px; }
+  .check .lab { font-weight: 600; }
+  .check .why { display: block; color: var(--ink-2); font-size: 15px; margin-top: 2px; }
+
+  /* Field spec */
+  .fields { display: grid; gap: 10px; margin: 12px 0 16px; }
+  .field { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+  .field .k { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--accent); font-weight: 500; padding-top: 3px; }
+  .field .name { font-weight: 700; }
+  .field .desc { color: var(--ink-2); font-size: 15.5px; margin-top: 3px; }
+  .field .base { font-size: 13px; color: var(--ink-3); margin-top: 5px; }
+
+  /* Two-col matrix */
+  .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 12px 0 16px; }
+  @media (max-width: 700px) { .matrix { grid-template-columns: 1fr; } }
+  .col { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); padding: 14px 16px; }
+  .col h4 { margin: 0 0 8px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+  .col.crit h4 { color: var(--crit); } .col.ok h4 { color: var(--ok); }
+  .col ul { margin: 0; padding-left: 18px; font-size: 15.5px; }
+
+  figure { margin: 16px 0 20px; }
+  figcaption { font-size: 13.5px; color: var(--ink-3); margin-top: 6px; }
+  .flow { width: 100%; max-width: 100%; height: auto; display: block; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: var(--ink-2); margin: 8px 0 14px; align-items: center; }
+
+  .sig { margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .sig div { border-top: 1px solid var(--ink-2); padding-top: 8px; font-size: 14px; color: var(--ink-2); }
+
+  @media print {
+    body { padding: 0; font-size: 11.5pt; }
+    nav.toc { display: none; }
+    .body { grid-template-columns: 1fr; }
+    section { break-inside: auto; }
+    .tw, .col, .field, .check li { break-inside: avoid; }
+  }
+</style>
+
+<div class="page">
+  <header class="mast">
+    <div class="eyebrow">
+      <span>Município de Farroupilha · RS</span>
+      <span>Secretaria Municipal de Urbanismo e Meio Ambiente</span>
+      <span>Setor de Fiscalização Ambiental</span>
+    </div>
+    <h1>Termo de Referência para lavratura de Auto de Infração Ambiental</h1>
+    <p class="sub">Requisitos mínimos, fundamentação normativa e controle de qualidade para que o auto de infração lavrado pelo órgão ambiental municipal não incorra em vício de nulidade nem em cerceamento de defesa.</p>
+    <dl class="meta">
+      <div><dt>Versão</dt><dd>1.0 · minuta para validação jurídica</dd></div>
+      <div><dt>Data</dt><dd>11 de setembro de 2026</dd></div>
+      <div><dt>Abrangência</dt><dd>Infrações de competência municipal (LC 140/2011, art. 17)</dd></div>
+      <div><dt>Destinatários</dt><dd>Fiscais ambientais, autoridade julgadora, Procuradoria</dd></div>
+    </dl>
+  </header>
+
+  <div class="body">
+    <nav class="toc" aria-label="Sumário">
+      <ol>
+        <li><a href="#s1"><span class="n">01</span>Objeto e finalidade</a></li>
+        <li><a href="#s2"><span class="n">02</span>Como ler este documento</a></li>
+        <li><a href="#s3"><span class="n">03</span>Base normativa aplicável</a></li>
+        <li><a href="#s4"><span class="n">04</span>Competência para autuar</a></li>
+        <li><a href="#s5"><span class="n">05</span>Elemento subjetivo e autoria</a></li>
+        <li><a href="#s6"><span class="n">06</span>Campos obrigatórios do auto</a></li>
+        <li><a href="#s7"><span class="n">07</span>Relatório de fiscalização e provas</a></li>
+        <li><a href="#s8"><span class="n">08</span>Enquadramento e dosimetria</a></li>
+        <li><a href="#s9"><span class="n">09</span>Medidas administrativas cautelares</a></li>
+        <li><a href="#s10"><span class="n">10</span>Ciência e notificação</a></li>
+        <li><a href="#s11"><span class="n">11</span>Rito e prazos</a></li>
+        <li><a href="#s12"><span class="n">12</span>Matriz de vícios</a></li>
+        <li><a href="#s13"><span class="n">13</span>Prescrição e tempo</a></li>
+        <li><a href="#s14"><span class="n">14</span>Checklist pré-lavratura</a></li>
+        <li><a href="#s15"><span class="n">15</span>Lacunas municipais e recomendações</a></li>
+        <li><a href="#s16"><span class="n">16</span>Referências e verificação</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <section id="s1">
+        <h2><span class="n">01</span>Objeto e finalidade</h2>
+        <p>Este Termo de Referência fixa o conteúdo mínimo, a forma e o procedimento de lavratura do auto de infração ambiental pelo órgão ambiental do Município de Farroupilha, de modo a garantir o devido processo legal, o contraditório e a ampla defesa (CF, art. 5º, LIV e LV) e a evitar a anulação administrativa ou judicial do ato.</p>
+        <p>Aplica-se a toda infração administrativa ambiental apurada pelo Município no exercício do poder de polícia atribuído ao órgão ambiental municipal pela Lei Complementar Municipal 006/2001, art. 2º, e pela competência de fiscalização do ente licenciador prevista na Lei Complementar Federal 140/2011, art. 17.</p>
+        <p>O documento serve a três usos: orientar o agente autuante no campo, subsidiar a autoridade julgadora na verificação de regularidade formal e fornecer à Procuradoria um parâmetro objetivo de saneamento.</p>
+      </section>
+
+      <section id="s2">
+        <h2><span class="n">02</span>Como ler este documento</h2>
+        <p>A pesquisa que fundamenta este TR foi conduzida por quatro frentes (legislação federal, legislação do RS, legislação de Farroupilha e jurisprudência). Os portais oficiais de legislação estavam bloqueados no ambiente de pesquisa, então os textos federais foram lidos em cópias integrais espelhadas do Planalto, e os textos estaduais e municipais foram confirmados apenas por trechos indexados. Cada citação carrega uma marca de confiança:</p>
+        <div class="legend">
+          <span class="badge b-ok">Verificado</span> texto integral lido em cópia espelhada da fonte oficial
+          <span class="badge b-warn">Conferir</span> confirmado só por trecho indexado; conferir no inteiro teor antes de citar em peça
+          <span class="badge b-crit">Não localizado</span> norma ou dispositivo não encontrado; não citar sem conferência
+        </div>
+        <div class="note warn">
+          <span class="t">Antes de adotar este TR</span>
+          <p>A Procuradoria deve abrir os quatro textos primários listados na seção 16 e conferir os pontos marcados como "Conferir". Os pontos de maior risco são a redação do art. 122 do Decreto Estadual 55.374/2020, o Anexo I desse decreto, a existência de rito sancionador ambiental próprio em Farroupilha e o número das leis municipais setoriais.</p>
+        </div>
+      </section>
+
+      <section id="s3">
+        <h2><span class="n">03</span>Base normativa aplicável</h2>
+        <p>Em Farroupilha o auto de infração ambiental se apoia em três camadas. A camada federal é a que vincula diretamente o Município, porque a Lei 9.605/1998 e a LC 140/2011 são normas nacionais. A camada estadual vincula os órgãos do Sistema Estadual de Proteção Ambiental e serve ao Município como parâmetro e como fonte subsidiária. A camada municipal define o órgão competente e o destino das multas, mas não contém rito sancionador ambiental próprio.</p>
+
+        <h3>Camada federal</h3>
+        <div class="tw"><table>
+          <thead><tr><th>Norma</th><th>Dispositivos que interessam</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Constituição Federal</td><td>art. 5º, LIV e LV (devido processo, contraditório, ampla defesa); art. 37, caput (legalidade, publicidade); art. 225, §3º (sanções administrativas independem da reparação)</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Lei 9.605/1998</td><td>art. 6º (gradação); art. 70, caput e §§1º a 4º (conceito, autoridade competente, dever de apurar, processo próprio); art. 71 (prazos); art. 72 (sanções); art. 73 (destino das multas, inclusive fundos municipais); art. 74 e 75 (base e limites); art. 76 (multa municipal substitui a federal)</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Decreto 6.514/2008, com alterações até o Decreto 12.189/2024</td><td>arts. 3º a 5º e 8º a 11 (sanções, gradação, multa diária, reincidência); art. 16, §1º (coordenadas no auto); arts. 21 e 22 (prescrição); arts. 94 a 101 (princípios, auto, ciência, requisitos do art. 97, relatório de fiscalização do art. 98, vícios dos arts. 99 e 100, medidas do art. 101); arts. 102 a 112 (termos de apreensão, embargo, demolição); arts. 113 a 129 (defesa, instrução, julgamento, recurso); arts. 139 a 148 (conversão de multa)</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Lei 9.784/1999</td><td>art. 2º (princípios e critérios); art. 3º (direitos do administrado); art. 22 (forma dos atos); art. 26 (conteúdo da intimação e nulidade); art. 28; art. 38 (provas); art. 50 (motivação); arts. 53 a 55 (anulação e convalidação); art. 69 (aplicação subsidiária)</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Lei Complementar 140/2011</td><td>art. 17, caput e §§1º a 3º (competência para autuar do órgão licenciador; fiscalização comum; prevalência do auto do licenciador)</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Lei 9.873/1999</td><td>art. 1º, caput e §§1º e 2º; art. 1º-A; art. 2º (prescrição da ação punitiva federal). Aplicação a Estados e Municípios é restrita, ver seção 13</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>Lei 15.190/2025 (Lei Geral do Licenciamento)</td><td>art. 9º, §2º (dispensa não afasta fiscalização); art. 14, §9º (condicionantes); art. 16 (suspensão e cancelamento de licença); art. 65 (atuação de órgão não licenciador e prevalência do licenciador). ADIs 7913, 7916, 7919 e ADC 102 pendentes no STF</td><td><span class="badge b-ok">Verificado</span></td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Camada estadual (Rio Grande do Sul)</h3>
+        <div class="tw"><table>
+          <thead><tr><th>Norma</th><th>Dispositivos que interessam</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Constituição do Estado</td><td>arts. 250 a 259 (meio ambiente; art. 250 confirmado)</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei Estadual 15.434/2020 (Código Estadual do Meio Ambiente)</td><td>art. 90 (conceito de infração, confirmado); arts. 91 a 103 (sanções, gradação, processo, prescrição, conversão); dispositivos sobre fiscalização orientadora e competência municipal</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Decreto Estadual 55.374/2020, alterado pelo Decreto 55.855/2021</td><td>art. 4º (gradação: gravidade, antecedentes, situação econômica); arts. 5º e 6º (atenuantes e agravantes); art. 21 (reincidência em 3 anos); art. 34 (prescrição quinquenal e intercorrente de 3 anos); art. 122 e parágrafo único (auto de infração conforme Anexo I; relatório de constatação integra o auto); art. 124 (julgamento em 30 dias, pagamento em 5 dias); defesa e recurso em 20 dias; arts. 168 e 169 (Termo de Compromisso Ambiental)</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Instrução Normativa SEMA 02/2025</td><td>normas complementares ao Decreto 55.374/2020: constatação no sistema SOL, relatório de constatação como parte do auto, súmula no DOE com 20 dias quando o infrator não é identificado; revogou a IN SEMA 15/2024</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei Estadual 15.612/2021 (processo administrativo estadual)</td><td>art. 32, §2º (antecedência da intimação); art. 53 (decisão em 30 dias); art. 71 (convalidação de defeitos sanáveis); prazos em dias contínuos</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Resolução CONSEMA 372/2018 e alterações</td><td>art. 2º e parágrafo único (impacto local e limite territorial); Anexo I (tipologias municipais). Farroupilha consta como município habilitado</td><td><span class="badge b-warn">Conferir</span></td></tr>
+          </tbody>
+        </table></div>
+
+        <h3>Camada municipal (Farroupilha)</h3>
+        <div class="tw"><table>
+          <thead><tr><th>Norma</th><th>Conteúdo relevante</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Lei Orgânica (1989, com emendas até a nº 044/2023)</td><td>art. 9º, VI (proteger o meio ambiente e combater a poluição); poder de polícia municipal; dever de fiscalizar e aplicar sanções na política urbana</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei Complementar 006/2001</td><td>art. 1º (taxas de licenciamento); art. 2º (poder de polícia, fiscalização e política municipal do meio ambiente a cargo do órgão ambiental municipal); receita ao Fundo Municipal de Meio Ambiente; valores de multa remetidos à legislação federal</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei 4.059/2014 e alterações de 2016 e 2017</td><td>atualiza o licenciamento ambiental municipal e o Anexo I de taxas. Capítulo de infrações não localizado</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei 4.673/2021 e Decreto 7.595/2025</td><td>estrutura da Secretaria Municipal de Urbanismo e Meio Ambiente; setores de Licenciamento, Fiscalização e Educação Ambiental</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei 4.192/2015 (Código de Posturas)</td><td>rito de auto de infração de posturas: três vias, campos obrigatórios, defesa em 10 dias úteis com efeito suspensivo, recurso ao Prefeito. Aplicação apenas subsidiária</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Lei 2.272/1996 e Lei 4.311/2017 (COMAM)</td><td>Conselho Municipal de Meio Ambiente; competência recursal em autos de infração não localizada</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Decreto 7.901/2026</td><td>procedimentos de licenciamento adequados à Lei 15.190/2025; nada sobre infrações nas fontes consultadas</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>Código ou Política Municipal do Meio Ambiente; lei municipal de processo administrativo; lei do Fundo Municipal de Meio Ambiente</td><td>não encontrados em nenhuma fonte consultada</td><td><span class="badge b-crit">Não localizado</span></td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="note">
+          <span class="t">Regra de aplicação adotada neste TR</span>
+          <p>Na ausência de rito sancionador ambiental municipal, o auto e o processo seguem diretamente a Lei 9.605/1998, arts. 70 a 76, e a LC 140/2011, art. 17, com a Lei 9.784/1999 aplicada por analogia aos princípios e à forma. O Decreto 6.514/2008 é adotado como parâmetro de forma e de tipificação, apoiado na remissão da LC 006/2001 à legislação federal para valores de multa. O Decreto Estadual 55.374/2020 serve como referência de forma, mas seus prazos de prescrição não vinculam o Município, ver seção 13.</p>
+        </div>
+      </section>
+
+      <section id="s4">
+        <h2><span class="n">04</span>Competência para autuar</h2>
+        <p>Só pode lavrar auto de infração ambiental o servidor de órgão ambiental integrante do SISNAMA designado para atividades de fiscalização (Lei 9.605, art. 70, §1º). Estagiários, terceirizados, agentes comunitários e servidores sem designação não podem autuar. A designação deve ser formal e anterior ao ato.</p>
+        <ul>
+          <li><strong>Portaria de designação vigente.</strong> Cada fiscal ambiental deve constar de portaria do Prefeito ou do Secretário, com data anterior à lavratura. A Resolução CONSEMA 372/2018 exige ao menos um fiscal de carreira designado por portaria como condição da habilitação municipal. A jurisprudência já convalidou autos de servidor cuja portaria era posterior, mas isso é risco desnecessário.</li>
+          <li><strong>Competência do órgão.</strong> O Município autua as atividades que licencia ou deveria licenciar (LC 140, art. 17, caput). Pode fiscalizar atividades licenciadas por outro ente na atribuição comum, mas o auto do órgão licenciador prevalece (art. 17, §3º), e a Lei 15.190/2025, art. 65, faz cessar os efeitos do auto do órgão não licenciador quando o licenciador se manifesta pela não ocorrência da infração.</li>
+          <li><strong>Atuação fora da competência de licenciamento.</strong> Quando o Município autuar atividade de licenciamento estadual ou federal, o auto deve registrar o fundamento (art. 17, §3º, ou §2º para medidas urgentes) e o agente deve comunicar formalmente a FEPAM ou o IBAMA, juntando o comprovante ao processo. Sem essa comunicação a autuação perde eficácia.</li>
+          <li><strong>Área que ultrapassa o limite municipal.</strong> O impacto deixa de ser local e a competência é estadual (Resolução CONSEMA 372/2018, art. 2º, parágrafo único). O agente deve constatar e encaminhar, não autuar.</li>
+        </ul>
+        <div class="note crit">
+          <span class="t">Vício insanável</span>
+          <p>Auto lavrado por pessoa sem vínculo funcional com o órgão ambiental é nulo e não pode ser convalidado. A jurisprudência do STJ só admite convalidação de vício de competência quando não se trata de competência exclusiva (Lei 9.784, art. 55).</p>
+        </div>
+      </section>
+
+      <section id="s5">
+        <h2><span class="n">05</span>Elemento subjetivo e autoria</h2>
+        <p>A responsabilidade administrativa ambiental é subjetiva. O STJ consolidou esse entendimento no EREsp 1.318.051/RJ, Primeira Seção, relator Ministro Mauro Campbell Marques, julgado em 8 de maio de 2019: a sanção exige conduta imputável ao autuado, demonstração de dolo ou culpa e nexo causal entre a conduta e o resultado. A distinção com a esfera civil decorre do art. 14 da Lei 6.938/1981, que reserva a penalidade aos transgressores.</p>
+        <p>Consequências práticas para o auto:</p>
+        <ul>
+          <li><strong>Autuar o autor da conduta, não o titular do bem.</strong> Proprietário, possuidor, arrendatário e empreiteiro respondem apenas pela conduta própria. Não há responsabilidade solidária nem propter rem na esfera administrativa. A multa não se transmite a herdeiro (STJ, REsp 1.823.083/AL, 2024).</li>
+          <li><strong>Um auto por infrator, com conduta individualizada.</strong> Autos idênticos contra proprietária e arrendatário pelo mesmo fato configuram bis in idem (TRF4, AC 5009998-97.2016.4.04.7209 e AC 5019514-76.2013.4.04.7200). Se duas pessoas concorreram, o auto de cada uma descreve o que ela fez ou deixou de fazer.</li>
+          <li><strong>Pessoa jurídica.</strong> Autuar a empresa pelo CNPJ quando a conduta foi praticada por decisão de seus representantes no interesse ou benefício dela (Lei 9.605, art. 3º). Autuar sócio ou administrador exige descrição da conduta pessoal dele.</li>
+          <li><strong>Descrever o elemento subjetivo.</strong> O relatório de fiscalização indica os fatos que revelam dolo ou culpa: conhecimento da irregularidade, notificação anterior descumprida, ausência de licença exigível, omissão do dever de cuidado, reincidência. A presunção de veracidade do auto cobre os fatos constatados, mas não cobre a culpa.</li>
+          <li><strong>Documentar como se chegou ao autor.</strong> Matrícula, CAR, contrato, alvará, declarações, cadastro municipal, testemunhas. Quando o autor não puder ser identificado, aplicar apenas a medida cautelar em termo próprio e adotar o modelo da IN SEMA 02/2025: publicação de súmula com prazo de 20 dias para manifestação de interessados, sem lavrar auto contra pessoa incerta.</li>
+        </ul>
+      </section>
+
+      <section id="s6">
+        <h2><span class="n">06</span>Campos obrigatórios do auto de infração</h2>
+        <p>O auto é lavrado em formulário próprio, numerado, sem emendas ou rasuras que comprometam a validade (Decreto 6.514, art. 97). O formulário municipal deve conter, no mínimo, os campos abaixo. O Anexo I do Decreto Estadual 55.374/2020 serve como modelo de referência para a diagramação, após conferência.</p>
+        <div class="fields">
+          <div class="field"><div class="k">A</div><div><div class="name">Identificação do auto</div><div class="desc">Número sequencial anual, data e hora da lavratura, local da lavratura, número do processo administrativo quando já instaurado.</div><div class="base">Lei 9.784, art. 22, §1º</div></div></div>
+          <div class="field"><div class="k">B</div><div><div class="name">Identificação completa do autuado</div><div class="desc">Nome ou razão social, CPF ou CNPJ, endereço completo para intimação, telefone e e-mail quando disponíveis, e o vínculo do autuado com a conduta (executor, contratante, responsável técnico, possuidor). Pessoa jurídica: nome do representante presente no ato.</div><div class="base">Decreto 6.514, art. 97; EREsp 1.318.051/RJ</div></div></div>
+          <div class="field"><div class="k">C</div><div><div class="name">Descrição clara e objetiva do fato</div><div class="desc">O quê, quando, onde, quanto e como. Data e hora da constatação; se a infração for permanente ou continuada, o indício de início e o registro de que persiste. Local com endereço, matrícula ou CAR e coordenadas geográficas com datum informado (SIRGAS 2000). Extensão com unidade de medida e método (área em hectares ou metros quadrados, volume, quantidade, espécies). Meio empregado e resultado ou risco produzido.</div><div class="base">Decreto 6.514, arts. 16, §1º, 97 e 100, §1º; Lei 9.605, art. 74</div></div></div>
+          <div class="field"><div class="k">D</div><div><div class="name">Enquadramento legal triplo</div><div class="desc">(1) A regra material violada: dispositivo da Lei 12.651/2012, condicionante de licença, resolução CONAMA ou CONSEMA, lei municipal. (2) O tipo infracional: artigo do Decreto 6.514/2008 ou, quando houver, da lei municipal. (3) A norma sancionadora geral: Lei 9.605, art. 70 e art. 72, inciso aplicável.</div><div class="base">Decreto 6.514, art. 97; STJ, 1ª Turma, abril de 2026 (art. 70 como norma em branco)</div></div></div>
+          <div class="field"><div class="k">E</div><div><div class="name">Sanção indicada e dosimetria</div><div class="desc">Tipo de sanção (art. 72). Para multa: valor, unidade de medida, quantidade, valor unitário e valor total; se multa diária, o valor-dia (Decreto 6.514, art. 10, §1º). Indicação dos três critérios do art. 6º da Lei 9.605 e das atenuantes e agravantes aplicadas, com remissão ao relatório de fiscalização onde estão justificadas.</div><div class="base">Lei 9.605, arts. 6º, 72, 74 e 75; Decreto 6.514, arts. 4º, 8º a 11 e 98, parágrafo único, III e IV</div></div></div>
+          <div class="field"><div class="k">F</div><div><div class="name">Medidas administrativas aplicadas</div><div class="desc">Referência ao termo próprio de embargo, apreensão, suspensão ou demolição, com número. O auto não substitui o termo.</div><div class="base">Decreto 6.514, art. 101, §§2º e 3º</div></div></div>
+          <div class="field"><div class="k">G</div><div><div class="name">Prazo, forma e local de defesa</div><div class="desc">Texto expresso: prazo de 20 dias contados da ciência, onde protocolar, possibilidade de vista dos autos, opções de pagamento com desconto, parcelamento ou conversão da multa quando o Município as ofereça.</div><div class="base">Lei 9.605, art. 71, I; Decreto 6.514, art. 96, §5º; Lei 9.784, art. 26, §1º</div></div></div>
+          <div class="field"><div class="k">H</div><div><div class="name">Identificação e assinatura do agente</div><div class="desc">Nome, matrícula, cargo, número da portaria de designação e assinatura. Se houver mais de um agente, todos assinam.</div><div class="base">Lei 9.605, art. 70, §1º; Lei 9.784, art. 22, §1º</div></div></div>
+          <div class="field"><div class="k">I</div><div><div class="name">Ciência do autuado</div><div class="desc">Assinatura do autuado ou representante com data. Em caso de recusa, certidão do agente na presença de duas testemunhas identificadas. Em caso de ausência ou evasão, registro de que o auto seguirá por via postal com aviso de recebimento.</div><div class="base">Decreto 6.514, art. 96, §§1º a 3º</div></div></div>
+          <div class="field"><div class="k">J</div><div><div class="name">Anexos que integram o auto</div><div class="desc">Lista numerada: relatório de fiscalização, fotografias, croqui, imagens de satélite, termos, laudos, notificações anteriores.</div><div class="base">Decreto 6.514, art. 98; Decreto 55.374, art. 122, parágrafo único, como modelo</div></div></div>
+        </div>
+        <div class="note crit">
+          <span class="t">O que mais anula</span>
+          <p>Descrição genérica do fato é o vício mais reconhecido pelos tribunais como cerceamento de defesa. Frases como "causar poluição", "desmatar área" ou "operar sem licença" sem indicação de quanto, onde e como não permitem ao autuado saber do que se defender. Se o julgador precisar corrigir o fato, o vício é insanável (Decreto 6.514, art. 100, §1º).</p>
+        </div>
+      </section>
+
+      <section id="s7">
+        <h2><span class="n">07</span>Relatório de fiscalização e provas</h2>
+        <p>O auto presume-se legítimo e verdadeiro, mas a presunção é relativa e só cobre os fatos que o agente efetivamente constatou e documentou. O relatório de fiscalização é a peça que sustenta essa presunção. Ele é obrigatório e acompanha o auto (Decreto 6.514, art. 98, parágrafo único).</p>
+        <h3>Conteúdo mínimo do relatório</h3>
+        <ol>
+          <li>Circunstâncias que levaram à constatação da infração e à identificação da autoria: origem da fiscalização (denúncia, rotina, ordem de serviço), quem foi encontrado no local, o que declarou.</li>
+          <li>Registro da situação por fotografias datadas e georreferenciadas, vídeos, imagens de satélite com data, mapas ou croqui com poligonal da área, termos de declaração de testemunhas.</li>
+          <li>Medições com método e instrumento: área com GPS ou imagem, volume por cubagem, contagem de indivíduos, leitura de equipamento de medição de ruído ou efluente.</li>
+          <li>Indicação do elemento subjetivo: fatos que evidenciam dolo ou culpa.</li>
+          <li>Critérios utilizados para fixar a multa acima do mínimo legal.</li>
+          <li>Indicação justificada das atenuantes e agravantes.</li>
+          <li>Histórico de notificações, advertências ou autos anteriores contra o mesmo autuado, com cópia.</li>
+        </ol>
+        <h3>Quando é indispensável laudo ou nota técnica</h3>
+        <p>Sempre que o tipo infracional depender de conceito técnico, o auto precisa de laudo ou nota técnica de servidor habilitado. Tribunais anulam autos por falta dessa prova nos casos de área de preservação permanente (é preciso demonstrar a existência de vegetação e o enquadramento como APP), poluição acima de padrão legal (é preciso medição válida com cadeia de custódia), espécie protegida ou imune ao corte, e autoria de incêndio.</p>
+        <div class="note">
+          <span class="t">Regra prática</span>
+          <p>Coletar a prova no momento da fiscalização, não depois. O STJ admite que o auto seja desconstituído por prova judicial produzida muito tempo após o fato somente quando conclusiva, mas também não permite que o órgão complete depois o que não documentou na hora.</p>
+        </div>
+      </section>
+
+      <section id="s8">
+        <h2><span class="n">08</span>Enquadramento e dosimetria</h2>
+        <h3>Enquadramento</h3>
+        <p>O art. 70 da Lei 9.605 é norma em branco. O STJ, em julgado da Primeira Turma de abril de 2026, relator Ministro Paulo Sérgio Domingues, validou a tipificação por decreto, mas exigiu que a "regra jurídica de uso, gozo, promoção, proteção e recuperação do meio ambiente" violada seja identificada. Por isso o enquadramento é sempre triplo (campo D da seção 6). Enquadrar apenas no decreto, sem a regra material, é o erro mais frequente.</p>
+        <p>Erro de enquadramento é vício sanável: a autoridade julgadora pode corrigir por decisão fundamentada (Decreto 6.514, art. 100, §3º), desde que não altere o fato descrito e que reabra prazo de defesa se houver prejuízo.</p>
+        <h3>Dosimetria</h3>
+        <p>A gradação é obrigatória e motivada. Os três critérios legais são a gravidade do fato, os antecedentes do infrator e a situação econômica do infrator (Lei 9.605, art. 6º; Decreto 6.514, art. 4º; Decreto 55.374, art. 4º). Multa acima do mínimo sem fundamentação é anulada no quantum, e não no auto inteiro, mas obriga a refazer todo o julgamento.</p>
+        <div class="tw"><table>
+          <thead><tr><th>Regra</th><th>Conteúdo</th><th>Fundamento</th></tr></thead>
+          <tbody>
+            <tr><td>Limites da multa</td><td class="num">R$ 50,00 a R$ 50.000.000,00</td><td>Lei 9.605, art. 75; Decreto 6.514, art. 9º</td></tr>
+            <tr><td>Multa diária</td><td>só para infração que se prolonga no tempo; valor-dia entre o mínimo legal e 10% da multa simples máxima; cessa com a comprovação da regularização</td><td>Decreto 6.514, art. 10</td></tr>
+            <tr><td>Advertência</td><td>infrações de menor lesividade (multa consolidada até R$ 1.000,00) ou com prazo para sanar; não é pré-requisito da multa (STJ, Tema 1.159, REsp 1.984.746/AL, 2023)</td><td>Decreto 6.514, art. 5º</td></tr>
+            <tr><td>Reincidência</td><td>nova infração em 5 anos após decisão definitiva: multa em triplo (mesma infração) ou em dobro (infração distinta); exige certidão do auto anterior e notificação prévia de 10 dias ao autuado</td><td>Decreto 6.514, art. 11</td></tr>
+            <tr><td>Concurso de infrações</td><td>sanções aplicadas cumulativamente, cada infração com descrição e enquadramento próprios no mesmo auto ou em autos distintos</td><td>Lei 9.605, art. 72, §1º</td></tr>
+            <tr><td>Confirmação</td><td>sanção indicada pelo agente sujeita-se à confirmação, redução ou majoração motivada pela autoridade julgadora; majoração exige notificação prévia de 10 dias</td><td>Decreto 6.514, arts. 4º, §2º, e 123</td></tr>
+          </tbody>
+        </table></div>
+        <div class="note warn">
+          <span class="t">Tabela municipal de atenuantes e agravantes</span>
+          <p>O Decreto 6.514, art. 4º, §1º, manda o órgão ambiental fixar de forma objetiva os critérios de agravamento e atenuação. Farroupilha não possui essa tabela. Enquanto não editada, o agente deve usar por analogia os arts. 5º e 6º do Decreto Estadual 55.374/2020 e justificar cada circunstância no relatório.</p>
+        </div>
+      </section>
+
+      <section id="s9">
+        <h2><span class="n">09</span>Medidas administrativas cautelares</h2>
+        <p>Embargo, apreensão, suspensão de venda ou de atividade, destruição e demolição são medidas cautelares que o agente pode adotar no ato da fiscalização (Decreto 6.514, art. 101). Cada uma é formalizada em termo próprio, sem emendas ou rasuras, com os dispositivos infringidos e os motivos concretos que a justificam (art. 101, §2º). O objetivo é prevenir novas infrações, resguardar a recuperação e garantir o resultado do processo (§1º).</p>
+        <ul>
+          <li><strong>Embargo</strong> restrito ao local onde se caracterizou a infração, com poligonal e coordenadas; não alcança as demais atividades do imóvel (arts. 15-A, 101, §4º, e 108). Descumprimento comunicado ao Ministério Público em 72 horas (art. 108, §1º).</li>
+          <li><strong>Apreensão</strong> com termo que avalie os bens e defina o depositário; o autuado pode ser fiel depositário quando não houver risco de nova infração (arts. 102, 105 e 106).</li>
+          <li><strong>Demolição no ato</strong> só em edificação não habitada, usada diretamente na infração e com risco iminente de agravamento do dano, documentada com fotografias (art. 112).</li>
+          <li><strong>Apreciação no julgamento.</strong> As medidas aplicadas na autuação devem ser apreciadas na decisão, sob pena de ineficácia (art. 124, §1º).</li>
+        </ul>
+      </section>
+
+      <section id="s10">
+        <h2><span class="n">10</span>Ciência e notificação</h2>
+        <p>A ciência da autuação abre o prazo de defesa e interrompe a prescrição. É o ato mais atacado em juízo. A ordem de preferência é a do Decreto 6.514, art. 96, §1º, e da Lei 9.784, art. 26:</p>
+        <ol>
+          <li>Pessoalmente, ao autuado ou ao representante legal, com assinatura e data no auto.</li>
+          <li>Recusa de assinatura: certidão do agente na presença de duas testemunhas identificadas, com entrega da via ao autuado (art. 96, §2º).</li>
+          <li>Ausência ou evasão sem preposto: via postal com aviso de recebimento ou outro meio que assegure a certeza da ciência, com o comprovante juntado ao processo (art. 96, §3º).</li>
+          <li>Intimação eletrônica ou registro de acesso do autuado ao processo eletrônico, quando o Município implantar processo eletrônico (art. 96, §4º).</li>
+          <li>Edital somente quando o autuado estiver em lugar incerto ou não for localizado no endereço, e somente após diligências documentadas de localização (art. 96, §1º, IV; Lei 9.784, art. 26, §4º).</li>
+        </ol>
+        <div class="note crit">
+          <span class="t">Edital sem diligência anula</span>
+          <p>O TJRS anulou auto da FEPAM porque o aviso de recebimento voltou "não procurado" e o órgão publicou edital sem demonstrar diligência para localizar o autuado. O STJ, no Tema 1.329 (REsp 2.154.295/RS e REsp 2.163.058/SC, 2025), só tolera edital para alegações finais quando o autuado não demonstra prejuízo. Para a notificação inicial do auto, edital sem tentativa idônea de intimação pessoal continua sendo causa de nulidade.</p>
+        </div>
+        <p>O termo de notificação deve conter a identificação do intimado e do órgão, a finalidade, o prazo de 20 dias, o local de protocolo, a informação de que o processo prossegue independentemente de manifestação e a indicação dos fatos e fundamentos legais (Lei 9.784, art. 26, §1º). Intimação feita sem esses requisitos é nula, salvo se o comparecimento do autuado suprir a falta (art. 26, §5º).</p>
+      </section>
+
+      <section id="s11">
+        <h2><span class="n">11</span>Rito e prazos</h2>
+        <p>Os prazos abaixo são os da Lei 9.605, art. 71, que vinculam todos os órgãos do SISNAMA, inclusive o municipal. O Código de Posturas de Farroupilha prevê 10 dias úteis para defesa, mas esse rito é de posturas e é menos protetivo; para infração ambiental aplica-se o prazo de 20 dias.</p>
+        <figure>
+          <svg class="flow" viewBox="0 0 760 150" role="img" aria-labelledby="flowt">
+            <title id="flowt">Fluxo do processo administrativo sancionador ambiental</title>
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-3)"/></marker>
+            </defs>
+            <g font-family="Source Sans 3, sans-serif" font-size="13" fill="var(--ink)">
+              <rect x="6" y="40" width="120" height="56" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+              <text x="66" y="63" text-anchor="middle" font-weight="600">Constatação</text>
+              <text x="66" y="81" text-anchor="middle" fill="var(--ink-2)">relatório + provas</text>
+
+              <line x1="126" y1="68" x2="156" y2="68" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arr)"/>
+
+              <rect x="158" y="40" width="120" height="56" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+              <text x="218" y="63" text-anchor="middle" font-weight="600">Auto + ciência</text>
+              <text x="218" y="81" text-anchor="middle" fill="var(--ink-2)">termos cautelares</text>
+
+              <line x1="278" y1="68" x2="308" y2="68" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arr)"/>
+              <text x="293" y="30" text-anchor="middle" fill="var(--ink-3)" font-size="12">20 dias</text>
+
+              <rect x="310" y="40" width="120" height="56" rx="6" fill="var(--surface)" stroke="var(--line)"/>
+              <text x="370" y="63" text-anchor="middle" font-weight="600">Defesa</text>
+              <text x="370" y="81" text-anchor="middle" fill="var(--ink-2)">ou adesão</text>
+
+              <line x1="430" y1="68" x2="460" y2="68" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arr)"/>
+              <text x="445" y="30" text-anchor="middle" fill="var(--ink-3)" font-size="12">30 dias</text>
+
+              <rect x="462" y="40" width="120" height="56" rx="6" fill="var(--surface)" stroke="var(--line)"/>
+              <text x="522" y="63" text-anchor="middle" font-weight="600">Julgamento</text>
+              <text x="522" y="81" text-anchor="middle" fill="var(--ink-2)">decisão motivada</text>
+
+              <line x1="582" y1="68" x2="612" y2="68" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arr)"/>
+              <text x="597" y="30" text-anchor="middle" fill="var(--ink-3)" font-size="12">20 dias</text>
+
+              <rect x="614" y="40" width="140" height="56" rx="6" fill="var(--surface)" stroke="var(--line)"/>
+              <text x="684" y="63" text-anchor="middle" font-weight="600">Recurso</text>
+              <text x="684" y="81" text-anchor="middle" fill="var(--ink-2)">2ª e última instância</text>
+
+              <text x="522" y="128" text-anchor="middle" fill="var(--ink-3)" font-size="12">pagamento: 5 dias da notificação da decisão</text>
+            </g>
+          </svg>
+          <figcaption>Fases e prazos máximos da Lei 9.605/1998, art. 71, e do Decreto 6.514/2008, arts. 113 a 129.</figcaption>
+        </figure>
+        <div class="tw"><table>
+          <thead><tr><th>Ato</th><th>Prazo</th><th>Contagem</th><th>Fundamento</th></tr></thead>
+          <tbody>
+            <tr><td>Defesa ou impugnação</td><td class="num">20 dias</td><td>da ciência da autuação</td><td>Lei 9.605, art. 71, I; Decreto 6.514, art. 113</td></tr>
+            <tr><td>Julgamento em 1ª instância</td><td class="num">30 dias</td><td>da lavratura, com ou sem defesa; o atraso não anula (Decreto 6.514, art. 124, §2º), mas conta para a prescrição intercorrente onde ela existir</td><td>Lei 9.605, art. 71, II; Decreto 6.514, art. 124</td></tr>
+            <tr><td>Alegações finais</td><td class="num">10 dias</td><td>após o encerramento da instrução, com notificação</td><td>Decreto 6.514, art. 122</td></tr>
+            <tr><td>Manifestação sobre agravamento</td><td class="num">10 dias</td><td>antes do julgamento, quando a autoridade pretender majorar</td><td>Decreto 6.514, arts. 11, §2º, e 123, parágrafo único</td></tr>
+            <tr><td>Recurso</td><td class="num">20 dias</td><td>da notificação da decisão; efeito suspensivo quanto à multa</td><td>Lei 9.605, art. 71, III; Decreto 6.514, arts. 127 e 128, §2º</td></tr>
+            <tr><td>Pagamento</td><td class="num">5 dias</td><td>do recebimento da notificação da decisão; desconto de 30% no pagamento no prazo</td><td>Lei 9.605, art. 71, IV; Decreto 6.514, art. 126</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Julgamento</h3>
+        <p>A decisão é motivada, com fatos e fundamentos jurídicos, e enfrenta cada tese da defesa e cada pedido de prova (Lei 9.784, arts. 38, §2º, e 50; Decreto 6.514, art. 125). Decisão que adota parecer genérico sem examinar a defesa é nula, o que preserva o auto mas obriga a rejulgar. A autoridade julgadora e a instância recursal devem ser designadas em ato próprio do Município (Decreto 6.514, arts. 124, §3º, e 127, §2º). Não há instância no CONAMA nem no CONSEMA para autos municipais.</p>
+      </section>
+
+      <section id="s12">
+        <h2><span class="n">12</span>Matriz de vícios</h2>
+        <p>O critério legal é único: vício insanável é aquele cuja correção implica modificar o fato descrito no auto (Decreto 6.514, art. 100, §1º). Tudo o mais é sanável por despacho saneador justificado (art. 99; Lei 9.784, art. 55), com reabertura de prazo de defesa quando houver prejuízo. Auto nulo pode ser substituído por novo auto, dentro do prazo prescricional (art. 100, §2º).</p>
+        <div class="matrix">
+          <div class="col crit">
+            <h4>Insanável: nulidade do auto</h4>
+            <ul>
+              <li>Descrição do fato genérica, incompleta ou que não corresponde ao ocorrido</li>
+              <li>Coordenadas fora do imóvel do autuado ou área diversa da constatada (TRF1, 2017)</li>
+              <li>Quantidade, área ou volume errados que alterem o fato</li>
+              <li>Autuação de pessoa que não praticou a conduta (proprietário pelo ato do arrendatário, herdeiro, sócio sem conduta própria)</li>
+              <li>Dois autos pelo mesmo fato contra pessoas distintas sem individualizar condutas (bis in idem)</li>
+              <li>Lavratura por quem não é servidor do órgão ambiental</li>
+              <li>Infração que depende de conceito técnico sem laudo ou medição válida</li>
+              <li>Prescrição consumada antes da lavratura</li>
+            </ul>
+          </div>
+          <div class="col ok">
+            <h4>Sanável: convalidação ou anulação parcial</h4>
+            <ul>
+              <li>Erro de enquadramento legal, corrigido por decisão fundamentada (art. 100, §3º)</li>
+              <li>Erro material em número de documento sem dúvida de identidade</li>
+              <li>Portaria de designação posterior ao ato, quando o agente é servidor do órgão</li>
+              <li>Intimação irregular suprida pelo comparecimento do autuado (Lei 9.784, art. 26, §5º)</li>
+              <li>Multa acima do mínimo sem motivação: nulidade só do valor, com nova dosimetria</li>
+              <li>Decisão que não enfrenta a defesa: nulidade do julgamento a partir dele, auto mantido (TRF4, AC 5002508-42.2016.4.04.7203)</li>
+              <li>Agravamento sem notificação prévia: anulação do agravamento, reabertura do prazo</li>
+              <li>Edital para alegações finais sem prova de prejuízo (STJ, Tema 1.329)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note warn">
+          <span class="t">Cerceamento de defesa</span>
+          <p>Não é um vício do auto em si, mas do processo. Ocorre quando o autuado não tem como saber do que se defender (descrição genérica, ausência de enquadramento, ausência de prazo no auto), quando não é intimado ou é intimado de forma inválida, quando sua prova é indeferida sem motivação, ou quando a decisão ignora suas alegações. O efeito é a anulação a partir do ato viciado, com repetição dos atos posteriores.</p>
+        </div>
+      </section>
+
+      <section id="s13">
+        <h2><span class="n">13</span>Prescrição e controle de tempo</h2>
+        <p>O STJ fixou no Tema 1.294 (REsp 2.002.589/PR e REsp 2.137.071/MG, Primeira Seção, 10 de dezembro de 2025) que o Decreto 20.910/1932 não trata de prescrição intercorrente e não pode ser usado, nem por analogia, para reconhecê-la em processos administrativos estaduais e municipais. A Lei 9.873/1999 e o Decreto 6.514/2008 aplicam-se apenas à Administração federal. O Decreto Estadual 55.374/2020, art. 34, prevê intercorrente de 3 anos, mas vincula o Estado, não o Município.</p>
+        <div class="tw"><table>
+          <thead><tr><th>Prazo</th><th>Município de Farroupilha</th><th>Fundamento</th></tr></thead>
+          <tbody>
+            <tr><td>Pretensão punitiva (lavrar o auto)</td><td class="num">5 anos</td><td>da prática do ato ou da cessação da infração permanente; aplicado a Estados e Municípios por analogia ao Decreto 20.910/1932, jurisprudência anterior ao Tema 1.294 e por ele não afetada</td></tr>
+            <tr><td>Prescrição intercorrente</td><td>não há</td><td>só existe com lei municipal que a preveja (Tema 1.294). O TR recomenda que o Município edite essa regra, ver seção 15</td></tr>
+            <tr><td>Execução da multa</td><td class="num">5 anos</td><td>do término do processo administrativo; Súmula 467 do STJ</td></tr>
+            <tr><td>Fato que também é crime</td><td>prazo penal</td><td>Decreto 6.514, art. 21, §3º, por analogia</td></tr>
+          </tbody>
+        </table></div>
+        <p>Independentemente da prescrição intercorrente, a paralisação do processo é ilegal (Lei 9.784, art. 2º, parágrafo único, XII) e o TRF4 já anulou auto federal por paralisação superior a 3 anos. O órgão deve registrar no auto a data da infração e a data da constatação, distinguir infração instantânea de permanente, e praticar atos de impulso documentados. A ciência do autuado interrompe a prescrição (Decreto 6.514, art. 22).</p>
+      </section>
+
+      <section id="s14">
+        <h2><span class="n">14</span>Checklist pré-lavratura</h2>
+        <p>O agente autuante percorre esta lista antes de assinar o auto. A autoridade julgadora percorre a mesma lista ao receber o processo.</p>
+        <ul class="check">
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Sou servidor designado por portaria vigente e o órgão é competente para esta atividade</span><span class="why">Lei 9.605, art. 70, §1º; LC 140, art. 17. Se a atividade é licenciada por outro ente, registrei o fundamento e comunicarei o licenciador.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Identifiquei quem praticou a conduta, com documento e vínculo, e não apenas o dono do imóvel</span><span class="why">EREsp 1.318.051/RJ. Um auto por infrator, conduta individualizada.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">A descrição responde o quê, quando, onde, quanto e como, sem adjetivos e sem fórmulas genéricas</span><span class="why">Decreto 6.514, arts. 97 e 100, §1º. Um terceiro que leia o auto sabe exatamente o que aconteceu.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">As coordenadas estão dentro do imóvel do autuado, com datum informado, e correspondem às fotos</span><span class="why">Decreto 6.514, art. 16, §1º. Erro de coordenadas é vício insanável.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Medições têm unidade, método e instrumento, e a quantidade não precisará ser corrigida</span><span class="why">Lei 9.605, art. 74. Quantidade errada altera o fato.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">O enquadramento cita a regra material violada, o tipo infracional e o art. 70 da Lei 9.605</span><span class="why">STJ, 1ª Turma, abril de 2026: art. 70 é norma em branco.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">A multa está dentro dos limites, com valor unitário, quantidade e total, e o relatório justifica gravidade, antecedentes e situação econômica</span><span class="why">Lei 9.605, art. 6º; Decreto 6.514, arts. 4º e 98, parágrafo único, III e IV.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Se o tipo exige conceito técnico, há laudo ou nota técnica de servidor habilitado</span><span class="why">APP, poluição acima de padrão, espécie protegida, autoria de incêndio.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Fotografias datadas, croqui e imagem de satélite estão numerados como anexos e listados no auto</span><span class="why">Decreto 6.514, art. 98, parágrafo único, II.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Medidas cautelares estão em termo próprio, motivado, com poligonal restrita ao local da infração</span><span class="why">Decreto 6.514, arts. 101, §§2º e 4º, e 108.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">O auto informa prazo de 20 dias, local de protocolo e as opções de pagamento ou conversão</span><span class="why">Lei 9.605, art. 71, I; Decreto 6.514, art. 96, §5º.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">O autuado assinou, ou certifiquei a recusa com duas testemunhas, ou registrei a remessa por AR</span><span class="why">Decreto 6.514, art. 96, §§1º a 3º. Edital só depois de diligências documentadas.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Não há emendas, rasuras, campos em branco ou abreviações que gerem dúvida</span><span class="why">Decreto 6.514, art. 97.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">Verifiquei que não existe outro auto, meu ou de outro órgão, pelo mesmo fato contra o mesmo ou outro autuado</span><span class="why">Bis in idem; LC 140, art. 17, §3º.</span></div></li>
+          <li><span class="box" aria-hidden="true"></span><div><span class="lab">A data da infração ou da constatação está registrada e o fato ocorreu há menos de 5 anos</span><span class="why">Prescrição da pretensão punitiva.</span></div></li>
+        </ul>
+      </section>
+
+      <section id="s15">
+        <h2><span class="n">15</span>Lacunas municipais e recomendações</h2>
+        <p>A pesquisa não localizou em Farroupilha lei ou decreto que discipline o processo administrativo sancionador ambiental. Isso não impede a autuação, porque a Lei 9.605 e a LC 140 são autoaplicáveis, mas cria insegurança em cinco pontos. As recomendações abaixo são para a Procuradoria e a Secretaria.</p>
+        <ol>
+          <li><strong>Editar decreto municipal de rito sancionador ambiental</strong>, adotando expressamente, no que couber, o Decreto 6.514/2008 e o Decreto Estadual 55.374/2020, com formulário de auto de infração e termos de medidas cautelares, prazos do art. 71 da Lei 9.605, designação da autoridade julgadora de primeira instância e da instância recursal (Secretário e Prefeito, ou COMAM como instância recursal se sua lei permitir), e tabela objetiva de atenuantes e agravantes (Decreto 6.514, art. 4º, §1º).</li>
+          <li><strong>Prever em lei municipal a prescrição intercorrente</strong> de 3 anos, para segurança jurídica e coerência com o Estado, já que o Tema 1.294 do STJ exige lei local.</li>
+          <li><strong>Regularizar a destinação das multas</strong> ao Fundo Municipal de Meio Ambiente por dispositivo expresso (Lei 9.605, art. 73), confirmando a lei de criação do Fundo.</li>
+          <li><strong>Publicar portarias de designação</strong> de todos os fiscais ambientais e manter a lista no portal da Prefeitura, com base de dados pública dos autos lavrados (Decreto 6.514, art. 96, §§6º e 7º, como boa prática).</li>
+          <li><strong>Formalizar o fluxo de comunicação</strong> com FEPAM, IBAMA e Batalhão Ambiental da Brigada Militar para os casos de atividade licenciada por outro ente (LC 140, art. 17, §§2º e 3º; Lei 15.190, art. 65), com modelo de ofício.</li>
+          <li><strong>Separar o rito ambiental do rito de posturas.</strong> O Código de Posturas (Lei 4.192/2015) prevê defesa em 10 dias úteis e recurso ao Prefeito; para infração ambiental o prazo é de 20 dias e a instância recursal deve ser designada em ato próprio.</li>
+        </ol>
+      </section>
+
+      <section id="s16">
+        <h2><span class="n">16</span>Referências e verificação</h2>
+        <h3>Textos primários a abrir antes de adotar o TR</h3>
+        <ul>
+          <li>Lei Estadual 15.434/2020, PDF da SEMA: <a href="https://www.sema.rs.gov.br/upload/arquivos/202306/13094545-codigo-estadual-do-meio-ambiente-lei-15434-2020.pdf">sema.rs.gov.br</a></li>
+          <li>Decreto Estadual 55.374/2020, PDF da SEMA: <a href="https://www.sema.rs.gov.br/upload/arquivos/202306/13094323-decreto-estadual-55374-2020-do-rio-grande-do-sul-rs.pdf">sema.rs.gov.br</a></li>
+          <li>Instrução Normativa SEMA 02/2025: <a href="https://www.sema.rs.gov.br/upload/arquivos/202503/20104809-in-02-2025-regula-o-decreto-55374-20-normas-complementares.pdf">sema.rs.gov.br</a></li>
+          <li>Lei Estadual 15.612/2021: <a href="http://www.al.rs.gov.br/filerepository/repLegis/arquivos/LEI%2015.612.pdf">al.rs.gov.br</a></li>
+          <li>Resolução CONSEMA 372/2018 compilada: <a href="https://sema.rs.gov.br/upload/arquivos/202401/25102956-372-2018-atividades-licenciaveis-compilada.pdf">sema.rs.gov.br</a></li>
+          <li>Legislação de Farroupilha, portal consolidado: <a href="https://leis.farroupilha.rs.gov.br/">leis.farroupilha.rs.gov.br</a> e <a href="https://leismunicipais.com.br/legislacao-municipal/4022/leis-de-farroupilha">leismunicipais.com.br</a></li>
+          <li>Lei Complementar 006/2001 de Farroupilha: <a href="https://camarafarroupilha.rs.gov.br/atividades-parlamentares/promulgacoes/leis-complementares/lei-complementar-00601-dispoe-sobre-o-licenciamento-ambiental-cria-taxas-e-da-outras-providencias/">camarafarroupilha.rs.gov.br</a></li>
+          <li>Decreto 6.514/2008 consolidado: <a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2008/decreto/d6514.htm">planalto.gov.br</a></li>
+          <li>Instrução Normativa IBAMA 19/2023, referência de formulário e relatório: <a href="https://www.ibama.gov.br/component/legislacao/?view=legislacao&legislacao=139335">ibama.gov.br</a></li>
+        </ul>
+        <h3>Jurisprudência citada</h3>
+        <div class="tw"><table>
+          <thead><tr><th>Julgado</th><th>Tese</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>STJ, EREsp 1.318.051/RJ, 1ª Seção, rel. Min. Mauro Campbell Marques, j. 08/05/2019</td><td>responsabilidade administrativa ambiental é subjetiva</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, Tema 1.294, REsp 2.002.589/PR e 2.137.071/MG, rel. Min. Afrânio Vilela, j. 10/12/2025</td><td>Decreto 20.910/1932 não fundamenta prescrição intercorrente estadual ou municipal</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, Tema 1.329, REsp 2.154.295/RS e 2.163.058/SC, j. 14/10/2025</td><td>edital para alegações finais só anula com prejuízo demonstrado</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, Tema 1.159, REsp 1.984.746/AL, rel. Min. Regina Helena Costa, j. 13/09/2023</td><td>multa não depende de advertência prévia</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, Súmula 467</td><td>execução da multa prescreve em 5 anos do fim do processo</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, REsp 1.823.083/AL, 1ª Turma, rel. Min. Paulo Sérgio Domingues, j. 11/06/2024</td><td>multa ambiental não se transmite ao herdeiro</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, REsp 1.646.016/RN, 2ª Turma, rel. Min. Herman Benjamin, j. 23/05/2023</td><td>competência para licenciar não se confunde com competência para fiscalizar</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>STJ, 1ª Turma, rel. Min. Paulo Sérgio Domingues, abril de 2026</td><td>infrações tipificadas no Decreto 6.514 são válidas; art. 70 é norma em branco</td><td><span class="badge b-warn">Conferir número</span></td></tr>
+            <tr><td>STF, ADI 4.757/DF, j. 12/12/2022</td><td>prevalência do auto do licenciador não exclui atuação supletiva comprovada</td><td><span class="badge b-warn">Conferir</span></td></tr>
+            <tr><td>TRF4, AC 5009998-97.2016.4.04.7209 e AC 5019514-76.2013.4.04.7200</td><td>autos idênticos a proprietária e arrendatário são bis in idem</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>TRF4, AC 5002508-42.2016.4.04.7203, 3ª Turma, j. 08/07/2020</td><td>decisão sem enfrentar a defesa anula o processo a partir dela, auto mantido</td><td><span class="badge b-ok">Verificado</span></td></tr>
+            <tr><td>TRF1, rel. Des. Jirair Aram Meguerian, j. 13/02/2017</td><td>coordenadas erradas: correção modifica o fato, vício insanável</td><td><span class="badge b-warn">Conferir número</span></td></tr>
+            <tr><td>TJRS, ação anulatória contra a FEPAM</td><td>edital sem diligência de localização anula a notificação</td><td><span class="badge b-warn">Conferir número</span></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Doutrina de apoio</h3>
+        <ul>
+          <li>TRENNEPOHL, Curt; TRENNEPOHL, Terence; TRENNEPOHL, Natascha. Infrações Ambientais: comentários ao Decreto 6.514/2008. 6. ed. São Paulo: Revista dos Tribunais, 2025.</li>
+          <li>MILARÉ, Édis. Direito do Ambiente. 14. ed. São Paulo: Revista dos Tribunais, 2022.</li>
+          <li>MACHADO, Paulo Affonso Leme. Direito Ambiental Brasileiro. 32. ed. São Paulo: JusPodivm, 2026.</li>
+          <li>FREITAS, Vladimir Passos de; FREITAS, Mariana Almeida Passos de. Direito Administrativo e Meio Ambiente. 5. ed. Curitiba: Juruá.</li>
+        </ul>
+
+        <div class="sig">
+          <div>Elaboração<br>Setor de Fiscalização Ambiental</div>
+          <div>Revisão jurídica<br>Procuradoria-Geral do Município</div>
+          <div>Aprovação<br>Secretaria Municipal de Urbanismo e Meio Ambiente</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>

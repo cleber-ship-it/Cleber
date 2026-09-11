@@ -1,0 +1,343 @@
+<title>Checklist do Auto de Infração Farroupilha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #F5F7F4; --surface: #FFFFFF; --surface-2: #ECF0EB;
+    --ink: #1B2321; --ink-2: #4A5652; --ink-3: #7A8783; --line: #D5DCD7;
+    --accent: #1F5C4A; --accent-ink: #FFFFFF; --accent-soft: #DCEBE3;
+    --crit: #9C3B2E; --crit-soft: #F4E2DE;
+    --warn: #8A6414; --warn-soft: #F5EBD2;
+    --ok: #2E6B4A; --ok-soft: #DDEEE3;
+    --mono-bg: #EEF2EF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131A17; --surface: #1B2320; --surface-2: #222C28;
+      --ink: #E4EAE6; --ink-2: #AEB9B3; --ink-3: #7F8B86; --line: #2F3A35;
+      --accent: #7FC9AC; --accent-ink: #0F1E18; --accent-soft: #1E3A30;
+      --crit: #E48A7C; --crit-soft: #3A2320;
+      --warn: #E0B860; --warn-soft: #3A3120;
+      --ok: #8CCFA8; --ok-soft: #1F3428;
+      --mono-bg: #222C28;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #131A17; --surface: #1B2320; --surface-2: #222C28;
+    --ink: #E4EAE6; --ink-2: #AEB9B3; --ink-3: #7F8B86; --line: #2F3A35;
+    --accent: #7FC9AC; --accent-ink: #0F1E18; --accent-soft: #1E3A30;
+    --crit: #E48A7C; --crit-soft: #3A2320;
+    --warn: #E0B860; --warn-soft: #3A3120;
+    --ok: #8CCFA8; --ok-soft: #1F3428;
+    --mono-bg: #222C28;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16.5px; line-height: 1.5; padding-inline: 16px; padding-block: 0 80px;
+  }
+  button { font: inherit; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .page { max-width: 980px; margin: 0 auto; }
+
+  .mast { padding-block: 26px 18px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+  .eyebrow { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 36px); line-height: 1.15; margin: 0; text-wrap: balance; }
+  .sub { margin: 0; color: var(--ink-2); max-width: 70ch; }
+
+  .case { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+  .case label { display: grid; gap: 4px; font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); font-weight: 700; }
+  .case input { font: inherit; font-size: 16px; text-transform: none; letter-spacing: 0; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; width: 100%; }
+
+  .status { position: sticky; top: 0; z-index: 5; background: var(--bg); padding-block: 12px; border-bottom: 1px solid var(--line); display: grid; gap: 10px; }
+  .status .row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; }
+  .verdict { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; }
+  .verdict .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--ink-3); flex: none; }
+  .verdict.ok .dot { background: var(--ok); } .verdict.ok { color: var(--ok); }
+  .verdict.crit .dot { background: var(--crit); } .verdict.crit { color: var(--crit); }
+  .verdict.warn .dot { background: var(--warn); } .verdict.warn { color: var(--warn); }
+  .counts { display: flex; gap: 14px; font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+  .counts b { color: var(--ink); }
+  .bar { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s ease; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 7px 12px; font-weight: 600; font-size: 14px; }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .btn.danger { color: var(--crit); }
+  .toast { font-size: 13.5px; color: var(--ink-2); min-height: 1.2em; }
+
+  .phase { margin-top: 30px; }
+  .phase h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 22px; margin: 0 0 4px; display: flex; gap: 10px; align-items: baseline; }
+  .phase h2 .n { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--accent); font-weight: 500; }
+  .phase .lead { margin: 0 0 12px; color: var(--ink-2); font-size: 15px; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .item { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; grid-template-columns: 26px 1fr auto; gap: 10px 12px; align-items: start; }
+  .item.done { border-color: var(--ok); background: color-mix(in srgb, var(--ok-soft) 45%, var(--surface)); }
+  .item.na { opacity: .62; }
+  .item.na .lab { text-decoration: line-through; }
+  .item input[type=checkbox] { width: 20px; height: 20px; margin: 3px 0 0; accent-color: var(--accent); cursor: pointer; }
+  .item .lab { font-weight: 600; display: block; }
+  .item .why { display: block; color: var(--ink-2); font-size: 14.5px; margin-top: 3px; }
+  .item .base { display: block; font-size: 13px; color: var(--ink-3); margin-top: 4px; font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .item .side { display: grid; gap: 6px; justify-items: end; }
+  .tag { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; white-space: nowrap; }
+  .t-ins { background: var(--crit-soft); color: var(--crit); }
+  .t-san { background: var(--warn-soft); color: var(--warn); }
+  .t-pro { background: var(--surface-2); color: var(--ink-2); }
+  .na-btn { border: 1px solid var(--line); background: transparent; color: var(--ink-3); border-radius: 999px; font-size: 12px; padding: 2px 9px; }
+  .na-btn[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); border-color: var(--ink-3); }
+  @media (max-width: 560px) {
+    .item { grid-template-columns: 26px 1fr; }
+    .item .side { grid-column: 2; justify-items: start; grid-auto-flow: column; }
+  }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: var(--ink-2); align-items: center; margin-top: 14px; }
+
+  footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-3); }
+  footer a { color: var(--accent); }
+
+  @media print {
+    body { padding: 0; font-size: 11pt; }
+    .status, .actions, .na-btn, footer { display: none; }
+    .item { break-inside: avoid; border-color: #999; }
+    .case input { border: 0; border-bottom: 1px solid #999; border-radius: 0; }
+  }
+</style>
+
+<div class="page">
+  <header class="mast">
+    <div class="eyebrow"><span>Município de Farroupilha · RS</span><span>Fiscalização Ambiental</span><span>Anexo ao Termo de Referência</span></div>
+    <h1>Checklist de lavratura do Auto de Infração Ambiental</h1>
+    <p class="sub">Percorra os itens antes de assinar o auto. Um item marcado como insanável e não cumprido bloqueia a lavratura. O que for marcado fica guardado neste navegador, por número de auto.</p>
+  </header>
+
+  <section class="case" aria-label="Identificação do caso">
+    <label>Nº do auto <input id="f-auto" placeholder="ex.: 0042/2026" autocomplete="off"></label>
+    <label>Autuado <input id="f-autuado" placeholder="nome ou razão social" autocomplete="off"></label>
+    <label>Agente autuante <input id="f-agente" placeholder="nome e matrícula" autocomplete="off"></label>
+    <label>Data da constatação <input id="f-data" type="date"></label>
+  </section>
+
+  <div class="status" role="status" aria-live="polite">
+    <div class="row">
+      <div class="verdict" id="verdict"><span class="dot"></span><span id="verdict-text">Comece pelos itens da fase 01</span></div>
+      <div class="counts"><span><b id="c-done">0</b> conformes</span><span><b id="c-na">0</b> não se aplicam</span><span><b id="c-pend">0</b> pendentes</span><span><b id="c-ins">0</b> insanáveis pendentes</span></div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="row">
+      <div class="actions">
+        <button class="btn primary" id="b-export">Exportar relatório</button>
+        <button class="btn" id="b-print">Imprimir</button>
+        <button class="btn danger" id="b-clear">Limpar este auto</button>
+      </div>
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="tag t-ins">Insanável</span> se faltar, o auto é nulo e não se convalida
+    <span class="tag t-san">Sanável</span> se faltar, o julgador pode corrigir, mas reabre defesa
+    <span class="tag t-pro">Processual</span> se faltar, anula o processo a partir do ato, auto mantido
+  </div>
+
+  <div id="phases"></div>
+
+  <footer>
+    Base normativa e jurisprudência completas no <a href="https://claude.ai/code/artifact/8a7d1a79-6890-4462-b17f-d862592b02c0">Termo de Referência</a>. Fundamentos: Lei 9.605/1998, Decreto 6.514/2008, Lei 9.784/1999, LC 140/2011, Lei 15.190/2025, Decreto Estadual 55.374/2020, LC Municipal 006/2001.
+  </footer>
+</div>
+
+<script>
+const PHASES = [
+  { n: "01", title: "Antes de sair a campo", lead: "Competência, histórico e prescrição. Erro aqui contamina tudo o que vier depois.", items: [
+    { id: "p1", t: "ins", lab: "Sou servidor efetivo do órgão ambiental com portaria de designação para fiscalização, vigente e anterior a hoje", why: "Estagiário, terceirizado ou servidor sem designação não pode autuar.", base: "Lei 9.605, art. 70, §1º · Res. CONSEMA 372/2018" },
+    { id: "p2", t: "ins", lab: "A atividade é de licenciamento municipal, ou registrarei o fundamento da atuação comum e comunicarei o órgão licenciador", why: "Auto do órgão licenciador prevalece; sem comunicação, a autuação do não licenciador perde eficácia.", base: "LC 140, art. 17, caput e §3º · Lei 15.190, art. 65" },
+    { id: "p3", t: "ins", lab: "A área do empreendimento não ultrapassa o limite do Município", why: "Se ultrapassar, o impacto deixa de ser local e a competência é estadual.", base: "Res. CONSEMA 372/2018, art. 2º, parágrafo único" },
+    { id: "p4", t: "ins", lab: "Consultei o sistema e não existe outro auto, do Município ou de outro órgão, pelo mesmo fato", why: "Dois autos pelo mesmo fato contra o mesmo ou outro autuado configuram bis in idem.", base: "TRF4, AC 5009998-97.2016.4.04.7209" },
+    { id: "p5", t: "ins", lab: "O fato ocorreu, ou ainda persiste, há menos de 5 anos", why: "Pretensão punitiva prescrita antes da lavratura torna o auto nulo.", base: "Prescrição quinquenal · Decreto 6.514, art. 21, por analogia" },
+    { id: "p6", t: "san", lab: "Levantei antecedentes do autuado: notificações, advertências e autos anteriores, com cópia", why: "Necessário para dosimetria e para eventual reincidência.", base: "Lei 9.605, art. 6º, II · Decreto 6.514, art. 11" },
+    { id: "p7", t: "pro", lab: "Tenho ordem de serviço ou registro da origem da fiscalização (denúncia, rotina, requisição)", why: "Documenta a motivação da ação fiscal.", base: "Lei 9.784, art. 2º, parágrafo único, VII" },
+  ]},
+  { n: "02", title: "No local: constatação e provas", lead: "A presunção de veracidade do auto cobre apenas o que foi documentado na hora.", items: [
+    { id: "c1", t: "ins", lab: "Fotografei a situação com data e hora, de mais de um ângulo, incluindo referência de escala", why: "Foto é o meio de prova primário do relatório de fiscalização.", base: "Decreto 6.514, art. 98, parágrafo único, II" },
+    { id: "c2", t: "ins", lab: "Coletei coordenadas geográficas com datum SIRGAS 2000 e conferi que caem dentro do imóvel do autuado", why: "Coordenadas fora do imóvel ou em área diversa: correção altera o fato, vício insanável.", base: "Decreto 6.514, arts. 16, §1º, e 100, §1º · TRF1, 2017" },
+    { id: "c3", t: "ins", lab: "Medi a extensão (área, volume, quantidade, indivíduos) com instrumento e método registrados", why: "Quantidade errada que altere o fato descrito é vício insanável.", base: "Lei 9.605, art. 74 · Decreto 6.514, art. 8º" },
+    { id: "c4", t: "ins", lab: "Se o tipo depende de conceito técnico (APP, padrão de poluição, espécie protegida, autoria de incêndio), há laudo ou nota técnica de servidor habilitado", why: "Tribunais anulam autos de APP e poluição sem laudo.", base: "Presunção relativa · TRF1 e TRF4" },
+    { id: "c5", t: "san", lab: "Fiz croqui ou poligonal da área e obtive imagem de satélite datada", why: "Permite delimitar a área e sustentar o embargo.", base: "Decreto 6.514, art. 98, parágrafo único, II" },
+    { id: "c6", t: "san", lab: "Identifiquei testemunhas com nome, documento e contato, ou registrei declarações em termo", why: "Sustenta a autoria e a recusa de ciência, se houver.", base: "Decreto 6.514, art. 96, §2º" },
+    { id: "c7", t: "san", lab: "Amostras coletadas têm cadeia de custódia: lacre, hora, responsável, laboratório", why: "Sem cadeia de custódia a medição não prova o padrão violado.", base: "Prova técnica válida" },
+    { id: "c8", t: "san", lab: "Registrei se a infração é instantânea ou permanente e, se permanente, o indício de início e a persistência hoje", why: "Define o termo inicial da prescrição e a cabimento de multa diária.", base: "Decreto 6.514, arts. 10 e 21" },
+  ]},
+  { n: "03", title: "Autoria e elemento subjetivo", lead: "A responsabilidade administrativa é subjetiva. Autuar o dono do bem pelo ato de terceiro anula o auto.", items: [
+    { id: "a1", t: "ins", lab: "Identifiquei quem praticou ou ordenou a conduta, com documento e vínculo (executor, contratante, responsável técnico, possuidor)", why: "Não há responsabilidade solidária nem propter rem na esfera administrativa.", base: "STJ, EREsp 1.318.051/RJ" },
+    { id: "a2", t: "ins", lab: "Se há mais de um responsável, cada um receberá auto próprio com a conduta individualizada", why: "Autos idênticos a pessoas distintas pelo mesmo fato são bis in idem.", base: "TRF4, AC 5019514-76.2013.4.04.7200" },
+    { id: "a3", t: "ins", lab: "Pessoa jurídica: autuo pelo CNPJ, com conduta praticada no interesse ou benefício dela; sócio só com conduta pessoal descrita", why: "Autuação de sócio no lugar da empresa, ou vice-versa, é autuação de pessoa errada.", base: "Lei 9.605, arts. 2º e 3º" },
+    { id: "a4", t: "ins", lab: "Anotei no relatório os fatos que revelam dolo ou culpa: licença exigível ausente, notificação anterior descumprida, conhecimento da irregularidade, omissão de cuidado", why: "A presunção de veracidade não cobre a culpa; ela precisa estar descrita.", base: "STJ, EREsp 1.318.051/RJ · IN IBAMA 19/2023, como referência" },
+    { id: "a5", t: "ins", lab: "Descrevi o nexo entre a conduta e o resultado ou risco", why: "Sanção exige conduta, culpa e nexo causal.", base: "Lei 6.938, art. 14 · STJ, EREsp 1.318.051/RJ" },
+    { id: "a6", t: "pro", lab: "Se o autor não pôde ser identificado, apliquei apenas a medida cautelar em termo próprio e não lavrei auto contra pessoa incerta", why: "Modelo estadual: termo sem identificação e súmula publicada com 20 dias para manifestação.", base: "IN SEMA 02/2025, por analogia" },
+  ]},
+  { n: "04", title: "Redação do auto", lead: "Um terceiro que leia o auto deve saber exatamente o que aconteceu, onde, quando e quanto.", items: [
+    { id: "r1", t: "san", lab: "Formulário próprio, numerado, com data, hora e local da lavratura", why: "Forma escrita, datada e assinada.", base: "Lei 9.784, art. 22, §1º · Decreto 6.514, art. 97" },
+    { id: "r2", t: "ins", lab: "Nome ou razão social, CPF ou CNPJ e endereço completo do autuado, conferidos em documento", why: "Erro que gere dúvida sobre a identidade do autuado anula.", base: "Decreto 6.514, art. 97" },
+    { id: "r3", t: "ins", lab: "A descrição responde o quê, quando, onde, quanto e como, sem fórmulas genéricas como \"causar poluição\" ou \"desmatar área\"", why: "Descrição genérica é o vício mais reconhecido como cerceamento de defesa.", base: "Decreto 6.514, arts. 97 e 100, §1º · TRF4" },
+    { id: "r4", t: "ins", lab: "Endereço, matrícula ou CAR e coordenadas com datum constam do auto", why: "Localização é parte do fato descrito.", base: "Decreto 6.514, art. 16, §1º" },
+    { id: "r5", t: "ins", lab: "Extensão com unidade de medida e valor (ha, m², m³, kg, unidades, indivíduos)", why: "Base de cálculo da multa e elemento do fato.", base: "Lei 9.605, art. 74" },
+    { id: "r6", t: "san", lab: "Os anexos estão numerados e listados no auto: relatório, fotos, croqui, imagem, laudo, termos", why: "Relatório e provas integram o auto.", base: "Decreto 6.514, art. 98 · Decreto 55.374, art. 122, parágrafo único, como modelo" },
+    { id: "r7", t: "san", lab: "Sem emendas, rasuras, campos em branco ou abreviações que gerem dúvida", why: "Rasura que comprometa a validade anula.", base: "Decreto 6.514, art. 97" },
+    { id: "r8", t: "san", lab: "Nome, matrícula, cargo, número da portaria e assinatura de todos os agentes", why: "Identificação do agente competente.", base: "Lei 9.605, art. 70, §1º · Lei 9.784, art. 22, §1º" },
+  ]},
+  { n: "05", title: "Enquadramento e dosimetria", lead: "O art. 70 da Lei 9.605 é norma em branco. Sem a regra material violada, o enquadramento está incompleto.", items: [
+    { id: "e1", t: "san", lab: "Citei a regra material violada: dispositivo do Código Florestal, condicionante da licença, resolução CONAMA ou CONSEMA, lei municipal", why: "É a regra que completa a norma em branco.", base: "STJ, 1ª Turma, abr. 2026 · Lei 9.605, art. 70" },
+    { id: "e2", t: "san", lab: "Citei o tipo infracional: artigo do Decreto 6.514/2008 ou da lei municipal", why: "Tipificação por decreto é válida quando ancorada na Lei 9.605.", base: "STJ, 1ª Turma, abr. 2026" },
+    { id: "e3", t: "san", lab: "Citei a Lei 9.605, art. 70 e o inciso do art. 72 correspondente à sanção", why: "Norma sancionadora geral.", base: "Lei 9.605, arts. 70 e 72" },
+    { id: "e4", t: "san", lab: "Multa entre R$ 50,00 e R$ 50.000.000,00, com valor unitário, quantidade e total", why: "Limites legais e base de cálculo.", base: "Lei 9.605, art. 75 · Decreto 6.514, art. 9º" },
+    { id: "e5", t: "san", lab: "O relatório justifica gravidade, antecedentes e situação econômica, e cada atenuante ou agravante aplicada", why: "Multa acima do mínimo sem motivação é anulada no valor.", base: "Lei 9.605, art. 6º · Decreto 6.514, arts. 4º e 98, p.ú., III e IV · Decreto 55.374, arts. 4º a 6º, por analogia" },
+    { id: "e6", t: "san", lab: "Multa diária só para infração que se prolonga, com valor-dia entre o mínimo legal e 10% da multa simples máxima", why: "Multa diária em infração instantânea é ilegal.", base: "Decreto 6.514, art. 10" },
+    { id: "e7", t: "san", lab: "Reincidência só com certidão do auto anterior confirmado em decisão definitiva nos últimos 5 anos", why: "Agravamento exige prova documental e notificação prévia de 10 dias.", base: "Decreto 6.514, art. 11" },
+    { id: "e8", t: "san", lab: "Concurso de infrações: cada infração tem descrição e enquadramento próprios", why: "Sanções cumulativas exigem fatos distintos descritos separadamente.", base: "Lei 9.605, art. 72, §1º" },
+  ]},
+  { n: "06", title: "Medidas cautelares", lead: "Marque \"não se aplica\" se nenhuma medida foi adotada.", items: [
+    { id: "m1", t: "san", lab: "Cada medida (embargo, apreensão, suspensão, demolição) está em termo próprio, com dispositivos infringidos e motivos concretos", why: "O auto não substitui o termo.", base: "Decreto 6.514, art. 101, §§2º e 3º" },
+    { id: "m2", t: "san", lab: "Embargo restrito ao local da infração, com poligonal e coordenadas, sem alcançar o restante do imóvel", why: "Embargo além do local é ilegal e gera responsabilidade.", base: "Decreto 6.514, arts. 15-A, 101, §4º, e 108" },
+    { id: "m3", t: "san", lab: "Apreensão com avaliação dos bens e definição do depositário", why: "Permite restituição ou indenização se a apreensão cair.", base: "Decreto 6.514, arts. 102, 105 e 106" },
+    { id: "m4", t: "san", lab: "Demolição no ato só em edificação não habitada, usada na infração, com risco iminente, e documentada com fotos", why: "Demolição de residência no ato é vedada.", base: "Decreto 6.514, art. 112" },
+    { id: "m5", t: "pro", lab: "Se houve descumprimento de embargo, comunicarei o Ministério Público em 72 horas", why: "Dever legal do órgão.", base: "Decreto 6.514, art. 108, §1º" },
+  ]},
+  { n: "07", title: "Ciência e notificação", lead: "A ciência abre o prazo de defesa e interrompe a prescrição. É o ato mais atacado em juízo.", items: [
+    { id: "n1", t: "pro", lab: "O auto informa prazo de 20 dias para defesa, local de protocolo e direito de vista dos autos", why: "Ausência de prazo no auto cerceia a defesa. O prazo de 10 dias úteis do Código de Posturas não se aplica.", base: "Lei 9.605, art. 71, I · Decreto 6.514, art. 96, §5º · Lei 9.784, art. 26, §1º" },
+    { id: "n2", t: "pro", lab: "O autuado ou representante assinou com data", why: "Ciência pessoal é a forma preferencial.", base: "Decreto 6.514, art. 96, §1º, I e II" },
+    { id: "n3", t: "pro", lab: "Em caso de recusa, certifiquei na presença de duas testemunhas identificadas e entreguei a via", why: "Certidão sem testemunhas não prova a ciência.", base: "Decreto 6.514, art. 96, §2º" },
+    { id: "n4", t: "pro", lab: "Em caso de ausência ou evasão, remeti por carta com aviso de recebimento e juntarei o comprovante ao processo", why: "AR não juntado equivale a ausência de notificação.", base: "Decreto 6.514, art. 96, §3º · TRF4" },
+    { id: "n5", t: "pro", lab: "Edital só depois de diligências documentadas de localização (AR devolvido, consulta a cadastros, visita)", why: "TJRS anulou auto da FEPAM por edital sem diligência.", base: "Decreto 6.514, art. 96, §1º, IV · Lei 9.784, art. 26, §4º" },
+    { id: "n6", t: "pro", lab: "A notificação identifica o órgão, a finalidade, os fatos e fundamentos, e avisa que o processo prossegue sem manifestação", why: "Intimação sem esses requisitos é nula, salvo comparecimento.", base: "Lei 9.784, art. 26, §§1º e 5º" },
+  ]},
+  { n: "08", title: "Encaminhamento", lead: "O auto pronto não termina o trabalho do agente.", items: [
+    { id: "x1", t: "pro", lab: "Auto, termos, relatório e comprovante de ciência protocolados no setor de processamento em até 5 dias úteis", why: "Autuação processual tempestiva evita paralisação.", base: "Decreto 6.514, art. 98, como parâmetro" },
+    { id: "x2", t: "pro", lab: "Se a atividade é licenciada por outro ente, ofício ao órgão licenciador enviado e juntado", why: "Sem comunicação, a autuação do não licenciador perde eficácia.", base: "LC 140, art. 17, §§2º e 3º · Lei 15.190, art. 65" },
+    { id: "x3", t: "pro", lab: "Registrei o auto na base de dados do órgão com data da infração, data da ciência e prazo de defesa", why: "Controle de prazos e publicidade.", base: "Decreto 6.514, art. 96, §§6º e 7º, como boa prática" },
+    { id: "x4", t: "pro", lab: "Se o fato também é crime, comuniquei o Ministério Público ou a Polícia", why: "Dever de apuração e prazo prescricional penal.", base: "Lei 9.605, art. 70, §3º · Decreto 6.514, art. 21, §3º" },
+  ]},
+];
+
+const ALL = PHASES.flatMap(p => p.items);
+const TAGN = { ins: "Insanável", san: "Sanável", pro: "Processual" };
+let state = { done: {}, na: {} };
+let saveTimer = null;
+
+function key() {
+  const n = (document.getElementById("f-auto").value || "").trim();
+  return "chk-ai-farroupilha:" + (n || "_sem_numero");
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(key());
+    state = raw ? JSON.parse(raw) : { done: {}, na: {} };
+    if (!state.done) state.done = {}; if (!state.na) state.na = {};
+    if (state.meta) {
+      for (const k of ["autuado", "agente", "data"]) { const el = document.getElementById("f-" + k); if (el && state.meta[k] != null) el.value = state.meta[k]; }
+    }
+  } catch (e) { state = { done: {}, na: {} }; }
+}
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try {
+      state.meta = { autuado: val("f-autuado"), agente: val("f-agente"), data: val("f-data") };
+      localStorage.setItem(key(), JSON.stringify(state));
+    } catch (e) {}
+  }, 150);
+}
+function val(id) { return document.getElementById(id).value || ""; }
+
+function render() {
+  const root = document.getElementById("phases");
+  root.innerHTML = "";
+  for (const p of PHASES) {
+    const sec = document.createElement("section"); sec.className = "phase";
+    sec.innerHTML = `<h2><span class="n">${p.n}</span>${p.title}</h2><p class="lead">${p.lead}</p>`;
+    const ul = document.createElement("ul"); ul.className = "items";
+    for (const it of p.items) {
+      const li = document.createElement("li"); li.className = "item"; li.id = "li-" + it.id;
+      li.innerHTML = `
+        <input type="checkbox" id="cb-${it.id}" aria-labelledby="lab-${it.id}">
+        <div><label class="lab" id="lab-${it.id}" for="cb-${it.id}">${it.lab}</label><span class="why">${it.why}</span><span class="base">${it.base}</span></div>
+        <div class="side"><span class="tag t-${it.t}">${TAGN[it.t]}</span><button class="na-btn" id="na-${it.id}" aria-pressed="false" type="button">não se aplica</button></div>`;
+      ul.appendChild(li);
+    }
+    sec.appendChild(ul); root.appendChild(sec);
+  }
+  for (const it of ALL) {
+    document.getElementById("cb-" + it.id).addEventListener("change", e => { state.done[it.id] = e.target.checked; if (e.target.checked) state.na[it.id] = false; paint(); save(); });
+    document.getElementById("na-" + it.id).addEventListener("click", () => { state.na[it.id] = !state.na[it.id]; if (state.na[it.id]) state.done[it.id] = false; paint(); save(); });
+  }
+  paint();
+}
+
+function paint() {
+  let done = 0, na = 0, pend = 0, ins = 0;
+  for (const it of ALL) {
+    const d = !!state.done[it.id], n = !!state.na[it.id];
+    const li = document.getElementById("li-" + it.id);
+    li.classList.toggle("done", d); li.classList.toggle("na", n);
+    document.getElementById("cb-" + it.id).checked = d;
+    document.getElementById("cb-" + it.id).disabled = n;
+    document.getElementById("na-" + it.id).setAttribute("aria-pressed", String(n));
+    if (d) done++; else if (n) na++; else { pend++; if (it.t === "ins") ins++; }
+  }
+  document.getElementById("c-done").textContent = done;
+  document.getElementById("c-na").textContent = na;
+  document.getElementById("c-pend").textContent = pend;
+  document.getElementById("c-ins").textContent = ins;
+  const total = ALL.length - na;
+  document.getElementById("bar").style.width = (total ? Math.round(done / total * 100) : 0) + "%";
+  const v = document.getElementById("verdict"), t = document.getElementById("verdict-text");
+  v.classList.remove("ok", "crit", "warn");
+  if (done === 0 && na === 0) { t.textContent = "Comece pelos itens da fase 01"; }
+  else if (ins > 0) { v.classList.add("crit"); t.textContent = `Não lavrar: ${ins} item${ins > 1 ? "ns" : ""} insanáve${ins > 1 ? "is" : "l"} pendente${ins > 1 ? "s" : ""}`; }
+  else if (pend > 0) { v.classList.add("warn"); t.textContent = `Lavratura possível com ${pend} pendência${pend > 1 ? "s" : ""} sanáve${pend > 1 ? "is" : "l"} ou processua${pend > 1 ? "is" : "l"}`; }
+  else { v.classList.add("ok"); t.textContent = "Auto apto à lavratura"; }
+}
+
+function report() {
+  const meta = { auto: val("f-auto") || "(sem número)", autuado: val("f-autuado") || "(não informado)", agente: val("f-agente") || "(não informado)", data: val("f-data") || "(não informada)" };
+  const lines = [];
+  lines.push("# Checklist de lavratura do Auto de Infração Ambiental", "", `Município de Farroupilha/RS · Fiscalização Ambiental`, "", `- Auto nº: ${meta.auto}`, `- Autuado: ${meta.autuado}`, `- Agente autuante: ${meta.agente}`, `- Data da constatação: ${meta.data}`, `- Gerado em: ${new Date().toLocaleString("pt-BR")}`, "", `**Resultado:** ${document.getElementById("verdict-text").textContent}`, "");
+  for (const p of PHASES) {
+    lines.push(`## ${p.n} ${p.title}`, "");
+    for (const it of p.items) {
+      const mark = state.done[it.id] ? "[x]" : state.na[it.id] ? "[n/a]" : "[ ]";
+      lines.push(`- ${mark} (${TAGN[it.t]}) ${it.lab}`, `  - ${it.base}`);
+    }
+    lines.push("");
+  }
+  return lines.join("\n");
+}
+
+async function exportReport() {
+  const text = report();
+  const name = "checklist-auto-" + (val("f-auto") || "sem-numero").replace(/[^\w.-]+/g, "_") + ".md";
+  const toast = document.getElementById("toast");
+  const dl = await claude.use("downloads");
+  if (dl) {
+    try { await dl.save({ filename: name, data: text }); toast.textContent = "Relatório salvo."; return; }
+    catch (e) { if (e && e.code === "declined") { toast.textContent = "Salvamento cancelado."; return; } }
+  }
+  try { await navigator.clipboard.writeText(text); toast.textContent = "Relatório copiado para a área de transferência."; }
+  catch (e) { toast.textContent = "Não foi possível salvar nem copiar. Use Imprimir."; }
+}
+
+document.getElementById("f-auto").addEventListener("change", () => { load(); paint(); });
+for (const k of ["f-autuado", "f-agente", "f-data"]) document.getElementById(k).addEventListener("input", save);
+document.getElementById("b-export").addEventListener("click", exportReport);
+document.getElementById("b-print").addEventListener("click", () => window.print());
+document.getElementById("b-clear").addEventListener("click", () => {
+  if (!confirm("Limpar todas as marcações deste auto?")) return;
+  state = { done: {}, na: {} }; try { localStorage.removeItem(key()); } catch (e) {}
+  paint(); document.getElementById("toast").textContent = "Marcações limpas.";
+});
+
+load(); render();
+</script>

@@ -51,6 +51,7 @@ header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; backg
 
 main { display: grid; gap: 16px; padding-top: 16px; }
 section { display: grid; gap: 10px; }
+section > *, .card > *, .npanel > div { min-width: 0; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 8px; }
 .btn { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 10px 14px; font-weight: 600; min-height: 44px; }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
@@ -133,6 +134,10 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
 .legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: .85rem; color: var(--muted); }
 .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 4px; border: 1px solid var(--line); background: var(--chip); }
 .legend i.v { background: var(--vivo); } .legend i.p { background: var(--pad); } .legend i.m { background: var(--morto); }
+.tabs2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.tabs2 button { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; min-height: 44px; font-weight: 600; color: var(--muted); }
+.tabs2 button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.ngrid button small { font-size: .6rem; font-weight: 700; vertical-align: top; margin-left: 2px; opacity: .85; }
 .chk { display: flex; align-items: center; gap: 8px; font-size: .9rem; min-height: 36px; }
 .chk input { width: 20px; height: 20px; }
 @media (prefers-reduced-motion: no-preference) { .big .k { transition: transform .08s; } .big .k:active { transform: scale(.98); } }
@@ -177,29 +182,26 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast('Atenção: não foi possível salvar neste navegador'); } }
 
   function newProject(nome) {
-    var p = { id: uid(), nome: nome || 'Novo projeto', data: today(), total: 0, especies: DEFAULT_SP.map(function (n) { return { id: uid(), nome: n, qtd: 0 }; }), cont: {}, med: [], hist: [], cat: 'nat', numerado: {}, mudas: {}, sel: {}, criado: Date.now() };
+    var p = { id: uid(), nome: nome || 'Novo projeto', data: today(), total: 0, especies: DEFAULT_SP.map(function (n) { return { id: uid(), nome: n, qtd: 0 }; }), cont: {}, med: [], hist: [], cat: 'nat', fichas: 0, mudas: {}, sel: 0, modo: 'rapida', criado: Date.now() };
     return p;
   }
-  function norm(p) { p.numerado = p.numerado || {}; p.mudas = p.mudas || {}; p.sel = p.sel || {}; p.cont = p.cont || {}; p.med = p.med || []; p.hist = p.hist || []; return p; }
+  function norm(p) { p.mudas = p.mudas || {}; Object.keys(p.mudas).forEach(function (k) { if (!/^\d+$/.test(k)) delete p.mudas[k]; }); delete p.numerado; p.fichas = +p.fichas || 0; p.sel = +p.sel || 0; p.modo = p.modo || 'rapida'; p.cont = p.cont || {}; p.med = p.med || []; p.hist = p.hist || []; return p; }
   function cur() { for (var i = 0; i < S.projects.length; i++) if (S.projects[i].id === S.cur) return norm(S.projects[i]); return null; }
-  function catQtd(p, id) { var c = cats(p).filter(function (c) { return c.id === id; })[0]; return c ? (+c.qtd || 0) : 0; }
-  function isNum(p, id) { return !!(p.numerado && p.numerado[id]); }
-  function mudasOf(p, id) { return (p.mudas && p.mudas[id]) || {}; }
+  function fichaRows(p) { var out = [], M = p.mudas || {}; Object.keys(M).forEach(function (k) { var n = +k, r = M[k]; if (n >= 1 && n <= p.fichas && r) out.push({ n: n, g: r.g || 'nat', s: r.s || null, h: r.h, dap: r.dap }); }); return out.sort(function (a, b) { return a.n - b.n; }); }
   var STN = { v: 'Viva', p: 'Padecendo', m: 'Morta' };
   function cats(p) { return [{ id: 'nat', nome: 'Nativas diversas', qtd: p.total }].concat(p.especies.map(function (e) { return { id: e.id, nome: e.nome, qtd: e.qtd }; })); }
   function catName(p, id) { var c = cats(p).filter(function (c) { return c.id === id; })[0]; return c ? c.nome : '(removida)'; }
+  function cntF(p, id) { var c = { v: 0, p: 0, m: 0, t: 0 }; fichaRows(p).forEach(function (r) { if (r.g === id && r.s && c[r.s] != null) { c[r.s]++; c.t++; } }); return c; }
   function cnt(p, id) {
-    var c = { v: 0, p: 0, m: 0 };
-    if (isNum(p, id)) { var q = catQtd(p, id), M = mudasOf(p, id); Object.keys(M).forEach(function (k) { var n = +k, r = M[k]; if (n >= 1 && n <= q && r && r.s && c[r.s] != null) c[r.s]++; }); }
-    else { var o = p.cont[id] || {}; c.v = o.v || 0; c.p = o.p || 0; c.m = o.m || 0; }
-    c.t = c.v + c.p + c.m; return c;
+    var o = p.cont[id] || {}, f = cntF(p, id);
+    var c = { v: (o.v || 0) + f.v, p: (o.p || 0) + f.p, m: (o.m || 0) + f.m }; c.t = c.v + c.p + c.m; c.f = f.t; return c;
   }
-  function numList(p, id, st) { var q = catQtd(p, id), M = mudasOf(p, id); return Object.keys(M).map(Number).filter(function (n) { return n >= 1 && n <= q && M[n] && M[n].s === st; }).sort(function (a, b) { return a - b; }); }
+  function numList(p, id, st) { return fichaRows(p).filter(function (r) { return r.g === id && r.s === st; }).map(function (r) { return r.n; }); }
+  function fichasDone(p) { return fichaRows(p).filter(function (r) { return r.s; }).length; }
   function totals(p) { var t = { v: 0, p: 0, m: 0, t: 0, plan: 0 }; cats(p).forEach(function (c) { var k = cnt(p, c.id); t.v += k.v; t.p += k.p; t.m += k.m; t.t += k.t; t.plan += (+c.qtd || 0); }); return t; }
   function stats(p, catId) {
     var rows = p.med.filter(function (m) { return !catId || m.cat === catId; });
-    cats(p).forEach(function (c) { if (catId && c.id !== catId) return; if (!isNum(p, c.id)) return; var q = catQtd(p, c.id), M = mudasOf(p, c.id);
-      Object.keys(M).forEach(function (k) { var n = +k, r = M[k]; if (n >= 1 && n <= q && r && (r.h != null || r.dap != null)) rows.push({ cat: c.id, h: r.h, dap: r.dap, n: n }); }); });
+    fichaRows(p).forEach(function (r) { if ((!catId || r.g === catId) && (r.h != null || r.dap != null)) rows.push({ cat: r.g, h: r.h, dap: r.dap, n: r.n }); });
     var hs = rows.map(function (m) { return m.h; }).filter(function (x) { return x != null && !isNaN(x); });
     var ds = rows.map(function (m) { return m.dap; }).filter(function (x) { return x != null && !isNaN(x); });
     function agg(a) { if (!a.length) return null; var s = a.reduce(function (x, y) { return x + y; }, 0); return { n: a.length, media: s / a.length, min: Math.min.apply(null, a), max: Math.max.apply(null, a) }; }
@@ -214,8 +216,9 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     p.especies.forEach(function (e) { L.push('Quantidade de ' + e.nome + ': ' + fmt(e.qtd)); });
     L.push(''); L.push('CONTAGEM (vivas / padecendo / mortas)');
     cats(p).forEach(function (c) { var k = cnt(p, c.id); if (!k.t && !c.qtd) return;
-      L.push(c.nome + (isNum(p, c.id) ? ' (mudas numeradas)' : '') + ': ' + fmt(k.t) + ' contadas' + (c.qtd ? ' de ' + fmt(c.qtd) : '') + ' - vivas ' + fmt(k.v) + ' (' + pct(k.v, k.t) + '), padecendo ' + fmt(k.p) + ' (' + pct(k.p, k.t) + '), mortas ' + fmt(k.m) + ' (' + pct(k.m, k.t) + ')');
-      if (isNum(p, c.id)) { var lp = numList(p, c.id, 'p'), lm = numList(p, c.id, 'm'); if (lp.length) L.push('  Padecendo (nº): ' + lp.join(', ')); if (lm.length) L.push('  Mortas (nº): ' + lm.join(', ')); } });
+      L.push(c.nome + ': ' + fmt(k.t) + ' contadas' + (c.qtd ? ' de ' + fmt(c.qtd) : '') + ' - vivas ' + fmt(k.v) + ' (' + pct(k.v, k.t) + '), padecendo ' + fmt(k.p) + ' (' + pct(k.p, k.t) + '), mortas ' + fmt(k.m) + ' (' + pct(k.m, k.t) + ')' + (p.fichas && k.f ? ' [' + fmt(k.f) + ' por ficha numerada]' : ''));
+      if (p.fichas) { var lp = numList(p, c.id, 'p'), lm = numList(p, c.id, 'm'); if (lp.length) L.push('  Padecendo (ficha nº): ' + lp.join(', ')); if (lm.length) L.push('  Mortas (ficha nº): ' + lm.join(', ')); } });
+    if (p.fichas) L.push('Fichas numeradas vistoriadas: ' + fmt(fichasDone(p)) + ' de ' + fmt(p.fichas));
     var t = totals(p);
     L.push('Total geral: ' + fmt(t.t) + ' contadas - vivas ' + fmt(t.v) + ' (' + pct(t.v, t.t) + '), padecendo ' + fmt(t.p) + ' (' + pct(t.p, t.t) + '), mortas ' + fmt(t.m) + ' (' + pct(t.m, t.t) + ')');
     L.push('Taxa de sobrevivência (vivas + padecendo): ' + pct(t.v + t.p, t.t) + ' | Mortalidade: ' + pct(t.m, t.t));
@@ -235,10 +238,9 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     p.med.forEach(function (m) { L.push([p.nome, brDate(p.data), catName(p, m.cat), m.h == null ? '' : fmt(m.h, 2), m.dap == null ? '' : fmt(m.dap, 2)].map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(';')); });
     return L.join('\r\n');
   }
-  function csvMudas(p) {
-    var L = ['projeto;data;grupo;numero;situacao;altura_m;dap_cm'];
-    cats(p).forEach(function (c) { if (!isNum(p, c.id)) return; var q = catQtd(p, c.id), M = mudasOf(p, c.id);
-      for (var n = 1; n <= q; n++) { var r = M[n] || {}; L.push([p.nome, brDate(p.data), c.nome, n, r.s ? STN[r.s] : 'Pendente', r.h == null ? '' : fmt(r.h, 2), r.dap == null ? '' : fmt(r.dap, 2)].map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(';')); } });
+  function csvFichas(p) {
+    var L = ['projeto;data;ficha;grupo;situacao;altura_m;dap_cm'], M = p.mudas || {};
+    for (var n = 1; n <= p.fichas; n++) { var r = M[n] || {}; L.push([p.nome, brDate(p.data), n, r.s || r.g ? catName(p, r.g || 'nat') : '', r.s ? STN[r.s] : 'Pendente', r.h == null ? '' : fmt(r.h, 2), r.dap == null ? '' : fmt(r.dap, 2)].map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(';')); }
     return L.join('\r\n');
   }
   function csvCont(p) {
@@ -275,44 +277,47 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
 
   function renderCont(p) {
     var cs = cats(p); if (!cs.some(function (c) { return c.id === p.cat; })) p.cat = 'nat';
-    var k = cnt(p, p.cat), ca = cs.filter(function (c) { return c.id === p.cat; })[0], t = totals(p);
+    var h = '<section><div class="tabs2"><button type="button" data-a="modo" data-m="rapida" aria-pressed="' + (p.modo !== 'ficha') + '">Contagem rápida</button><button type="button" data-a="modo" data-m="ficha" aria-pressed="' + (p.modo === 'ficha') + '">Por ficha numerada</button></div></section>';
+    if (p.modo === 'ficha') { h += renderFicha(p); main.innerHTML = h; return; }
+    var k = cnt(p, p.cat), ca = cs.filter(function (c) { return c.id === p.cat; })[0];
     var last = p.hist.length ? p.hist[p.hist.length - 1] : null;
-    var h = '<section><h2>Grupo em contagem</h2><div class="cats">' + cs.map(function (c) { return '<button type="button" data-a="cat" data-id="' + c.id + '" aria-pressed="' + (c.id === p.cat) + '">' + esc(c.nome) + ' · ' + fmt(cnt(p, c.id).t) + (c.qtd ? '/' + fmt(c.qtd) : '') + '</button>'; }).join('') + '</div></section>';
-    if (isNum(p, p.cat)) { h += renderNum(p, ca, k); main.innerHTML = h; return; }
-    h += '<section><div class="undo"><div><b>' + esc(ca.nome) + '</b> <span class="muted small">' + fmt(k.t) + ' contadas' + (ca.qtd ? ' · faltam ' + fmt(Math.max(0, ca.qtd - k.t)) : '') + '</span></div>' +
+    h += '<section><h2>Grupo em contagem</h2><div class="cats">' + cs.map(function (c) { return '<button type="button" data-a="cat" data-id="' + c.id + '" aria-pressed="' + (c.id === p.cat) + '">' + esc(c.nome) + ' · ' + fmt(cnt(p, c.id).t) + (c.qtd ? '/' + fmt(c.qtd) : '') + '</button>'; }).join('') + '</div></section>';
+    h += '<section><div class="undo"><div><b>' + esc(ca.nome) + '</b> <span class="muted small">' + fmt(k.t) + ' contadas' + (ca.qtd ? ' · faltam ' + fmt(Math.max(0, ca.qtd - k.t)) : '') + (k.f ? ' · ' + fmt(k.f) + ' por ficha' : '') + '</span></div>' +
       '<button class="btn sm" type="button" data-a="undo" ' + (last ? '' : 'disabled') + '>Desfazer' + (last ? ' (' + { v: 'viva', p: 'padecendo', m: 'morta' }[last.k] + ')' : '') + '</button></div>';
-    h += '<div class="big"><button class="k vivo" type="button" data-a="add" data-k="v"><b>' + fmt(k.v) + '</b>Viva</button><button class="k pad" type="button" data-a="add" data-k="p"><b>' + fmt(k.p) + '</b>Padecendo</button><button class="k morto" type="button" data-a="add" data-k="m"><b>' + fmt(k.m) + '</b>Morta</button></div>';
-    h += '<div class="minus"><button class="btn ghost sm" type="button" data-a="sub" data-k="v" ' + (k.v ? '' : 'disabled') + '>−1 viva</button><button class="btn ghost sm" type="button" data-a="sub" data-k="p" ' + (k.p ? '' : 'disabled') + '>−1 padecendo</button><button class="btn ghost sm" type="button" data-a="sub" data-k="m" ' + (k.m ? '' : 'disabled') + '>−1 morta</button></div></section>';
-    h += '<section><h2>Totais</h2><div class="wrap"><table class="tally"><thead><tr><th>Grupo</th><th>Prev.</th><th>Cont.</th><th>Vivas</th><th>Padec.</th><th>Mortas</th></tr></thead><tbody>' +
-      cs.map(function (c) { var x = cnt(p, c.id); return '<tr class="' + (c.id === p.cat ? 'sel' : '') + '" data-a="cat" data-id="' + c.id + '"><td>' + esc(c.nome) + '</td><td>' + fmt(c.qtd) + '</td><td>' + fmt(x.t) + '</td><td class="v">' + fmt(x.v) + '</td><td class="p">' + fmt(x.p) + '</td><td class="m">' + fmt(x.m) + '</td></tr>'; }).join('') +
-      '</tbody><tfoot><tr><td>Total</td><td>' + fmt(t.plan) + '</td><td>' + fmt(t.t) + '</td><td class="v">' + fmt(t.v) + '</td><td class="p">' + fmt(t.p) + '</td><td class="m">' + fmt(t.m) + '</td></tr></tfoot></table></div>' + barHtml(t) +
-      '<p class="muted small">Sobrevivência (vivas + padecendo): <b>' + pct(t.v + t.p, t.t) + '</b> · Mortalidade: <b>' + pct(t.m, t.t) + '</b></p></section>';
+    var o = p.cont[p.cat] || { v: 0, p: 0, m: 0 };
+    h += '<div class="big"><button class="k vivo" type="button" data-a="add" data-k="v"><b>' + fmt(o.v) + '</b>Viva</button><button class="k pad" type="button" data-a="add" data-k="p"><b>' + fmt(o.p) + '</b>Padecendo</button><button class="k morto" type="button" data-a="add" data-k="m"><b>' + fmt(o.m) + '</b>Morta</button></div>';
+    h += '<div class="minus"><button class="btn ghost sm" type="button" data-a="sub" data-k="v" ' + (o.v ? '' : 'disabled') + '>−1 viva</button><button class="btn ghost sm" type="button" data-a="sub" data-k="p" ' + (o.p ? '' : 'disabled') + '>−1 padecendo</button><button class="btn ghost sm" type="button" data-a="sub" data-k="m" ' + (o.m ? '' : 'disabled') + '>−1 morta</button></div>' +
+      (p.fichas ? '<p class="muted small">Use a contagem rápida só para mudas sem ficha. As mudas com plaqueta numerada entram em "Por ficha numerada", para não contar em duplicidade.</p>' : '') + '</section>';
+    h += '<section><h2>Totais</h2>' + tallyHtml(p) + '</section>';
     main.innerHTML = h;
   }
 
   var pendFilter = false;
-  function renderNum(p, ca, k) {
-    var q = catQtd(p, ca.id), M = mudasOf(p, ca.id);
-    if (!q) return '<section><div class="card"><b>' + esc(ca.nome) + '</b><p class="muted">Informe a quantidade de mudas deste grupo na aba Dados para gerar os números das fichas.</p></div></section>';
-    var sel = p.sel[ca.id] || 0; if (sel < 1 || sel > q) { sel = 1; for (var i = 1; i <= q; i++) if (!M[i] || !M[i].s) { sel = i; break; } }
-    p.sel[ca.id] = sel;
-    var r = M[sel] || {};
-    var h = '<section><form class="row" id="fNum" autocomplete="off"><input class="grow" type="number" id="nBusca" inputmode="numeric" min="1" max="' + q + '" placeholder="Nº da ficha (1 a ' + q + ')" aria-label="Número da muda" style="min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);font-family:var(--mono);font-size:1.05rem"><button class="btn" type="submit">Ir</button></form></section>';
-    h += '<section><div class="card npanel" id="npanel"><div class="nh"><div><span class="muted small">' + esc(ca.nome) + ' · ficha</span><br><b>' + sel + '</b> <span class="muted">/ ' + q + '</span></div><span class="st ' + (r.s || '') + '">' + (r.s ? STN[r.s] : 'Pendente') + '</span></div>' +
+  function renderFicha(p) {
+    var q = p.fichas, M = p.mudas, cs = cats(p);
+    if (!q) return '<section><div class="card"><b>Fichas numeradas</b><p class="muted">Informe na aba Dados quantas plaquetas numeradas existem no plantio (ex.: 1 a 2.311). Depois, toque no número da ficha, diga se a muda é nativa diversa ou de qual espécie, e marque a situação.</p><button class="btn" type="button" data-a="tab" data-t="dados">Ir para Dados</button></div></section>';
+    var sel = curSel(p); p.sel = sel;
+    var r = M[sel] || {}, g = r.g || null;
+    var h = '<section><form class="row" id="fNum" autocomplete="off"><input class="grow" type="number" id="nBusca" inputmode="numeric" min="1" max="' + q + '" placeholder="Nº da ficha (1 a ' + fmt(q) + ')" aria-label="Número da ficha" style="min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);font-family:var(--mono);font-size:1.05rem"><button class="btn" type="submit">Ir</button></form></section>';
+    h += '<section><div class="card npanel" id="npanel"><div class="nh"><div><span class="muted small">Ficha</span><br><b>' + sel + '</b> <span class="muted">/ ' + fmt(q) + '</span></div><span class="st ' + (r.s || '') + '">' + (r.s ? STN[r.s] : 'Pendente') + '</span></div>' +
+      '<div><span class="muted small">Esta muda é:</span><div class="cats" style="margin-top:4px">' + cs.map(function (c) { return '<button type="button" data-a="fg" data-id="' + c.id + '" aria-pressed="' + (g === c.id) + '">' + esc(c.nome) + '</button>'; }).join('') + '</div></div>' +
       '<div class="stbtn"><button type="button" class="v" data-a="st" data-k="v" aria-pressed="' + (r.s === 'v') + '">Viva</button><button type="button" class="p" data-a="st" data-k="p" aria-pressed="' + (r.s === 'p') + '">Padecendo</button><button type="button" class="m" data-a="st" data-k="m" aria-pressed="' + (r.s === 'm') + '">Morta</button></div>' +
       '<div class="f2"><label class="f">Altura (m)<input id="nH" type="text" inputmode="decimal" value="' + (r.h == null ? '' : esc(fmt(r.h, 2))) + '" placeholder="opcional"></label><label class="f">DAP (cm)<input id="nD" type="text" inputmode="decimal" value="' + (r.dap == null ? '' : esc(fmt(r.dap, 2))) + '" placeholder="opcional"></label></div>' +
-      '<div class="row"><button class="btn" type="button" data-a="prev" ' + (sel <= 1 ? 'disabled' : '') + '>‹ Anterior</button><button class="btn primary grow" type="button" data-a="next" ' + (sel >= q ? 'disabled' : '') + '>Próxima ficha (' + Math.min(q, sel + 1) + ') ›</button><button class="btn ghost danger sm" type="button" data-a="clearMuda" ' + (r.s || r.h != null || r.dap != null ? '' : 'disabled') + '>Limpar</button></div></div></section>';
-    h += '<section><div class="undo"><div><span class="muted small">' + fmt(k.t) + ' de ' + fmt(q) + ' marcadas · faltam ' + fmt(q - k.t) + '</span></div><button class="btn sm" type="button" data-a="filtPend" aria-pressed="' + pendFilter + '">' + (pendFilter ? 'Mostrar todas' : 'Só pendentes') + '</button></div>' +
-      '<div class="legend"><span><i></i>Pendente</span><span><i class="v"></i>Viva</span><span><i class="p"></i>Padecendo</span><span><i class="m"></i>Morta</span></div>';
-    var g = []; for (var n = 1; n <= q; n++) { var x = M[n]; g.push('<button type="button" class="' + (x && x.s ? x.s : '') + '" data-a="sel" data-n="' + n + '" aria-current="' + (n === sel) + '">' + n + '</button>'); }
-    h += '<div class="ngrid' + (pendFilter ? ' pend' : '') + '">' + g.join('') + '</div></section>';
+      '<div class="row"><button class="btn" type="button" data-a="prev" ' + (sel <= 1 ? 'disabled' : '') + '>‹ Anterior</button><button class="btn primary grow" type="button" data-a="next" ' + (sel >= q ? 'disabled' : '') + '>Próxima ficha (' + fmt(Math.min(q, sel + 1)) + ') ›</button><button class="btn ghost danger sm" type="button" data-a="clearMuda" ' + (r.s || r.g || r.h != null || r.dap != null ? '' : 'disabled') + '>Limpar</button></div>' +
+      (r.s && !r.g ? '<p class="muted small">Sem grupo informado: conta como nativa diversa.</p>' : '') + '</div></section>';
+    var done = fichasDone(p);
+    h += '<section><div class="undo"><div><span class="muted small">' + fmt(done) + ' de ' + fmt(q) + ' fichas vistoriadas · faltam ' + fmt(q - done) + '</span></div><button class="btn sm" type="button" data-a="filtPend" aria-pressed="' + pendFilter + '">' + (pendFilter ? 'Mostrar todas' : 'Só pendentes') + '</button></div>' +
+      '<div class="legend"><span><i></i>Pendente</span><span><i class="v"></i>Viva</span><span><i class="p"></i>Padecendo</span><span><i class="m"></i>Morta</span><span>Letra = espécie (sem letra = nativa diversa)</span></div>';
+    var ini = {}; p.especies.forEach(function (e) { ini[e.id] = (e.nome || '?').charAt(0).toUpperCase(); });
+    var gr = []; for (var n = 1; n <= q; n++) { var x = M[n]; var lab = x && x.g && x.g !== 'nat' && ini[x.g] ? '<small>' + ini[x.g] + '</small>' : ''; gr.push('<button type="button" class="' + (x && x.s ? x.s : '') + '" data-a="sel" data-n="' + n + '" aria-current="' + (n === sel) + '">' + n + lab + '</button>'); }
+    h += '<div class="ngrid' + (pendFilter ? ' pend' : '') + '">' + gr.join('') + '</div></section>';
     h += '<section><h2>Totais</h2>' + tallyHtml(p) + '</section>';
     return h;
   }
   function tallyHtml(p) {
     var cs = cats(p), t = totals(p);
     return '<div class="wrap"><table class="tally"><thead><tr><th>Grupo</th><th>Prev.</th><th>Cont.</th><th>Vivas</th><th>Padec.</th><th>Mortas</th></tr></thead><tbody>' +
-      cs.map(function (c) { var x = cnt(p, c.id); return '<tr class="' + (c.id === p.cat ? 'sel' : '') + '" data-a="cat" data-id="' + c.id + '"><td>' + esc(c.nome) + (isNum(p, c.id) ? ' <span class="muted small">nº</span>' : '') + '</td><td>' + fmt(c.qtd) + '</td><td>' + fmt(x.t) + '</td><td class="v">' + fmt(x.v) + '</td><td class="p">' + fmt(x.p) + '</td><td class="m">' + fmt(x.m) + '</td></tr>'; }).join('') +
+      cs.map(function (c) { var x = cnt(p, c.id); return '<tr class="' + (c.id === p.cat ? 'sel' : '') + '" data-a="cat" data-id="' + c.id + '"><td>' + esc(c.nome) + '</td><td>' + fmt(c.qtd) + '</td><td>' + fmt(x.t) + '</td><td class="v">' + fmt(x.v) + '</td><td class="p">' + fmt(x.p) + '</td><td class="m">' + fmt(x.m) + '</td></tr>'; }).join('') +
       '</tbody><tfoot><tr><td>Total</td><td>' + fmt(t.plan) + '</td><td>' + fmt(t.t) + '</td><td class="v">' + fmt(t.v) + '</td><td class="p">' + fmt(t.p) + '</td><td class="m">' + fmt(t.m) + '</td></tr></tfoot></table></div>' + barHtml(t) +
       '<p class="muted small">Sobrevivência (vivas + padecendo): <b>' + pct(t.v + t.p, t.t) + '</b> · Mortalidade: <b>' + pct(t.m, t.t) + '</b></p>';
   }
@@ -335,7 +340,7 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
 
   function renderRes(p) {
     var h = '<section><h2>Relatório</h2><pre class="rep" id="rep">' + esc(report(p)) + '</pre>' +
-      '<div class="row"><button class="btn primary grow" type="button" data-a="copyRep">Copiar relatório</button><button class="btn" type="button" data-a="csvCont">CSV contagem</button><button class="btn" type="button" data-a="csvMed">CSV medições</button>' + (cats(p).some(function (c) { return isNum(p, c.id); }) ? '<button class="btn" type="button" data-a="csvMudas">CSV mudas numeradas</button>' : '') + '</div></section>';
+      '<div class="row"><button class="btn primary grow" type="button" data-a="copyRep">Copiar relatório</button><button class="btn" type="button" data-a="csvCont">CSV contagem</button><button class="btn" type="button" data-a="csvMed">CSV medições</button>' + (p.fichas ? '<button class="btn" type="button" data-a="csvFichas">CSV fichas numeradas</button>' : '') + '</div></section>';
     h += '<section><h2>Backup</h2><div class="row"><button class="btn grow" type="button" data-a="bkp">Exportar backup (JSON)</button><button class="btn" type="button" data-a="copyBkp">Copiar JSON</button></div>' +
       '<p class="muted small">O backup guarda este projeto completo. Para levar a outro celular, importe o arquivo pela tela de Projetos. Com sinal, você também pode colar o relatório direto no WhatsApp ou e-mail.</p></section>';
     main.innerHTML = h;
@@ -345,10 +350,14 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     var h = '<section><h2>Projeto</h2><div class="card">' +
       '<label class="f">Nome do projeto<input id="dNome" type="text" value="' + esc(p.nome) + '" placeholder="ex.: RFO/PRAD - Agostinho"></label>' +
       '<div class="f2"><label class="f">Data da vistoria<input id="dData" type="date" value="' + esc(p.data) + '"></label><label class="f">Mudas nativas diversas (total, sem identificar espécie)<input id="dTotal" type="text" inputmode="numeric" value="' + esc(p.total || '') + '" placeholder="ex.: 1750"></label></div>' +
-      '<label class="chk"><input type="checkbox" data-numer="nat" ' + (isNum(p, 'nat') ? 'checked' : '') + '> Mudas numeradas (fichas de 1 até o total)</label></div></section>';
+      '</div></section>';
     h += '<section><h2>Espécies ameaçadas obrigatórias</h2><div class="card">' +
-      p.especies.map(function (e) { return '<div class="sp"><input type="text" data-sp="nome" data-id="' + e.id + '" value="' + esc(e.nome) + '" placeholder="Espécie" aria-label="Nome da espécie"><input type="text" inputmode="numeric" data-sp="qtd" data-id="' + e.id + '" value="' + esc(e.qtd || '') + '" placeholder="Qtd" aria-label="Quantidade"><button class="btn ghost danger sm" type="button" data-a="delSp" data-id="' + e.id + '" aria-label="Remover espécie">×</button></div><label class="chk"><input type="checkbox" data-numer="' + e.id + '" ' + (isNum(p, e.id) ? 'checked' : '') + '> Mudas numeradas (fichas 1 a ' + fmt(e.qtd || 0) + ')</label>'; }).join('') +
-      '<button class="btn" type="button" data-a="addSp">+ Adicionar espécie</button><p class="muted small">Cada espécie é contada e medida individualmente. Informe a quantidade plantada de cada uma. Com "Mudas numeradas" ligado, a contagem é feita ficha por ficha, pelo número da plaqueta. Remover uma espécie apaga a contagem dela.</p></div></section>';
+      p.especies.map(function (e) { return '<div class="sp"><input type="text" data-sp="nome" data-id="' + e.id + '" value="' + esc(e.nome) + '" placeholder="Espécie" aria-label="Nome da espécie"><input type="text" inputmode="numeric" data-sp="qtd" data-id="' + e.id + '" value="' + esc(e.qtd || '') + '" placeholder="Qtd" aria-label="Quantidade"><button class="btn ghost danger sm" type="button" data-a="delSp" data-id="' + e.id + '" aria-label="Remover espécie">×</button></div>'; }).join('') +
+      '<button class="btn" type="button" data-a="addSp">+ Adicionar espécie</button><p class="muted small">Cada espécie é contada e medida individualmente. Informe a quantidade plantada de cada uma. Remover uma espécie apaga a contagem dela.</p></div></section>';
+    var plan = totals(p).plan;
+    h += '<section><h2>Fichas numeradas</h2><div class="card"><label class="f">Quantidade de plaquetas numeradas no plantio<input id="dFichas" type="text" inputmode="numeric" value="' + esc(p.fichas || '') + '" placeholder="ex.: 2311 (0 = não usar)"></label>' +
+      '<div class="row"><button class="btn sm" type="button" data-a="fichasPlan">Usar total previsto (' + fmt(plan) + ')</button></div>' +
+      '<p class="muted small">A ficha traz só o número, sem espécie. Na contagem "Por ficha numerada", você toca no número, diz se a muda é nativa diversa ou de qual espécie, e marca a situação. Cada número só pode ter um grupo, o que evita contagem em duplicidade.</p></div></section>';
     h += '<section><h2>Manutenção</h2><div class="row"><button class="btn ghost danger" type="button" data-a="zero">Zerar contagens e medições</button><button class="btn ghost danger" type="button" data-a="del">Excluir projeto</button></div>' +
       (confirmZero ? '<div class="confirm"><span>Zera todas as contagens e medições deste projeto. Continuar?</span><button class="btn danger" type="button" data-a="zeroYes">Sim, zerar</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') +
       (confirmDel ? '<div class="confirm"><span>Exclui o projeto "' + esc(p.nome) + '" e todos os dados dele. Continuar?</span><button class="btn danger" type="button" data-a="delYes">Sim, excluir</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') + '</section>';
@@ -366,12 +375,15 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     if (a === 'tab') { if (p) syncMuda(p); S.tab = el.dataset.t; confirmDel = confirmZero = false; save(); render(); return; }
     if (!p) return;
     if (a === 'cat') { p.cat = el.dataset.id; save(); render(); return; }
-    if (a === 'sel') { p.sel[p.cat] = +el.dataset.n; save(); render(); var pn = $('npanel'); if (pn) pn.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
-    if (a === 'st') { var ms = p.mudas[p.cat] || (p.mudas[p.cat] = {}); var sn = curSel(p); var rr = ms[sn] || (ms[sn] = {}); rr.s = (rr.s === el.dataset.k) ? null : el.dataset.k; if (!rr.s) delete rr.s; save(); render(); return; }
-    if (a === 'prev' || a === 'next') { syncMuda(p); var q0 = catQtd(p, p.cat); var ns = curSel(p) + (a === 'next' ? 1 : -1); if (ns < 1 || ns > q0) return; p.sel[p.cat] = ns; save(); render(); return; }
-    if (a === 'clearMuda') { var mc = p.mudas[p.cat]; if (mc) delete mc[curSel(p)]; save(); render(); return; }
+    if (a === 'modo') { syncMuda(p); p.modo = el.dataset.m; save(); render(); return; }
+    if (a === 'fg') { var mg = p.mudas[curSel(p)] || (p.mudas[curSel(p)] = {}); mg.g = (mg.g === el.dataset.id) ? null : el.dataset.id; if (!mg.g) delete mg.g; save(); render(); return; }
+    if (a === 'fichasPlan') { syncDados(p); p.fichas = totals(p).plan; save(); render(); return; }
+    if (a === 'sel') { syncMuda(p); p.sel = +el.dataset.n; save(); render(); var pn = $('npanel'); if (pn) pn.scrollIntoView({ block: 'start', behavior: 'smooth' }); return; }
+    if (a === 'st') { var sn = curSel(p); var rr = p.mudas[sn] || (p.mudas[sn] = {}); rr.s = (rr.s === el.dataset.k) ? null : el.dataset.k; if (!rr.s) delete rr.s; save(); render(); return; }
+    if (a === 'prev' || a === 'next') { syncMuda(p); var ns = curSel(p) + (a === 'next' ? 1 : -1); if (ns < 1 || ns > p.fichas) return; p.sel = ns; save(); render(); var pn2 = $('npanel'); if (pn2) pn2.scrollIntoView({ block: 'start' }); return; }
+    if (a === 'clearMuda') { delete p.mudas[curSel(p)]; save(); render(); return; }
     if (a === 'filtPend') { pendFilter = !pendFilter; render(); return; }
-    if (a === 'csvMudas') { download('mudas-numeradas-' + slug(p.nome) + '.csv', '\ufeff' + csvMudas(p), 'text/csv;charset=utf-8'); return; }
+    if (a === 'csvFichas') { download('fichas-' + slug(p.nome) + '.csv', '\ufeff' + csvFichas(p), 'text/csv;charset=utf-8'); return; }
     if (a === 'add') { var k = el.dataset.k; var c = p.cont[p.cat] || (p.cont[p.cat] = { v: 0, p: 0, m: 0 }); c[k]++; p.hist.push({ cat: p.cat, k: k }); if (p.hist.length > 500) p.hist.shift(); save(); render(); return; }
     if (a === 'sub') { var k2 = el.dataset.k; var c2 = p.cont[p.cat]; if (c2 && c2[k2] > 0) { c2[k2]--; } save(); render(); return; }
     if (a === 'undo') { var u = p.hist.pop(); if (u && p.cont[u.cat] && p.cont[u.cat][u.k] > 0) p.cont[u.cat][u.k]--; save(); render(); return; }
@@ -382,31 +394,31 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     if (a === 'bkp') { download('backup-' + slug(p.nome) + '-' + p.data + '.json', JSON.stringify({ app: 'vistoria-mudas', v: 1, project: p }, null, 1), 'application/json'); return; }
     if (a === 'copyBkp') { copy(JSON.stringify({ app: 'vistoria-mudas', v: 1, project: p }), 'Backup copiado'); return; }
     if (a === 'addSp') { syncDados(p); p.especies.push({ id: uid(), nome: '', qtd: 0 }); save(); render(); var ins = document.querySelectorAll('[data-sp="nome"]'); if (ins.length) ins[ins.length - 1].focus(); return; }
-    if (a === 'delSp') { syncDados(p); p.especies = p.especies.filter(function (s) { return s.id !== el.dataset.id; }); delete p.cont[el.dataset.id]; delete p.mudas[el.dataset.id]; delete p.numerado[el.dataset.id]; p.med = p.med.filter(function (m) { return m.cat !== el.dataset.id; }); save(); render(); return; }
+    if (a === 'delSp') { syncDados(p); p.especies = p.especies.filter(function (s) { return s.id !== el.dataset.id; }); delete p.cont[el.dataset.id]; Object.keys(p.mudas).forEach(function (k) { if (p.mudas[k].g === el.dataset.id) delete p.mudas[k]; }); p.med = p.med.filter(function (m) { return m.cat !== el.dataset.id; }); save(); render(); return; }
     if (a === 'zero') { confirmZero = true; confirmDel = false; render(); return; }
     if (a === 'del') { confirmDel = true; confirmZero = false; render(); return; }
     if (a === 'cancel') { confirmDel = confirmZero = false; render(); return; }
-    if (a === 'zeroYes') { p.cont = {}; p.med = []; p.hist = []; p.mudas = {}; p.sel = {}; confirmZero = false; save(); render(); toast('Contagens zeradas'); return; }
+    if (a === 'zeroYes') { p.cont = {}; p.med = []; p.hist = []; p.mudas = {}; p.sel = 0; confirmZero = false; save(); render(); toast('Contagens zeradas'); return; }
     if (a === 'delYes') { S.projects = S.projects.filter(function (x) { return x.id !== p.id; }); S.cur = null; confirmDel = false; save(); render(); toast('Projeto excluído'); return; }
   });
 
-  function curSel(p) { var q = catQtd(p, p.cat), s0 = p.sel[p.cat] || 0; if (s0 >= 1 && s0 <= q) return s0; var M = mudasOf(p, p.cat); for (var i = 1; i <= q; i++) if (!M[i] || !M[i].s) return i; return 1; }
+  function curSel(p) { var q = p.fichas, s0 = p.sel || 0; if (s0 >= 1 && s0 <= q) return s0; var M = p.mudas; for (var i = 1; i <= q; i++) if (!M[i] || !M[i].s) return i; return 1; }
   function syncMuda(p) {
-    var ih = $('nH'), id = $('nD'); if (!ih || !id) return;
-    var h = numDec(ih.value), d = numDec(id.value); var ms = p.mudas[p.cat] || (p.mudas[p.cat] = {}); var sn = curSel(p); var rr = ms[sn] || (ms[sn] = {});
+    var ih = $('nH'), id = $('nD'); if (!ih || !id || !p.fichas) return;
+    var h = numDec(ih.value), d = numDec(id.value); var sn = curSel(p); var rr = p.mudas[sn] || (p.mudas[sn] = {});
     if (isNaN(h)) delete rr.h; else rr.h = h; if (isNaN(d)) delete rr.dap; else rr.dap = d;
-    if (!rr.s && rr.h == null && rr.dap == null) delete ms[sn];
+    if (!rr.s && !rr.g && rr.h == null && rr.dap == null) delete p.mudas[sn];
   }
   function syncDados(p) {
     var n = $('dNome'); if (!n) return;
     p.nome = n.value.trim() || 'Sem nome'; p.data = $('dData').value || p.data; var t = num($('dTotal').value); p.total = isNaN(t) ? 0 : Math.max(0, Math.round(t));
+    var fi = $('dFichas'); if (fi) { var fv = num(fi.value); p.fichas = isNaN(fv) ? 0 : Math.min(20000, Math.max(0, Math.round(fv))); }
     document.querySelectorAll('[data-sp]').forEach(function (i) { var e = p.especies.filter(function (s) { return s.id === i.dataset.id; })[0]; if (!e) return; if (i.dataset.sp === 'nome') e.nome = i.value.trim() || 'Espécie'; else { var q = num(i.value); e.qtd = isNaN(q) ? 0 : Math.max(0, Math.round(q)); } });
   }
   document.addEventListener('change', function (e) {
     var p = cur(); if (!p) return;
     if (e.target.closest('#nH, #nD')) { syncMuda(p); save(); return; }
-    if (e.target.matches('[data-numer]')) { syncDados(p); var cid = e.target.dataset.numer; if (e.target.checked) p.numerado[cid] = true; else delete p.numerado[cid]; save(); render(); return; }
-    if (e.target.closest('#dNome, #dData, #dTotal, [data-sp]')) { syncDados(p); save(); var h1 = hdr.querySelector('h1'); if (h1) h1.textContent = p.nome; var ds = hdr.querySelector('.hrow .small'); if (ds) ds.textContent = brDate(p.data); }
+    if (e.target.closest('#dNome, #dData, #dTotal, #dFichas, [data-sp]')) { syncDados(p); save(); var h1 = hdr.querySelector('h1'); if (h1) h1.textContent = p.nome; var ds = hdr.querySelector('.hrow .small'); if (ds) ds.textContent = brDate(p.data); }
     if (e.target.id === 'impFile' && e.target.files && e.target.files[0]) {
       var f = e.target.files[0], r = new FileReader();
       r.onload = function () { try { var j = JSON.parse(r.result); var pr = j.project || j; if (!pr || !pr.nome || !Array.isArray(pr.especies)) throw 0; pr.id = uid(); pr.criado = Date.now(); norm(pr); pr.hist = []; S.projects.push(pr); S.cur = pr.id; S.tab = 'cont'; save(); render(); toast('Projeto importado'); } catch (x) { toast('Arquivo inválido'); } };
@@ -414,7 +426,7 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     }
   });
   document.addEventListener('submit', function (e) {
-    if (e.target.id === 'fNum') { e.preventDefault(); var pp = cur(); if (!pp) return; syncMuda(pp); var nn = parseInt($('nBusca').value, 10), qq = catQtd(pp, pp.cat); if (!nn || nn < 1 || nn > qq) { $('nBusca').select(); toast('Informe um número de 1 a ' + qq); return; } pp.sel[pp.cat] = nn; save(); render(); return; }
+    if (e.target.id === 'fNum') { e.preventDefault(); var pp = cur(); if (!pp) return; syncMuda(pp); var nn = parseInt($('nBusca').value, 10), qq = pp.fichas; if (!nn || nn < 1 || nn > qq) { $('nBusca').select(); toast('Informe um número de 1 a ' + fmt(qq)); return; } pp.sel = nn; save(); render(); var pn3 = $('npanel'); if (pn3) pn3.scrollIntoView({ block: 'start' }); return; }
     if (e.target.id !== 'fMed') return; e.preventDefault();
     var p = cur(); if (!p) return;
     var h = numDec($('mH').value), d = numDec($('mD').value);
@@ -431,7 +443,7 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
   load();
   if (!S.projects.length) {
     var ex = newProject('RFO/PRAD - Agostinho'); ex.data = '2026-10-25'; ex.total = 1750;
-    ex.especies[0].qtd = 550; ex.especies[1].qtd = 5; ex.especies[2].qtd = 6; ex.numerado[ex.especies[0].id] = true;
+    ex.especies[0].qtd = 550; ex.especies[1].qtd = 5; ex.especies[2].qtd = 6; ex.fichas = 2311;
     S.projects.push(ex); save();
   }
   render();

@@ -1,0 +1,11 @@
+CONTADOR DE MUDAS - como instalar no celular (Android)
+
+1. Salve o arquivo "Contador-de-Mudas.html" no celular
+   (recebido por WhatsApp ou e-mail: toque no arquivo e escolha "Salvar").
+2. Abra o aplicativo "Arquivos" (ou "Downloads") e toque em Contador-de-Mudas.html.
+3. Se perguntar com qual app abrir, escolha o Chrome.
+4. No Chrome, toque no menu (três pontos) e em "Adicionar à tela inicial".
+5. Pronto. O ícone fica na tela inicial e o app funciona sem internet.
+
+Os dados ficam salvos no próprio celular. Ao voltar o sinal, use a aba
+"Resumo" para copiar o relatório ou exportar o backup e enviar.

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Contador de Mudas</title>
+<meta name="theme-color" content="#1f6b3a">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+/* Layout: cabeçalho fixo com projeto e aba; telas de Contagem (3 botões grandes), Medições (formulário + lista), Resumo (relatório) e Dados (cadastro). Fontes do sistema, sem rede. */
+:root {
+  --bg: #f3f5f1; --panel: #ffffff; --fg: #1b241c; --muted: #5d6b5f; --line: #d3dbd2; --chip: #e6ebe4;
+  --accent: #1f6b3a; --accent-fg: #ffffff;
+  --vivo: #2e7d46; --vivo-fg: #ffffff; --pad: #c48a1a; --pad-fg: #1b1b1b; --morto: #8b3a2f; --morto-fg: #ffffff;
+  --danger: #a3441b; --focus: #2b8a4b;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Roboto Mono", monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121714; --panel: #1a211c; --fg: #e7ece6; --muted: #9aa89c; --line: #2d382f; --chip: #242d26;
+  --accent: #4fb36f; --accent-fg: #0b130d; --vivo: #3f9a5d; --vivo-fg: #06110a; --pad: #d9a441; --pad-fg: #1b1b1b;
+  --morto: #b2574a; --morto-fg: #140806; --danger: #e0875c; --focus: #6fcf8b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #121714; --panel: #1a211c; --fg: #e7ece6; --muted: #9aa89c; --line: #2d382f; --chip: #242d26;
+  --accent: #4fb36f; --accent-fg: #0b130d; --vivo: #3f9a5d; --vivo-fg: #06110a; --pad: #d9a441; --pad-fg: #1b1b1b;
+  --morto: #b2574a; --morto-fg: #140806; --danger: #e0875c; --focus: #6fcf8b; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.4; font-variant-numeric: tabular-nums;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 40px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-size: 1.15rem; } h2 { font-size: 1rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; } h3 { font-size: 1rem; }
+p { margin: 0; }
+.muted { color: var(--muted); } .small { font-size: .85rem; }
+[hidden] { display: none !important; }
+
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 12px 0; }
+.hrow { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+.hrow .btn { white-space: nowrap; flex: 0 0 auto; }
+.hrow h1 { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tabs { display: flex; gap: 2px; margin-top: 10px; overflow-x: auto; }
+.tabs button { flex: 1 0 auto; background: none; border: 0; border-bottom: 3px solid transparent; padding: 10px 8px; font-weight: 600; color: var(--muted); min-height: 44px; }
+.tabs button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); }
+
+main { display: grid; gap: 16px; padding-top: 16px; }
+section { display: grid; gap: 10px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 8px; }
+.btn { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 10px 14px; font-weight: 600; min-height: 44px; }
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.btn.ghost { background: transparent; } .btn.danger { color: var(--danger); } .btn.sm { min-height: 36px; padding: 6px 10px; font-size: .9rem; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.row > .grow { flex: 1 1 160px; min-width: 0; }
+label.f { display: grid; gap: 4px; font-size: .9rem; color: var(--muted); min-width: 0; }
+label.f input, label.f select { width: 100%; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font-size: 1rem; }
+.f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.f3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+@media (max-width: 380px) { .f3 { grid-template-columns: 1fr 1fr; } }
+
+/* Projetos */
+.plist { display: grid; gap: 10px; }
+.proj { text-align: left; display: grid; gap: 4px; }
+.proj .t { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.proj .t b { font-size: 1.05rem; }
+
+/* Contagem */
+.cats { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+.cats button { flex: 0 0 auto; border: 1px solid var(--line); background: var(--chip); border-radius: 999px; padding: 8px 14px; font-weight: 600; min-height: 40px; white-space: nowrap; }
+.cats button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.big { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.big .k { border: 0; border-radius: 12px; min-height: 120px; display: grid; align-content: center; justify-items: center; gap: 2px; font-weight: 700; font-size: 1rem; }
+.big .k b { font-family: var(--mono); font-size: 2.2rem; font-weight: 600; line-height: 1; }
+.big .k.vivo { background: var(--vivo); color: var(--vivo-fg); } .big .k.pad { background: var(--pad); color: var(--pad-fg); } .big .k.morto { background: var(--morto); color: var(--morto-fg); }
+.big .k:active { filter: brightness(.9); }
+.minus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.minus button { min-height: 36px; }
+.tally { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.tally th, .tally td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.tally th:first-child, .tally td:first-child { text-align: left; white-space: normal; }
+.tally th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; }
+.tally tr.sel td { background: var(--chip); }
+.tally td.v { color: var(--vivo); font-weight: 600; } .tally td.p { color: var(--pad); font-weight: 600; } .tally td.m { color: var(--morto); font-weight: 600; }
+.tally tfoot td { font-weight: 700; }
+.wrap { overflow-x: auto; }
+.bar { height: 8px; background: var(--chip); border-radius: 4px; overflow: hidden; display: flex; }
+.bar i { display: block; height: 100%; } .bar .bv { background: var(--vivo); } .bar .bp { background: var(--pad); } .bar .bm { background: var(--morto); }
+
+/* Medições */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.stats .card { padding: 10px 12px; gap: 2px; }
+.stats .card b { font-family: var(--mono); font-size: 1.4rem; font-weight: 600; }
+.stats .card span { font-size: .8rem; color: var(--muted); }
+.mlist { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.mlist td, .mlist th { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.mlist th:first-child, .mlist td:first-child, .mlist td:nth-child(2), .mlist th:nth-child(2) { text-align: left; }
+.mlist th { color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; }
+.mlist .x { background: none; border: 0; color: var(--danger); font-weight: 700; padding: 4px 8px; min-height: 32px; }
+
+/* Resumo */
+pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--mono); font-size: .88rem; line-height: 1.5; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+
+/* Espécies (Dados) */
+.sp { display: grid; grid-template-columns: 1fr 90px 44px; gap: 8px; align-items: center; }
+.sp input { min-height: 44px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); min-width: 0; width: 100%; }
+.confirm { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border: 1px solid var(--danger); border-radius: 8px; }
+.confirm span { flex: 1 1 200px; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-weight: 600; z-index: 20; max-width: calc(100% - 32px); }
+.undo { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+@media (prefers-reduced-motion: no-preference) { .big .k { transition: transform .08s; } .big .k:active { transform: scale(.98); } }
+</style>
+</head>
+<body>
+<header id="hdr"></header>
+<main id="main"></main>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+(function () {
+  'use strict';
+  var KEY = 'vistoria-mudas.v1';
+  var DEFAULT_SP = ['Araucária', 'Jerivá', 'Xaxim'];
+  var S = { v: 1, projects: [], cur: null, tab: 'cont' };
+
+  // ---------- util ----------
+  function $(id) { return document.getElementById(id); }
+  function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function num(v) { if (v == null || v === '') return NaN; return parseFloat(String(v).replace(/\./g, '').replace(',', '.').replace(/[^0-9.\-]/g, '')) ; }
+  function numDec(v) { if (v == null || v === '') return NaN; var t = String(v).trim().replace(',', '.'); return parseFloat(t); }
+  function fmt(n, d) { if (n == null || isNaN(n)) return '—'; return n.toLocaleString('pt-BR', { minimumFractionDigits: d == null ? 0 : d, maximumFractionDigits: d == null ? 2 : d }); }
+  function pct(a, b) { return b ? fmt(a / b * 100, 1) + '%' : '—'; }
+  function brDate(iso) { if (!iso) return '—'; var p = iso.split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : iso; }
+  function today() { var d = new Date(), z = function (n) { return (n < 10 ? '0' : '') + n; }; return d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()); }
+  var toastT; function toast(msg) { var t = $('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { t.hidden = true; }, 1800); }
+  function copy(txt, okMsg) {
+    function ok() { toast(okMsg || 'Copiado'); }
+    function fb() { var ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.focus(); ta.select(); try { document.execCommand('copy'); ok(); } catch (e) { toast('Não foi possível copiar'); } document.body.removeChild(ta); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, fb); else fb();
+  }
+  function download(name, txt, type) {
+    try { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: type || 'text/plain;charset=utf-8' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast('Arquivo gerado: ' + name); }
+    catch (e) { copy(txt, 'Download indisponível. Conteúdo copiado.'); }
+  }
+  function slug(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projeto'; }
+
+  // ---------- storage ----------
+  function load() { try { var r = localStorage.getItem(KEY); if (r) { var s = JSON.parse(r); if (s && Array.isArray(s.projects)) S = s; } } catch (e) {} }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast('Atenção: não foi possível salvar neste navegador'); } }
+
+  function newProject(nome) {
+    var p = { id: uid(), nome: nome || 'Novo projeto', data: today(), total: 0, especies: DEFAULT_SP.map(function (n) { return { id: uid(), nome: n, qtd: 0 }; }), cont: {}, med: [], hist: [], cat: 'nat', criado: Date.now() };
+    return p;
+  }
+  function cur() { for (var i = 0; i < S.projects.length; i++) if (S.projects[i].id === S.cur) return S.projects[i]; return null; }
+  function cats(p) { return [{ id: 'nat', nome: 'Nativas diversas', qtd: p.total }].concat(p.especies.map(function (e) { return { id: e.id, nome: e.nome, qtd: e.qtd }; })); }
+  function catName(p, id) { var c = cats(p).filter(function (c) { return c.id === id; })[0]; return c ? c.nome : '(removida)'; }
+  function cnt(p, id) { var c = p.cont[id] || { v: 0, p: 0, m: 0 }; c.t = c.v + c.p + c.m; return c; }
+  function totals(p) { var t = { v: 0, p: 0, m: 0, t: 0, plan: 0 }; cats(p).forEach(function (c) { var k = cnt(p, c.id); t.v += k.v; t.p += k.p; t.m += k.m; t.t += k.t; t.plan += (+c.qtd || 0); }); return t; }
+  function stats(p, catId) {
+    var rows = p.med.filter(function (m) { return !catId || m.cat === catId; });
+    var hs = rows.map(function (m) { return m.h; }).filter(function (x) { return x != null && !isNaN(x); });
+    var ds = rows.map(function (m) { return m.dap; }).filter(function (x) { return x != null && !isNaN(x); });
+    function agg(a) { if (!a.length) return null; var s = a.reduce(function (x, y) { return x + y; }, 0); return { n: a.length, media: s / a.length, min: Math.min.apply(null, a), max: Math.max.apply(null, a) }; }
+    return { n: rows.length, h: agg(hs), dap: agg(ds) };
+  }
+
+  // ---------- relatório ----------
+  function report(p) {
+    var L = [];
+    L.push(p.nome); L.push('Data vistoria: ' + brDate(p.data)); L.push('');
+    L.push('Quantidade total de mudas nativas diversas: ' + fmt(p.total));
+    p.especies.forEach(function (e) { L.push('Quantidade de ' + e.nome + ': ' + fmt(e.qtd)); });
+    L.push(''); L.push('CONTAGEM (vivas / padecendo / mortas)');
+    cats(p).forEach(function (c) { var k = cnt(p, c.id); if (!k.t && !c.qtd) return;
+      L.push(c.nome + ': ' + fmt(k.t) + ' contadas' + (c.qtd ? ' de ' + fmt(c.qtd) : '') + ' - vivas ' + fmt(k.v) + ' (' + pct(k.v, k.t) + '), padecendo ' + fmt(k.p) + ' (' + pct(k.p, k.t) + '), mortas ' + fmt(k.m) + ' (' + pct(k.m, k.t) + ')'); });
+    var t = totals(p);
+    L.push('Total geral: ' + fmt(t.t) + ' contadas - vivas ' + fmt(t.v) + ' (' + pct(t.v, t.t) + '), padecendo ' + fmt(t.p) + ' (' + pct(t.p, t.t) + '), mortas ' + fmt(t.m) + ' (' + pct(t.m, t.t) + ')');
+    L.push('Taxa de sobrevivência (vivas + padecendo): ' + pct(t.v + t.p, t.t) + ' | Mortalidade: ' + pct(t.m, t.t));
+    L.push(''); L.push('VOLUMETRIA / DESENVOLVIMENTO');
+    function volLines(label, st) {
+      L.push(label);
+      L.push('  Qtd de mensurações: ' + st.n);
+      L.push('  H média: ' + (st.h ? fmt(st.h.media, 2) + ' m (mín ' + fmt(st.h.min, 2) + ' / máx ' + fmt(st.h.max, 2) + ')' : '—'));
+      L.push('  DAP médio: ' + (st.dap ? fmt(st.dap.media, 2) + ' cm (mín ' + fmt(st.dap.min, 2) + ' / máx ' + fmt(st.dap.max, 2) + ')' : '—'));
+    }
+    cats(p).forEach(function (c) { var st = stats(p, c.id); if (st.n || c.id === 'nat') volLines(c.nome + (c.id === 'nat' ? ' (volume geral)' : ' (volume individual)'), st); });
+    var ger = stats(p); if (p.especies.length) volLines('Geral (todas as mensurações)', ger);
+    return L.join('\n');
+  }
+  function csvMed(p) {
+    var L = ['projeto;data;especie;altura_m;dap_cm'];
+    p.med.forEach(function (m) { L.push([p.nome, brDate(p.data), catName(p, m.cat), m.h == null ? '' : fmt(m.h, 2), m.dap == null ? '' : fmt(m.dap, 2)].map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(';')); });
+    return L.join('\r\n');
+  }
+  function csvCont(p) {
+    var L = ['projeto;data;categoria;previstas;contadas;vivas;padecendo;mortas'];
+    cats(p).forEach(function (c) { var k = cnt(p, c.id); L.push([p.nome, brDate(p.data), c.nome, c.qtd || 0, k.t, k.v, k.p, k.m].map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(';')); });
+    return L.join('\r\n');
+  }
+
+  // ---------- render ----------
+  var hdr = $('hdr'), main = $('main');
+  var confirmDel = false, confirmZero = false;
+
+  function render() {
+    var p = cur();
+    if (!p) { renderHome(); return; }
+    hdr.innerHTML = '<div class="hrow"><button class="btn ghost sm" data-a="home" type="button">‹ Projetos</button><h1>' + esc(p.nome) + '</h1><span class="muted small">' + esc(brDate(p.data)) + '</span></div>' +
+      '<div class="tabs" role="tablist">' + [['cont', 'Contagem'], ['med', 'Medições'], ['res', 'Resumo'], ['dados', 'Dados']].map(function (t) { return '<button role="tab" type="button" data-a="tab" data-t="' + t[0] + '" aria-selected="' + (S.tab === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
+    if (S.tab === 'cont') renderCont(p); else if (S.tab === 'med') renderMed(p); else if (S.tab === 'res') renderRes(p); else renderDados(p);
+  }
+
+  function renderHome() {
+    hdr.innerHTML = '<div class="hrow"><h1>Contador de Mudas</h1><span class="muted small">offline</span></div><div style="height:10px"></div>';
+    var h = '<section><div class="row"><button class="btn primary grow" data-a="new" type="button">+ Novo projeto</button><button class="btn" data-a="import" type="button">Importar backup</button></div>' +
+      '<input type="file" id="impFile" accept=".json,application/json" hidden></section>';
+    h += '<section><h2>Projetos</h2>';
+    if (!S.projects.length) h += '<p class="muted">Nenhum projeto ainda. Crie um para começar a contagem.</p>';
+    h += '<div class="plist">' + S.projects.slice().sort(function (a, b) { return (b.criado || 0) - (a.criado || 0); }).map(function (p) { var t = totals(p);
+      return '<button class="card proj" type="button" data-a="open" data-id="' + p.id + '"><div class="t"><b>' + esc(p.nome) + '</b><span class="muted small">' + esc(brDate(p.data)) + '</span></div>' +
+        '<div class="muted small">' + fmt(t.t) + ' contadas de ' + fmt(t.plan) + ' · ' + p.med.length + ' medições</div>' + barHtml(t) + '</button>'; }).join('') + '</div></section>';
+    h += '<section><p class="muted small">Os dados ficam salvos neste aparelho, sem internet. Use "Exportar backup" no Resumo de cada projeto para guardar uma cópia ou passar para outro celular.</p></section>';
+    main.innerHTML = h;
+  }
+  function barHtml(t) { if (!t.t) return '<div class="bar"></div>'; return '<div class="bar" aria-hidden="true"><i class="bv" style="width:' + (t.v / t.t * 100) + '%"></i><i class="bp" style="width:' + (t.p / t.t * 100) + '%"></i><i class="bm" style="width:' + (t.m / t.t * 100) + '%"></i></div>'; }
+
+  function renderCont(p) {
+    var cs = cats(p); if (!cs.some(function (c) { return c.id === p.cat; })) p.cat = 'nat';
+    var k = cnt(p, p.cat), ca = cs.filter(function (c) { return c.id === p.cat; })[0], t = totals(p);
+    var last = p.hist.length ? p.hist[p.hist.length - 1] : null;
+    var h = '<section><h2>Grupo em contagem</h2><div class="cats">' + cs.map(function (c) { return '<button type="button" data-a="cat" data-id="' + c.id + '" aria-pressed="' + (c.id === p.cat) + '">' + esc(c.nome) + ' · ' + fmt(cnt(p, c.id).t) + (c.qtd ? '/' + fmt(c.qtd) : '') + '</button>'; }).join('') + '</div></section>';
+    h += '<section><div class="undo"><div><b>' + esc(ca.nome) + '</b> <span class="muted small">' + fmt(k.t) + ' contadas' + (ca.qtd ? ' · faltam ' + fmt(Math.max(0, ca.qtd - k.t)) : '') + '</span></div>' +
+      '<button class="btn sm" type="button" data-a="undo" ' + (last ? '' : 'disabled') + '>Desfazer' + (last ? ' (' + { v: 'viva', p: 'padecendo', m: 'morta' }[last.k] + ')' : '') + '</button></div>';
+    h += '<div class="big"><button class="k vivo" type="button" data-a="add" data-k="v"><b>' + fmt(k.v) + '</b>Viva</button><button class="k pad" type="button" data-a="add" data-k="p"><b>' + fmt(k.p) + '</b>Padecendo</button><button class="k morto" type="button" data-a="add" data-k="m"><b>' + fmt(k.m) + '</b>Morta</button></div>';
+    h += '<div class="minus"><button class="btn ghost sm" type="button" data-a="sub" data-k="v" ' + (k.v ? '' : 'disabled') + '>−1 viva</button><button class="btn ghost sm" type="button" data-a="sub" data-k="p" ' + (k.p ? '' : 'disabled') + '>−1 padecendo</button><button class="btn ghost sm" type="button" data-a="sub" data-k="m" ' + (k.m ? '' : 'disabled') + '>−1 morta</button></div></section>';
+    h += '<section><h2>Totais</h2><div class="wrap"><table class="tally"><thead><tr><th>Grupo</th><th>Prev.</th><th>Cont.</th><th>Vivas</th><th>Padec.</th><th>Mortas</th></tr></thead><tbody>' +
+      cs.map(function (c) { var x = cnt(p, c.id); return '<tr class="' + (c.id === p.cat ? 'sel' : '') + '" data-a="cat" data-id="' + c.id + '"><td>' + esc(c.nome) + '</td><td>' + fmt(c.qtd) + '</td><td>' + fmt(x.t) + '</td><td class="v">' + fmt(x.v) + '</td><td class="p">' + fmt(x.p) + '</td><td class="m">' + fmt(x.m) + '</td></tr>'; }).join('') +
+      '</tbody><tfoot><tr><td>Total</td><td>' + fmt(t.plan) + '</td><td>' + fmt(t.t) + '</td><td class="v">' + fmt(t.v) + '</td><td class="p">' + fmt(t.p) + '</td><td class="m">' + fmt(t.m) + '</td></tr></tfoot></table></div>' + barHtml(t) +
+      '<p class="muted small">Sobrevivência (vivas + padecendo): <b>' + pct(t.v + t.p, t.t) + '</b> · Mortalidade: <b>' + pct(t.m, t.t) + '</b></p></section>';
+    main.innerHTML = h;
+  }
+
+  function renderMed(p) {
+    var st = stats(p), cs = cats(p);
+    var h = '<section><h2>Nova medição</h2><form class="card" id="fMed" autocomplete="off">' +
+      '<label class="f">Grupo<select id="mCat">' + cs.map(function (c) { return '<option value="' + c.id + '"' + (c.id === p.cat ? ' selected' : '') + '>' + esc(c.nome) + '</option>'; }).join('') + '</select></label>' +
+      '<div class="f2"><label class="f">Altura (m)<input id="mH" type="text" inputmode="decimal" placeholder="ex.: 2,10"></label><label class="f">DAP (cm)<input id="mD" type="text" inputmode="decimal" placeholder="ex.: 2,5"></label></div>' +
+      '<button class="btn primary" type="submit">Adicionar medição</button><p class="muted small">Pode deixar o DAP em branco quando a muda ainda não tem diâmetro mensurável.</p></form></section>';
+    h += '<section><h2>Desenvolvimento por grupo</h2><div class="wrap"><table class="tally"><thead><tr><th>Grupo</th><th>Mensur.</th><th>H média (m)</th><th>DAP médio (cm)</th></tr></thead><tbody>' +
+      cs.map(function (c) { var s2 = stats(p, c.id); return '<tr><td>' + esc(c.nome) + '</td><td>' + s2.n + '</td><td>' + (s2.h ? fmt(s2.h.media, 2) : '—') + '</td><td>' + (s2.dap ? fmt(s2.dap.media, 2) : '—') + '</td></tr>'; }).join('') +
+      '</tbody><tfoot><tr><td>Geral</td><td>' + st.n + '</td><td>' + (st.h ? fmt(st.h.media, 2) : '—') + '</td><td>' + (st.dap ? fmt(st.dap.media, 2) : '—') + '</td></tr></tfoot></table></div>' +
+      '<p class="muted small">Nativas diversas: volume geral, sem identificar espécie. Cada espécie ameaçada: volume individual.</p></section>';
+    if (p.med.length) {
+      h += '<section><h2>Registros</h2><div class="wrap"><table class="mlist"><thead><tr><th>#</th><th>Grupo</th><th>H (m)</th><th>DAP (cm)</th><th></th></tr></thead><tbody>' +
+        p.med.map(function (m, i) { return '<tr><td>' + (i + 1) + '</td><td>' + esc(catName(p, m.cat)) + '</td><td>' + (m.h == null ? '—' : fmt(m.h, 2)) + '</td><td>' + (m.dap == null ? '—' : fmt(m.dap, 2)) + '</td><td><button class="x" type="button" data-a="delMed" data-id="' + m.id + '" aria-label="Excluir medição ' + (i + 1) + '">×</button></td></tr>'; }).reverse().join('') + '</tbody></table></div></section>';
+    }
+    main.innerHTML = h;
+  }
+
+  function renderRes(p) {
+    var h = '<section><h2>Relatório</h2><pre class="rep" id="rep">' + esc(report(p)) + '</pre>' +
+      '<div class="row"><button class="btn primary grow" type="button" data-a="copyRep">Copiar relatório</button><button class="btn" type="button" data-a="csvCont">CSV contagem</button><button class="btn" type="button" data-a="csvMed">CSV medições</button></div></section>';
+    h += '<section><h2>Backup</h2><div class="row"><button class="btn grow" type="button" data-a="bkp">Exportar backup (JSON)</button><button class="btn" type="button" data-a="copyBkp">Copiar JSON</button></div>' +
+      '<p class="muted small">O backup guarda este projeto completo. Para levar a outro celular, importe o arquivo pela tela de Projetos. Com sinal, você também pode colar o relatório direto no WhatsApp ou e-mail.</p></section>';
+    main.innerHTML = h;
+  }
+
+  function renderDados(p) {
+    var h = '<section><h2>Projeto</h2><div class="card">' +
+      '<label class="f">Nome do projeto<input id="dNome" type="text" value="' + esc(p.nome) + '" placeholder="ex.: RFO/PRAD - Agostinho"></label>' +
+      '<div class="f2"><label class="f">Data da vistoria<input id="dData" type="date" value="' + esc(p.data) + '"></label><label class="f">Mudas nativas diversas (total, sem identificar espécie)<input id="dTotal" type="text" inputmode="numeric" value="' + esc(p.total || '') + '" placeholder="ex.: 1750"></label></div></div></section>';
+    h += '<section><h2>Espécies ameaçadas obrigatórias</h2><div class="card">' +
+      p.especies.map(function (e) { return '<div class="sp"><input type="text" data-sp="nome" data-id="' + e.id + '" value="' + esc(e.nome) + '" placeholder="Espécie" aria-label="Nome da espécie"><input type="text" inputmode="numeric" data-sp="qtd" data-id="' + e.id + '" value="' + esc(e.qtd || '') + '" placeholder="Qtd" aria-label="Quantidade"><button class="btn ghost danger sm" type="button" data-a="delSp" data-id="' + e.id + '" aria-label="Remover espécie">×</button></div>'; }).join('') +
+      '<button class="btn" type="button" data-a="addSp">+ Adicionar espécie</button><p class="muted small">Cada espécie é contada e medida individualmente. Informe a quantidade plantada de cada uma. Remover uma espécie apaga a contagem dela.</p></div></section>';
+    h += '<section><h2>Manutenção</h2><div class="row"><button class="btn ghost danger" type="button" data-a="zero">Zerar contagens e medições</button><button class="btn ghost danger" type="button" data-a="del">Excluir projeto</button></div>' +
+      (confirmZero ? '<div class="confirm"><span>Zera todas as contagens e medições deste projeto. Continuar?</span><button class="btn danger" type="button" data-a="zeroYes">Sim, zerar</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') +
+      (confirmDel ? '<div class="confirm"><span>Exclui o projeto "' + esc(p.nome) + '" e todos os dados dele. Continuar?</span><button class="btn danger" type="button" data-a="delYes">Sim, excluir</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') + '</section>';
+    main.innerHTML = h;
+  }
+
+  // ---------- ações ----------
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-a]'); if (!el) return;
+    var a = el.dataset.a, p = cur();
+    if (a === 'home') { S.cur = null; save(); render(); return; }
+    if (a === 'new') { var np = newProject(); S.projects.push(np); S.cur = np.id; S.tab = 'dados'; save(); render(); setTimeout(function () { var i = $('dNome'); if (i) { i.focus(); i.select(); } }, 50); return; }
+    if (a === 'open') { S.cur = el.dataset.id; S.tab = 'cont'; save(); render(); return; }
+    if (a === 'import') { $('impFile').click(); return; }
+    if (a === 'tab') { S.tab = el.dataset.t; confirmDel = confirmZero = false; save(); render(); return; }
+    if (!p) return;
+    if (a === 'cat') { p.cat = el.dataset.id; save(); render(); return; }
+    if (a === 'add') { var k = el.dataset.k; var c = p.cont[p.cat] || (p.cont[p.cat] = { v: 0, p: 0, m: 0 }); c[k]++; p.hist.push({ cat: p.cat, k: k }); if (p.hist.length > 500) p.hist.shift(); save(); render(); return; }
+    if (a === 'sub') { var k2 = el.dataset.k; var c2 = p.cont[p.cat]; if (c2 && c2[k2] > 0) { c2[k2]--; } save(); render(); return; }
+    if (a === 'undo') { var u = p.hist.pop(); if (u && p.cont[u.cat] && p.cont[u.cat][u.k] > 0) p.cont[u.cat][u.k]--; save(); render(); return; }
+    if (a === 'delMed') { p.med = p.med.filter(function (m) { return m.id !== el.dataset.id; }); save(); render(); return; }
+    if (a === 'copyRep') { copy(report(p), 'Relatório copiado'); return; }
+    if (a === 'csvCont') { download('contagem-' + slug(p.nome) + '.csv', '﻿' + csvCont(p), 'text/csv;charset=utf-8'); return; }
+    if (a === 'csvMed') { download('medicoes-' + slug(p.nome) + '.csv', '﻿' + csvMed(p), 'text/csv;charset=utf-8'); return; }
+    if (a === 'bkp') { download('backup-' + slug(p.nome) + '-' + p.data + '.json', JSON.stringify({ app: 'vistoria-mudas', v: 1, project: p }, null, 1), 'application/json'); return; }
+    if (a === 'copyBkp') { copy(JSON.stringify({ app: 'vistoria-mudas', v: 1, project: p }), 'Backup copiado'); return; }
+    if (a === 'addSp') { syncDados(p); p.especies.push({ id: uid(), nome: '', qtd: 0 }); save(); render(); var ins = document.querySelectorAll('[data-sp="nome"]'); if (ins.length) ins[ins.length - 1].focus(); return; }
+    if (a === 'delSp') { syncDados(p); p.especies = p.especies.filter(function (s) { return s.id !== el.dataset.id; }); delete p.cont[el.dataset.id]; p.med = p.med.filter(function (m) { return m.cat !== el.dataset.id; }); save(); render(); return; }
+    if (a === 'zero') { confirmZero = true; confirmDel = false; render(); return; }
+    if (a === 'del') { confirmDel = true; confirmZero = false; render(); return; }
+    if (a === 'cancel') { confirmDel = confirmZero = false; render(); return; }
+    if (a === 'zeroYes') { p.cont = {}; p.med = []; p.hist = []; confirmZero = false; save(); render(); toast('Contagens zeradas'); return; }
+    if (a === 'delYes') { S.projects = S.projects.filter(function (x) { return x.id !== p.id; }); S.cur = null; confirmDel = false; save(); render(); toast('Projeto excluído'); return; }
+  });
+
+  function syncDados(p) {
+    var n = $('dNome'); if (!n) return;
+    p.nome = n.value.trim() || 'Sem nome'; p.data = $('dData').value || p.data; var t = num($('dTotal').value); p.total = isNaN(t) ? 0 : Math.max(0, Math.round(t));
+    document.querySelectorAll('[data-sp]').forEach(function (i) { var e = p.especies.filter(function (s) { return s.id === i.dataset.id; })[0]; if (!e) return; if (i.dataset.sp === 'nome') e.nome = i.value.trim() || 'Espécie'; else { var q = num(i.value); e.qtd = isNaN(q) ? 0 : Math.max(0, Math.round(q)); } });
+  }
+  document.addEventListener('change', function (e) {
+    var p = cur(); if (!p) return;
+    if (e.target.closest('#dNome, #dData, #dTotal, [data-sp]')) { syncDados(p); save(); var h1 = hdr.querySelector('h1'); if (h1) h1.textContent = p.nome; var ds = hdr.querySelector('.hrow .small'); if (ds) ds.textContent = brDate(p.data); }
+    if (e.target.id === 'impFile' && e.target.files && e.target.files[0]) {
+      var f = e.target.files[0], r = new FileReader();
+      r.onload = function () { try { var j = JSON.parse(r.result); var pr = j.project || j; if (!pr || !pr.nome || !Array.isArray(pr.especies)) throw 0; pr.id = uid(); pr.criado = Date.now(); pr.med = pr.med || []; pr.cont = pr.cont || {}; pr.hist = []; S.projects.push(pr); S.cur = pr.id; S.tab = 'cont'; save(); render(); toast('Projeto importado'); } catch (x) { toast('Arquivo inválido'); } };
+      r.readAsText(f);
+    }
+  });
+  document.addEventListener('submit', function (e) {
+    if (e.target.id !== 'fMed') return; e.preventDefault();
+    var p = cur(); if (!p) return;
+    var h = numDec($('mH').value), d = numDec($('mD').value);
+    if (isNaN(h) && isNaN(d)) { $('mH').focus(); toast('Informe altura ou DAP'); return; }
+    if (!isNaN(h) && (h < 0 || h > 60)) { $('mH').select(); toast('Altura fora da faixa (m)'); return; }
+    if (!isNaN(d) && (d < 0 || d > 300)) { $('mD').select(); toast('DAP fora da faixa (cm)'); return; }
+    p.med.push({ id: uid(), cat: $('mCat').value, h: isNaN(h) ? null : h, dap: isNaN(d) ? null : d }); p.cat = $('mCat').value;
+    save(); render(); toast('Medição ' + p.med.length + ' adicionada'); var i = $('mH'); if (i) i.focus();
+  });
+  window.addEventListener('beforeunload', function () { var p = cur(); if (p && S.tab === 'dados') { syncDados(p); save(); } });
+
+  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(function () {});
+
+  load();
+  if (!S.projects.length) {
+    var ex = newProject('RFO/PRAD - Agostinho'); ex.data = '2026-10-25'; ex.total = 1750;
+    ex.especies[0].qtd = 550; ex.especies[1].qtd = 5; ex.especies[2].qtd = 6;
+    S.projects.push(ex); save();
+  }
+  render();
+})();
+</script>
+</body>
+</html>

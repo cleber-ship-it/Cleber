@@ -172,7 +172,8 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(ok, fb); else fb();
   }
   function download(name, txt, type) {
-    try { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: type || 'text/plain;charset=utf-8' })); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast('Arquivo gerado: ' + name); }
+    try { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: type || 'text/plain;charset=utf-8' }));
+      if (typeof txt !== 'string') { a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast('Arquivo gerado: ' + name); return; } a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); toast('Arquivo gerado: ' + name); }
     catch (e) { copy(txt, 'Download indisponível. Conteúdo copiado.'); }
   }
   function slug(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'projeto'; }
@@ -206,6 +207,71 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     var ds = rows.map(function (m) { return m.dap; }).filter(function (x) { return x != null && !isNaN(x); });
     function agg(a) { if (!a.length) return null; var s = a.reduce(function (x, y) { return x + y; }, 0); return { n: a.length, media: s / a.length, min: Math.min.apply(null, a), max: Math.max.apply(null, a) }; }
     return { n: rows.length, h: agg(hs), dap: agg(ds) };
+  }
+
+  // ---------- Excel (.xlsx) sem bibliotecas ----------
+  var CRC_T = (function () { var t = [], c; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(b) { var c = 0xFFFFFFFF; for (var i = 0; i < b.length; i++) c = CRC_T[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function zipStore(files) { // files: [{name, data(Uint8Array)}]
+    var parts = [], cd = [], off = 0, enc = new TextEncoder();
+    function u16(v) { return [v & 255, (v >>> 8) & 255]; } function u32(v) { return [v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255]; }
+    files.forEach(function (f) {
+      var name = enc.encode(f.name), crc = crc32(f.data), n = f.data.length;
+      var lh = new Uint8Array([].concat(u32(0x04034b50), u16(20), u16(0x0800), u16(0), u16(0), u16(0), u32(crc), u32(n), u32(n), u16(name.length), u16(0)));
+      parts.push(lh, name, f.data);
+      cd.push(new Uint8Array([].concat(u32(0x02014b50), u16(20), u16(20), u16(0x0800), u16(0), u16(0), u16(0), u32(crc), u32(n), u32(n), u16(name.length), u16(0), u16(0), u16(0), u16(0), u32(0), u32(off))), name);
+      off += lh.length + name.length + n;
+    });
+    var cdLen = cd.reduce(function (a, x) { return a + x.length; }, 0);
+    var end = new Uint8Array([].concat(u32(0x06054b50), u16(0), u16(0), u16(files.length), u16(files.length), u32(cdLen), u32(off), u16(0)));
+    var all = parts.concat(cd, [end]), total = all.reduce(function (a, x) { return a + x.length; }, 0), out = new Uint8Array(total), pos = 0;
+    all.forEach(function (x) { out.set(x, pos); pos += x.length; });
+    return out;
+  }
+  function colL(i) { var s2 = ''; i++; while (i > 0) { var m = (i - 1) % 26; s2 = String.fromCharCode(65 + m) + s2; i = Math.floor((i - 1) / 26); } return s2; }
+  function xmlEsc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function sheetXml(rows) {
+    var x = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>';
+    rows.forEach(function (r, ri) {
+      x += '<row r="' + (ri + 1) + '">';
+      r.forEach(function (v, ci) { if (v == null || v === '') return; var ref = colL(ci) + (ri + 1);
+        if (typeof v === 'number' && isFinite(v)) x += '<c r="' + ref + '"><v>' + v + '</v></c>';
+        else x += '<c r="' + ref + '" t="inlineStr"><is><t xml:space="preserve">' + xmlEsc(v) + '</t></is></c>'; });
+      x += '</row>';
+    });
+    return x + '</sheetData></worksheet>';
+  }
+  function xlsx(sheets) {
+    var enc = new TextEncoder(), files = [];
+    files.push({ name: '[Content_Types].xml', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>' + sheets.map(function (_, i) { return '<Override PartName="/xl/worksheets/sheet' + (i + 1) + '.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'; }).join('') + '</Types>') });
+    files.push({ name: '_rels/.rels', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>') });
+    files.push({ name: 'xl/workbook.xml', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>' + sheets.map(function (sh, i) { return '<sheet name="' + xmlEsc(sh.name.slice(0, 31)) + '" sheetId="' + (i + 1) + '" r:id="rId' + (i + 1) + '"/>'; }).join('') + '</sheets></workbook>') });
+    files.push({ name: 'xl/_rels/workbook.xml.rels', data: enc.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' + sheets.map(function (_, i) { return '<Relationship Id="rId' + (i + 1) + '" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet' + (i + 1) + '.xml"/>'; }).join('') + '</Relationships>') });
+    sheets.forEach(function (sh, i) { files.push({ name: 'xl/worksheets/sheet' + (i + 1) + '.xml', data: enc.encode(sheetXml(sh.rows)) }); });
+    return zipStore(files);
+  }
+  function r2(v) { return v == null || isNaN(v) ? null : Math.round(v * 100) / 100; }
+  function excelSheets(p) {
+    var t = totals(p), st = stats(p);
+    var res = [['Projeto', p.nome], ['Data da vistoria', brDate(p.data)], [],
+      ['Grupo', 'Previstas', 'Contadas', 'Vivas', 'Padecendo', 'Mortas', '% vivas', '% padecendo', '% mortas', 'Por ficha']];
+    cats(p).forEach(function (c) { var k = cnt(p, c.id); res.push([c.nome, +c.qtd || 0, k.t, k.v, k.p, k.m, k.t ? r2(k.v / k.t * 100) : null, k.t ? r2(k.p / k.t * 100) : null, k.t ? r2(k.m / k.t * 100) : null, k.f]); });
+    res.push(['Total geral', t.plan, t.t, t.v, t.p, t.m, t.t ? r2(t.v / t.t * 100) : null, t.t ? r2(t.p / t.t * 100) : null, t.t ? r2(t.m / t.t * 100) : null, null]);
+    res.push([], ['Sobrevivência (vivas + padecendo) %', t.t ? r2((t.v + t.p) / t.t * 100) : null], ['Mortalidade %', t.t ? r2(t.m / t.t * 100) : null]);
+    if (p.fichas) res.push(['Fichas numeradas vistoriadas', fichasDone(p), 'de', p.fichas]);
+    res.push([], ['Volumetria / desenvolvimento'], ['Grupo', 'Mensurações', 'H média (m)', 'H mín', 'H máx', 'DAP médio (cm)', 'DAP mín', 'DAP máx']);
+    cats(p).forEach(function (c) { var s2 = stats(p, c.id); res.push([c.nome, s2.n, s2.h ? r2(s2.h.media) : null, s2.h ? r2(s2.h.min) : null, s2.h ? r2(s2.h.max) : null, s2.dap ? r2(s2.dap.media) : null, s2.dap ? r2(s2.dap.min) : null, s2.dap ? r2(s2.dap.max) : null]); });
+    res.push(['Geral', st.n, st.h ? r2(st.h.media) : null, st.h ? r2(st.h.min) : null, st.h ? r2(st.h.max) : null, st.dap ? r2(st.dap.media) : null, st.dap ? r2(st.dap.min) : null, st.dap ? r2(st.dap.max) : null]);
+    var cont = [['Projeto', 'Data', 'Grupo', 'Previstas', 'Contadas', 'Vivas', 'Padecendo', 'Mortas']];
+    cats(p).forEach(function (c) { var k = cnt(p, c.id); cont.push([p.nome, brDate(p.data), c.nome, +c.qtd || 0, k.t, k.v, k.p, k.m]); });
+    var med = [['Projeto', 'Data', 'Grupo', 'Ficha nº', 'Altura (m)', 'DAP (cm)']];
+    p.med.forEach(function (m) { med.push([p.nome, brDate(p.data), catName(p, m.cat), null, r2(m.h), r2(m.dap)]); });
+    fichaRows(p).forEach(function (r) { if (r.h != null || r.dap != null) med.push([p.nome, brDate(p.data), catName(p, r.g), r.n, r2(r.h), r2(r.dap)]); });
+    var sheets = [{ name: 'Resumo', rows: res }, { name: 'Contagem', rows: cont }, { name: 'Medições', rows: med }];
+    if (p.fichas) { var fi = [['Projeto', 'Data', 'Ficha nº', 'Grupo', 'Situação', 'Altura (m)', 'DAP (cm)']];
+      for (var n = 1; n <= p.fichas; n++) { var r = p.mudas[n] || {}; fi.push([p.nome, brDate(p.data), n, r.s || r.g ? catName(p, r.g || 'nat') : null, r.s ? STN[r.s] : 'Pendente', r2(r.h), r2(r.dap)]); }
+      sheets.push({ name: 'Fichas', rows: fi }); }
+    return sheets;
   }
 
   // ---------- relatório ----------
@@ -340,9 +406,9 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
 
   function renderRes(p) {
     var h = '<section><h2>Relatório</h2><pre class="rep" id="rep">' + esc(report(p)) + '</pre>' +
-      '<div class="row"><button class="btn primary grow" type="button" data-a="copyRep">Copiar relatório</button><button class="btn" type="button" data-a="csvCont">CSV contagem</button><button class="btn" type="button" data-a="csvMed">CSV medições</button>' + (p.fichas ? '<button class="btn" type="button" data-a="csvFichas">CSV fichas numeradas</button>' : '') + '</div></section>';
+      '<div class="row"><button class="btn primary grow" type="button" data-a="xlsx">Exportar Excel (.xlsx)</button><button class="btn grow" type="button" data-a="copyRep">Copiar relatório</button><button class="btn" type="button" data-a="csvCont">CSV contagem</button><button class="btn" type="button" data-a="csvMed">CSV medições</button>' + (p.fichas ? '<button class="btn" type="button" data-a="csvFichas">CSV fichas numeradas</button>' : '') + '</div></section>';
     h += '<section><h2>Backup</h2><div class="row"><button class="btn grow" type="button" data-a="bkp">Exportar backup (JSON)</button><button class="btn" type="button" data-a="copyBkp">Copiar JSON</button></div>' +
-      '<p class="muted small">O backup guarda este projeto completo. Para levar a outro celular, importe o arquivo pela tela de Projetos. Com sinal, você também pode colar o relatório direto no WhatsApp ou e-mail.</p></section>';
+      '<p class="muted small">O backup guarda este projeto completo. Para levar a outro celular, importe o arquivo pela tela de Projetos. Com sinal, você também pode colar o relatório direto no WhatsApp ou e-mail. O Excel abre em qualquer planilha; para trazer um projeto de volta ao app use o backup JSON.</p></section>';
     main.innerHTML = h;
   }
 
@@ -389,6 +455,7 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     if (a === 'undo') { var u = p.hist.pop(); if (u && p.cont[u.cat] && p.cont[u.cat][u.k] > 0) p.cont[u.cat][u.k]--; save(); render(); return; }
     if (a === 'delMed') { p.med = p.med.filter(function (m) { return m.id !== el.dataset.id; }); save(); render(); return; }
     if (a === 'copyRep') { copy(report(p), 'Relatório copiado'); return; }
+    if (a === 'xlsx') { try { download('contador-mudas-' + slug(p.nome) + '-' + p.data + '.xlsx', xlsx(excelSheets(p)), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); } catch (ex) { toast('Não foi possível gerar o Excel'); } return; }
     if (a === 'csvCont') { download('contagem-' + slug(p.nome) + '.csv', '﻿' + csvCont(p), 'text/csv;charset=utf-8'); return; }
     if (a === 'csvMed') { download('medicoes-' + slug(p.nome) + '.csv', '﻿' + csvMed(p), 'text/csv;charset=utf-8'); return; }
     if (a === 'bkp') { download('backup-' + slug(p.nome) + '-' + p.data + '.json', JSON.stringify({ app: 'vistoria-mudas', v: 1, project: p }, null, 1), 'application/json'); return; }

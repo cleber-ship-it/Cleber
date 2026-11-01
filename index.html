@@ -183,12 +183,14 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     L.push('Total geral: ' + fmt(t.t) + ' contadas - vivas ' + fmt(t.v) + ' (' + pct(t.v, t.t) + '), padecendo ' + fmt(t.p) + ' (' + pct(t.p, t.t) + '), mortas ' + fmt(t.m) + ' (' + pct(t.m, t.t) + ')');
     L.push('Taxa de sobrevivência (vivas + padecendo): ' + pct(t.v + t.p, t.t) + ' | Mortalidade: ' + pct(t.m, t.t));
     L.push(''); L.push('VOLUMETRIA / DESENVOLVIMENTO');
-    var st = stats(p);
-    L.push('Qtd de mensurações: ' + st.n);
-    L.push('H média: ' + (st.h ? fmt(st.h.media, 2) + ' m (mín ' + fmt(st.h.min, 2) + ' / máx ' + fmt(st.h.max, 2) + ', n=' + st.h.n + ')' : '—'));
-    L.push('DAP médio: ' + (st.dap ? fmt(st.dap.media, 2) + ' cm (mín ' + fmt(st.dap.min, 2) + ' / máx ' + fmt(st.dap.max, 2) + ', n=' + st.dap.n + ')' : '—'));
-    var porEsp = cats(p).map(function (c) { var s = stats(p, c.id); return s.n ? '  ' + c.nome + ': n=' + s.n + ', H ' + (s.h ? fmt(s.h.media, 2) + ' m' : '—') + ', DAP ' + (s.dap ? fmt(s.dap.media, 2) + ' cm' : '—') : null; }).filter(Boolean);
-    if (porEsp.length > 1) { L.push('Por espécie:'); L = L.concat(porEsp); }
+    function volLines(label, st) {
+      L.push(label);
+      L.push('  Qtd de mensurações: ' + st.n);
+      L.push('  H média: ' + (st.h ? fmt(st.h.media, 2) + ' m (mín ' + fmt(st.h.min, 2) + ' / máx ' + fmt(st.h.max, 2) + ')' : '—'));
+      L.push('  DAP médio: ' + (st.dap ? fmt(st.dap.media, 2) + ' cm (mín ' + fmt(st.dap.min, 2) + ' / máx ' + fmt(st.dap.max, 2) + ')' : '—'));
+    }
+    cats(p).forEach(function (c) { var st = stats(p, c.id); if (st.n || c.id === 'nat') volLines(c.nome + (c.id === 'nat' ? ' (volume geral)' : ' (volume individual)'), st); });
+    var ger = stats(p); if (p.especies.length) volLines('Geral (todas as mensurações)', ger);
     return L.join('\n');
   }
   function csvMed(p) {
@@ -232,7 +234,7 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
     var cs = cats(p); if (!cs.some(function (c) { return c.id === p.cat; })) p.cat = 'nat';
     var k = cnt(p, p.cat), ca = cs.filter(function (c) { return c.id === p.cat; })[0], t = totals(p);
     var last = p.hist.length ? p.hist[p.hist.length - 1] : null;
-    var h = '<section><h2>Espécie / grupo em contagem</h2><div class="cats">' + cs.map(function (c) { return '<button type="button" data-a="cat" data-id="' + c.id + '" aria-pressed="' + (c.id === p.cat) + '">' + esc(c.nome) + ' · ' + fmt(cnt(p, c.id).t) + (c.qtd ? '/' + fmt(c.qtd) : '') + '</button>'; }).join('') + '</div></section>';
+    var h = '<section><h2>Grupo em contagem</h2><div class="cats">' + cs.map(function (c) { return '<button type="button" data-a="cat" data-id="' + c.id + '" aria-pressed="' + (c.id === p.cat) + '">' + esc(c.nome) + ' · ' + fmt(cnt(p, c.id).t) + (c.qtd ? '/' + fmt(c.qtd) : '') + '</button>'; }).join('') + '</div></section>';
     h += '<section><div class="undo"><div><b>' + esc(ca.nome) + '</b> <span class="muted small">' + fmt(k.t) + ' contadas' + (ca.qtd ? ' · faltam ' + fmt(Math.max(0, ca.qtd - k.t)) : '') + '</span></div>' +
       '<button class="btn sm" type="button" data-a="undo" ' + (last ? '' : 'disabled') + '>Desfazer' + (last ? ' (' + { v: 'viva', p: 'padecendo', m: 'morta' }[last.k] + ')' : '') + '</button></div>';
     h += '<div class="big"><button class="k vivo" type="button" data-a="add" data-k="v"><b>' + fmt(k.v) + '</b>Viva</button><button class="k pad" type="button" data-a="add" data-k="p"><b>' + fmt(k.p) + '</b>Padecendo</button><button class="k morto" type="button" data-a="add" data-k="m"><b>' + fmt(k.m) + '</b>Morta</button></div>';
@@ -247,11 +249,13 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
   function renderMed(p) {
     var st = stats(p), cs = cats(p);
     var h = '<section><h2>Nova medição</h2><form class="card" id="fMed" autocomplete="off">' +
-      '<label class="f">Espécie / grupo<select id="mCat">' + cs.map(function (c) { return '<option value="' + c.id + '"' + (c.id === p.cat ? ' selected' : '') + '>' + esc(c.nome) + '</option>'; }).join('') + '</select></label>' +
+      '<label class="f">Grupo<select id="mCat">' + cs.map(function (c) { return '<option value="' + c.id + '"' + (c.id === p.cat ? ' selected' : '') + '>' + esc(c.nome) + '</option>'; }).join('') + '</select></label>' +
       '<div class="f2"><label class="f">Altura (m)<input id="mH" type="text" inputmode="decimal" placeholder="ex.: 2,10"></label><label class="f">DAP (cm)<input id="mD" type="text" inputmode="decimal" placeholder="ex.: 2,5"></label></div>' +
       '<button class="btn primary" type="submit">Adicionar medição</button><p class="muted small">Pode deixar o DAP em branco quando a muda ainda não tem diâmetro mensurável.</p></form></section>';
-    h += '<section><h2>Desenvolvimento</h2><div class="stats"><div class="card"><b>' + st.n + '</b><span>mensurações</span></div><div class="card"><b>' + (st.h ? fmt(st.h.media, 2) : '—') + '</b><span>H média (m)</span></div><div class="card"><b>' + (st.dap ? fmt(st.dap.media, 2) : '—') + '</b><span>DAP médio (cm)</span></div></div>' +
-      (st.h || st.dap ? '<p class="muted small">H: mín ' + (st.h ? fmt(st.h.min, 2) : '—') + ' / máx ' + (st.h ? fmt(st.h.max, 2) : '—') + ' m · DAP: mín ' + (st.dap ? fmt(st.dap.min, 2) : '—') + ' / máx ' + (st.dap ? fmt(st.dap.max, 2) : '—') + ' cm</p>' : '') + '</section>';
+    h += '<section><h2>Desenvolvimento por grupo</h2><div class="wrap"><table class="tally"><thead><tr><th>Grupo</th><th>Mensur.</th><th>H média (m)</th><th>DAP médio (cm)</th></tr></thead><tbody>' +
+      cs.map(function (c) { var s2 = stats(p, c.id); return '<tr><td>' + esc(c.nome) + '</td><td>' + s2.n + '</td><td>' + (s2.h ? fmt(s2.h.media, 2) : '—') + '</td><td>' + (s2.dap ? fmt(s2.dap.media, 2) : '—') + '</td></tr>'; }).join('') +
+      '</tbody><tfoot><tr><td>Geral</td><td>' + st.n + '</td><td>' + (st.h ? fmt(st.h.media, 2) : '—') + '</td><td>' + (st.dap ? fmt(st.dap.media, 2) : '—') + '</td></tr></tfoot></table></div>' +
+      '<p class="muted small">Nativas diversas: volume geral, sem identificar espécie. Cada espécie ameaçada: volume individual.</p></section>';
     if (p.med.length) {
       h += '<section><h2>Registros</h2><div class="wrap"><table class="mlist"><thead><tr><th>#</th><th>Grupo</th><th>H (m)</th><th>DAP (cm)</th><th></th></tr></thead><tbody>' +
         p.med.map(function (m, i) { return '<tr><td>' + (i + 1) + '</td><td>' + esc(catName(p, m.cat)) + '</td><td>' + (m.h == null ? '—' : fmt(m.h, 2)) + '</td><td>' + (m.dap == null ? '—' : fmt(m.dap, 2)) + '</td><td><button class="x" type="button" data-a="delMed" data-id="' + m.id + '" aria-label="Excluir medição ' + (i + 1) + '">×</button></td></tr>'; }).reverse().join('') + '</tbody></table></div></section>';
@@ -270,10 +274,10 @@ pre.rep { margin: 0; white-space: pre-wrap; word-break: break-word; font-family:
   function renderDados(p) {
     var h = '<section><h2>Projeto</h2><div class="card">' +
       '<label class="f">Nome do projeto<input id="dNome" type="text" value="' + esc(p.nome) + '" placeholder="ex.: RFO/PRAD - Agostinho"></label>' +
-      '<div class="f2"><label class="f">Data da vistoria<input id="dData" type="date" value="' + esc(p.data) + '"></label><label class="f">Total de mudas nativas diversas<input id="dTotal" type="text" inputmode="numeric" value="' + esc(p.total || '') + '" placeholder="ex.: 1750"></label></div></div></section>';
+      '<div class="f2"><label class="f">Data da vistoria<input id="dData" type="date" value="' + esc(p.data) + '"></label><label class="f">Mudas nativas diversas (total, sem identificar espécie)<input id="dTotal" type="text" inputmode="numeric" value="' + esc(p.total || '') + '" placeholder="ex.: 1750"></label></div></div></section>';
     h += '<section><h2>Espécies ameaçadas obrigatórias</h2><div class="card">' +
       p.especies.map(function (e) { return '<div class="sp"><input type="text" data-sp="nome" data-id="' + e.id + '" value="' + esc(e.nome) + '" placeholder="Espécie" aria-label="Nome da espécie"><input type="text" inputmode="numeric" data-sp="qtd" data-id="' + e.id + '" value="' + esc(e.qtd || '') + '" placeholder="Qtd" aria-label="Quantidade"><button class="btn ghost danger sm" type="button" data-a="delSp" data-id="' + e.id + '" aria-label="Remover espécie">×</button></div>'; }).join('') +
-      '<button class="btn" type="button" data-a="addSp">+ Adicionar espécie</button><p class="muted small">Informe a quantidade plantada de cada espécie. Remover uma espécie apaga a contagem dela.</p></div></section>';
+      '<button class="btn" type="button" data-a="addSp">+ Adicionar espécie</button><p class="muted small">Cada espécie é contada e medida individualmente. Informe a quantidade plantada de cada uma. Remover uma espécie apaga a contagem dela.</p></div></section>';
     h += '<section><h2>Manutenção</h2><div class="row"><button class="btn ghost danger" type="button" data-a="zero">Zerar contagens e medições</button><button class="btn ghost danger" type="button" data-a="del">Excluir projeto</button></div>' +
       (confirmZero ? '<div class="confirm"><span>Zera todas as contagens e medições deste projeto. Continuar?</span><button class="btn danger" type="button" data-a="zeroYes">Sim, zerar</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') +
       (confirmDel ? '<div class="confirm"><span>Exclui o projeto "' + esc(p.nome) + '" e todos os dados dele. Continuar?</span><button class="btn danger" type="button" data-a="delYes">Sim, excluir</button><button class="btn" type="button" data-a="cancel">Cancelar</button></div>' : '') + '</section>';
